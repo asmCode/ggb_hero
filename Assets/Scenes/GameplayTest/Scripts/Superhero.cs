@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Superhero : MonoBehaviour
 {
+    public Transform m_hand;
+
     private static readonly float m_decelaration = 20.0f;
     private static readonly float MaxSpeed = 8.0f;
     private Vector3 m_velocity;
@@ -69,5 +71,22 @@ public class Superhero : MonoBehaviour
         Vector3 position = transform.position;
         position += m_velocity * Time.deltaTime;
         transform.position = position;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!IsFree())
+            return;
+
+        Suicider suicider = other.gameObject.GetComponent<Suicider>();
+
+        other.gameObject.transform.parent = m_hand;
+        other.transform.localPosition = Vector3.zero;
+        suicider.StopFalling();
+    }
+
+    private bool IsFree()
+    {
+        return m_hand.childCount == 0;
     }
 }
