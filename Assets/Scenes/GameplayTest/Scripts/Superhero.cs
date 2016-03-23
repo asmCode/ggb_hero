@@ -95,6 +95,12 @@ public class Superhero : MonoBehaviour
             m_velocity.y = 0;
         }
         transform.position = position;
+
+        if (!IsFree() &&
+            ((position.x < -hmargin + 1) || (position.x > hmargin - 1)))
+        {
+            ReleaseSuiciders();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -112,5 +118,10 @@ public class Superhero : MonoBehaviour
     private bool IsFree()
     {
         return m_hand.childCount == 0;
+    }
+
+    private void ReleaseSuiciders()
+    {
+        DestroyObject(m_hand.GetChild(0).gameObject);
     }
 }
