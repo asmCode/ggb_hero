@@ -68,8 +68,32 @@ public class Superhero : MonoBehaviour
             m_velocity *= MaxSpeed;
         }
 
+        float hmargin = 8.5f;
+        float bottom = -4.0f;
+        float top = 5.0f;
+
         Vector3 position = transform.position;
         position += m_velocity * Time.deltaTime;
+        if (position.x < -hmargin)
+        {
+            position.x = -hmargin;
+            m_velocity.x = 0;
+        }
+        if (position.x > hmargin)
+        {
+            position.x = hmargin;
+            m_velocity.x = 0;
+        }
+        if (position.y > top)
+        {
+            position.y = top;
+            m_velocity.y = 0;
+        }
+        if (position.y < bottom)
+        {
+            position.y = bottom;
+            m_velocity.y = 0;
+        }
         transform.position = position;
     }
 
