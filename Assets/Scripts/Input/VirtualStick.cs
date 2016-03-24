@@ -3,9 +3,6 @@ using System.Collections;
 
 public class VirtualStick : Stick
 {
-    private static float Range = 0.1f;
-
-    private Vector2 m_origin;
     private bool m_isMoving;
 
     void Update()
@@ -13,7 +10,7 @@ public class VirtualStick : Stick
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 viewportPoint = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            m_origin = new Vector2(viewportPoint.x, viewportPoint.y);
+            Origin = new Vector2(viewportPoint.x, viewportPoint.y);
             m_isMoving = true;
         }
 
@@ -28,7 +25,7 @@ public class VirtualStick : Stick
             Vector3 viewportPoint = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             Vector2 viewportPoint2d = new Vector2(viewportPoint.x, viewportPoint.y);
 
-            Vector2 value = (viewportPoint2d - m_origin) / Range;
+            Vector2 value = (viewportPoint2d - Origin) / Range;
             value.x *= Camera.main.aspect;
             if (value.magnitude > 1.0f)
             {
@@ -37,5 +34,7 @@ public class VirtualStick : Stick
 
             Value = value;
         }
+
+        //Debug.Log(Value.x.ToString("0.00") + " " + Value.y.ToString("0.00"));
     }
 }

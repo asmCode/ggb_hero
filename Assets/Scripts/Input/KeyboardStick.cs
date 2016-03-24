@@ -24,6 +24,8 @@ public class KeyboardStick : Stick
             moveDirection += Vector3.right;
         }
 
-        Value = moveDirection;
+        Value = moveDirection.normalized;
+
+        Origin = new Vector2(0.2f, 0.2f);
     }
 }

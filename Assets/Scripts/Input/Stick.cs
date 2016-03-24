@@ -8,4 +8,15 @@ public class Stick : MonoBehaviour
         get;
         protected set;
     }
+
+    public Vector2 Origin
+    {
+        get;
+        protected set;
+    }
+
+    public float Range
+    {
+        get { return 0.2f; }
+    }
 }
