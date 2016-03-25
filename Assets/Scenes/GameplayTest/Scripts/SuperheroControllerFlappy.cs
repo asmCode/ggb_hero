@@ -8,7 +8,7 @@ public class SuperheroControllerFlappy : MonoBehaviour
 
     private static readonly Vector2 JumpRightVelocity = new Vector2(4, 4);
     private static readonly Vector2 JumpLeftVelocity = new Vector2(-4, 4);
-    private static readonly Vector2 Gravity = new Vector2(0, -8.8f);
+    private static readonly Vector2 Gravity = new Vector2(0, -10.0f);
     private Vector2 m_velocity;
 
     void OnEnable()

@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_superhero: {fileID: 1814296486}
-  m_buttons: {fileID: 222525153}
+  m_buttons: {fileID: 689498453}
 --- !u!4 &1381762079
 Transform:
   m_ObjectHideFlags: 0
