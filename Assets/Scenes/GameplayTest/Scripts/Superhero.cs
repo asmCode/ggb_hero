@@ -13,25 +13,28 @@ public class Superhero : MonoBehaviour
 
     void Update()
     {
-        float hmargin = 8.5f;
-
-        if (!IsFree() &&
-            ((transform.position.x < -hmargin + 1) || (transform.position.x > hmargin - 1)))
-        {
-            ReleaseSuiciders();
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!CanTakeSui())
-            return;
-
         Suicider suicider = other.gameObject.GetComponent<Suicider>();
-        if (suicider == null)
-            return;
+        if (suicider != null)
+        {
+            if (CanTakeSui())
+            {
+                AddSui(suicider);
+                return;
+            }
+        }
 
-        AddSui(suicider);
+        RescueArea rescueArea = other.gameObject.GetComponent<RescueArea>();
+        if (rescueArea != null)
+        {
+            if (!IsFree())
+                ReleaseSuiciders();
+
+            return;
+        }
     }
 
     private bool IsFree()
