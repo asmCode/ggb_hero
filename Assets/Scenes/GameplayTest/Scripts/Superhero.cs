@@ -50,17 +50,22 @@ public class Superhero : MonoBehaviour
 
         sui.gameObject.transform.parent = m_suiContainer;
         sui.transform.position = transform.position + suiDirection;
-        sui.StopFalling();
+        sui.SetController(new SuiControllerWithSuperhero(sui));
         sui.GetComponent<Collider>().enabled = false;
     }
 
     private void ReleaseSuiciders()
     {
+        Vector2 rescuePosition = transform.position.x < 0.0f ?
+            GameObject.Find("RescuePointLeft").transform.position :
+            GameObject.Find("RescuePointRight").transform.position;
+
         while (m_suiContainer.childCount > 0)
         {
             Transform child = m_suiContainer.GetChild(0);
             child.transform.parent = null;
-            DestroyObject(child.gameObject);
+            child.GetComponent<Suicider>().SetController(
+                new SuiControllerRescuing(child.GetComponent<Suicider>(), rescuePosition));
         }
     }
 }

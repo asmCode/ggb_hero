@@ -30,10 +30,11 @@ public class SuiciderGenerator : MonoBehaviour
 
     private void GenerateSuicider()
     {
-        Suicider suicider = Instantiate(m_suiciderPrefab).GetComponent<Suicider>();
-        suicider.transform.position = new Vector3(
+        Vector2 position = new Vector3(
             Random.Range(-StartWidth / 2.0f, StartWidth / 2.0f),
-            StartHeight,
-            0.0f);
+            StartHeight);
+
+        Suicider suicider = Instantiate(m_suiciderPrefab).GetComponent<Suicider>();
+        suicider.SetController(new SuiControllerFalling(suicider, position));
     }
 }
