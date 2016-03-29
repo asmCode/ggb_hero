@@ -8,7 +8,7 @@ public class SuperheroControllerFlappy : MonoBehaviour
 
     private static readonly Vector2 JumpRightVelocity = new Vector2(4, 4);
     private static readonly Vector2 JumpLeftVelocity = new Vector2(-4, 4);
-    private static readonly Vector2 Gravity = new Vector2(0, -10.0f);
+    private static readonly Vector2 BaseGravity = new Vector2(0, -10.0f);
     private Vector2 m_velocity;
 
     void OnEnable()
@@ -35,7 +35,9 @@ public class SuperheroControllerFlappy : MonoBehaviour
 
     void Update()
     {
-        m_velocity += Gravity * Time.deltaTime;
+        Vector2 gravity = BaseGravity;
+        gravity.y -= GameSettings.GravityPerSuicider * m_superhero.GetHoldingSuis();
+        m_velocity += gravity * Time.deltaTime;
 
         Vector3 position = m_superhero.transform.position;
         position += new Vector3(m_velocity.x, m_velocity.y, 0) * Time.deltaTime;

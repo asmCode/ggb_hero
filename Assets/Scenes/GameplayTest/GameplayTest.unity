@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_superhero: {fileID: 1814296486}
-  m_buttons: {fileID: 689498453}
+  m_buttons: {fileID: 222525153}
 --- !u!4 &1381762079
 Transform:
   m_ObjectHideFlags: 0
@@ -1930,6 +1930,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children:
   - {fileID: 1889814027}
+  - {fileID: 1874631294}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!114 &1814296486
@@ -1944,6 +1945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hand: {fileID: 1889814027}
+  m_suiContainer: {fileID: 1874631294}
 --- !u!1 &1870322949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,6 +1986,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &1874631293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1874631294}
+  m_Layer: 0
+  m_Name: SuiContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1874631294
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1874631293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1814296485}
+  m_RootOrder: 1
 --- !u!1 &1889814026
 GameObject:
   m_ObjectHideFlags: 0
