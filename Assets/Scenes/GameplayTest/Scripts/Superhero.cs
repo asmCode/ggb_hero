@@ -59,6 +59,8 @@ public class Superhero : MonoBehaviour
 
     private void ReleaseSuiciders()
     {
+        GameSettings.SuiRescuedCount += m_suiContainer.childCount;
+
         Vector2 rescuePosition = transform.position.x < 0.0f ?
             GameObject.Find("RescuePointLeft").transform.position :
             GameObject.Find("RescuePointRight").transform.position;

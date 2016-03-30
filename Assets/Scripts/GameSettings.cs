@@ -15,9 +15,28 @@ public class GameSettings
         set;
     }
 
+    public static int SuiDeathsLimit
+    {
+        get;
+        set;
+    }
+
+    public static int SuiDeathsCount
+    {
+        get;
+        set;
+    }
+
+    public static int SuiRescuedCount
+    {
+        get;
+        set;
+    }
+
     static GameSettings()
     {
         HandCapacity = 1;
         GravityPerSuicider = 3.0f;
+        SuiDeathsLimit = 3;
     }
 }
