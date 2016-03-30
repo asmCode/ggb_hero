@@ -14,4 +14,9 @@ public class Suicider : MonoBehaviour
     {
         m_suiController.UpdateSui();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        m_suiController.ProcessTriggerEnter(other);
+    }
 }

@@ -35,8 +35,15 @@ public class GameSettings
 
     static GameSettings()
     {
+        Restart();
+    }
+
+    public static void Restart()
+    {
         HandCapacity = 1;
         GravityPerSuicider = 3.0f;
         SuiDeathsLimit = 3;
+        SuiDeathsCount = 0;
+        SuiRescuedCount = 0;
     }
 }

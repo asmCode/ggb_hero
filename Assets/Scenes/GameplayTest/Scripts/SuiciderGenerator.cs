@@ -4,6 +4,7 @@ using System.Collections;
 public class SuiciderGenerator : MonoBehaviour
 {
     public Suicider m_suiciderPrefab;
+    public Transform m_suiciderContainer;
 
     private static readonly float SuicidersDelay = 3.0f;
     private static readonly float StartHeight = 5.0f;
@@ -36,5 +37,6 @@ public class SuiciderGenerator : MonoBehaviour
 
         Suicider suicider = Instantiate(m_suiciderPrefab).GetComponent<Suicider>();
         suicider.SetController(new SuiControllerFalling(suicider, position));
+        suicider.transform.parent = m_suiciderContainer;
     }
 }

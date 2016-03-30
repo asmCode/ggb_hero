@@ -14,4 +14,15 @@ public class SuiController
     {
 
     }
+
+    public virtual void ProcessTriggerEnter(Collider other)
+    {
+        DeathArea deathArea = other.GetComponent<DeathArea>();
+        if (deathArea == null)
+            return;
+
+        Object.Destroy(m_sui.gameObject);
+
+        GameSettings.SuiDeathsCount++;
+    }
 }
