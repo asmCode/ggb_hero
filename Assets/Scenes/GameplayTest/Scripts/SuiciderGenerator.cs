@@ -5,17 +5,18 @@ public class SuiciderGenerator : MonoBehaviour
 {
     public Suicider m_suiciderPrefab;
     public Transform m_suiciderContainer;
+    public Transform m_jumpArea;
+    public Transform m_bridgeHeight;
+    public Transform m_spawnPoint;
 
     private static readonly float SuicidersDelay = 3.0f;
-    private static readonly float StartHeight = 5.0f;
-    private static readonly float StartWidth = 16.0f;
 
     private float m_cooldown;
 
     // Use this for initialization
     void Start()
     {
-
+        Random.seed = (int)System.DateTime.Now.Ticks;
     }
 
     // Update is called once per frame
@@ -31,12 +32,20 @@ public class SuiciderGenerator : MonoBehaviour
 
     private void GenerateSuicider()
     {
-        Vector2 position = new Vector3(
-            Random.Range(-StartWidth / 2.0f, StartWidth / 2.0f),
-            StartHeight);
+        Vector2 position = new Vector2(
+            Random.Range(0, 2) == 0 ? m_spawnPoint.transform.position.x : -m_spawnPoint.transform.position.x,
+            m_bridgeHeight.position.y);
 
         Suicider suicider = Instantiate(m_suiciderPrefab).GetComponent<Suicider>();
-        suicider.SetController(new SuiControllerFalling(suicider, position));
+        suicider.SetController(new SuiControllerWalkOnBridge(suicider, position, GetRandomJumpCoord()));
         suicider.transform.parent = m_suiciderContainer;
+    }
+
+    private float GetRandomJumpCoord()
+    {
+        float min = m_jumpArea.transform.position.x - m_jumpArea.transform.localScale.x / 2.0f;
+        float max = m_jumpArea.transform.position.x + m_jumpArea.transform.localScale.x / 2.0f;
+
+        return Random.Range(min, max);
     }
 }
