@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SuiControllerFalling : SuiController
 {
-    private static readonly float FallingSpeed = 1.0f;
+    private static readonly float FallingSpeed = 0.25f;
 
     public SuiControllerFalling(Suicider sui, Vector2 startPosition) : base(sui)
     {

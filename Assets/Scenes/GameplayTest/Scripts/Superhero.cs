@@ -5,6 +5,7 @@ public class Superhero : MonoBehaviour
 {
     public Transform m_hand;
     public Transform m_suiContainer;
+    public RectBounds m_superheroArea;
 
     public int GetHoldingSuis()
     {
@@ -13,6 +14,28 @@ public class Superhero : MonoBehaviour
 
     void Update()
     {
+        Bounds bounds = m_superheroArea.GetBounds();
+
+        Vector3 position = transform.position;
+
+        if (position.x < bounds.min.x)
+        {
+            position.x = bounds.min.x;
+        }
+        if (position.x > bounds.max.x)
+        {
+            position.x = bounds.max.x;
+        }
+        if (position.y > bounds.max.y)
+        {
+            position.y = bounds.max.y;
+        }
+        if (position.y < bounds.min.y)
+        {
+            position.y = bounds.min.y;
+        }
+
+        transform.position = position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,7 +72,7 @@ public class Superhero : MonoBehaviour
 
     private void AddSui(Suicider sui)
     {
-        Vector3 suiDirection = (sui.transform.position - transform.position).normalized * 0.4f;
+        Vector3 suiDirection = (sui.transform.position - transform.position).normalized * 0.11f;
 
         sui.gameObject.transform.parent = m_suiContainer;
         sui.transform.position = transform.position + suiDirection;

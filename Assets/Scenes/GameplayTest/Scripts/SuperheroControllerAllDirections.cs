@@ -40,34 +40,10 @@ public class SuperheroControllerAllDirections : MonoBehaviour
             m_velocity *= MaxSpeed;
         }
 
-        float hmargin = 8.5f;
-        float bottom = -4.0f;
-        float top = 5.0f;
-
         m_velocity = m_stick.Value * MaxSpeed * Time.deltaTime * 40;
 
         Vector3 position = m_superhero.transform.position;
         position += new Vector3(m_velocity.x, m_velocity.y, 0) * Time.deltaTime;
-        if (position.x < -hmargin)
-        {
-            position.x = -hmargin;
-            m_velocity.x = 0;
-        }
-        if (position.x > hmargin)
-        {
-            position.x = hmargin;
-            m_velocity.x = 0;
-        }
-        if (position.y > top)
-        {
-            position.y = top;
-            m_velocity.y = 0;
-        }
-        if (position.y < bottom)
-        {
-            position.y = bottom;
-            m_velocity.y = 0;
-        }
         m_superhero.transform.position = position;
     }
 }

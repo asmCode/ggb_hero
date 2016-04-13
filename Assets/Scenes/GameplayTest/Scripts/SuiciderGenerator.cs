@@ -9,7 +9,7 @@ public class SuiciderGenerator : MonoBehaviour
     public Transform m_bridgeHeight;
     public Transform m_spawnPoint;
 
-    private static readonly float SuicidersDelay = 3.0f;
+    private static readonly float SuicidersDelay = 2.0f;
 
     private float m_cooldown;
 

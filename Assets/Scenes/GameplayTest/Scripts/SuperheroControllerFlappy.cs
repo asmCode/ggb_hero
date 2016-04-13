@@ -4,12 +4,19 @@ using System.Collections;
 public class SuperheroControllerFlappy : MonoBehaviour
 {
     public Superhero m_superhero;
-    public Buttons m_buttons;
+    public InputControllerProvider m_inputControllerProvider;
 
-    private static readonly Vector2 JumpRightVelocity = new Vector2(4, 4);
-    private static readonly Vector2 JumpLeftVelocity = new Vector2(-4, 4);
-    private static readonly Vector2 BaseGravity = new Vector2(0, -10.0f);
+    private Buttons m_buttons;
+
+    private static readonly Vector2 JumpRightVelocity = new Vector2(1.5f, 1.5f);
+    private static readonly Vector2 JumpLeftVelocity = new Vector2(-1.5f, 1.5f);
+    private static readonly Vector2 BaseGravity = new Vector2(0, -4.0f);
     private Vector2 m_velocity;
+
+    private void Awake()
+    {
+        m_buttons = m_inputControllerProvider.GetButtonsController();
+    }
 
     void OnEnable()
     {
@@ -41,32 +48,6 @@ public class SuperheroControllerFlappy : MonoBehaviour
 
         Vector3 position = m_superhero.transform.position;
         position += new Vector3(m_velocity.x, m_velocity.y, 0) * Time.deltaTime;
-
-        float hmargin = 8.5f;
-        float bottom = -4.0f;
-        float top = 5.0f;
-
-        if (position.x < -hmargin)
-        {
-            position.x = -hmargin;
-            m_velocity.x = 0;
-        }
-        if (position.x > hmargin)
-        {
-            position.x = hmargin;
-            m_velocity.x = 0;
-        }
-        if (position.y > top)
-        {
-            position.y = top;
-            m_velocity.y = 0;
-        }
-        if (position.y < bottom)
-        {
-            position.y = bottom;
-            m_velocity.y = 0;
-        }
-
         m_superhero.transform.position = position;
     }
 }

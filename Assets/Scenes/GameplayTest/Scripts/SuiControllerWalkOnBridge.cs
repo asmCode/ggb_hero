@@ -13,7 +13,7 @@ public class SuiControllerWalkOnBridge : SuiController
     {
         sui.transform.position = startPosition;
         m_horiDirection = (startPosition.x < 0.0f) ? 1.0f : -1.0f;
-        m_walkingSpeed = Random.Range(0.5f, 1.5f);
+        m_walkingSpeed = Random.Range(0.2f, 0.6f);
         m_jumpAfter = jumpAfter;
         m_baseY = startPosition.y;
     }
@@ -23,7 +23,7 @@ public class SuiControllerWalkOnBridge : SuiController
         m_time += Time.deltaTime;
         Vector3 position = m_sui.transform.position;
         position.x += m_walkingSpeed * m_horiDirection * Time.deltaTime;
-        position.y = m_baseY + Mathf.Abs(Mathf.Sin(m_time * 15.0f)) * 0.15f;
+        position.y = m_baseY + Mathf.Abs(Mathf.Sin(m_time * 15.0f)) * 0.03f;
         m_sui.transform.position = position;
 
         if ((m_horiDirection == 1.0f && position.x >= m_jumpAfter) ||
