@@ -7,6 +7,12 @@ public class Superhero : MonoBehaviour
     public Transform m_suiContainer;
     public RectBounds m_superheroArea;
 
+    public Vector2 Velocity
+    {
+        get;
+        set;
+    }
+
     public int GetHoldingSuis()
     {
         return m_suiContainer.childCount;
@@ -16,25 +22,32 @@ public class Superhero : MonoBehaviour
     {
         Bounds bounds = m_superheroArea.GetBounds();
 
-        Vector3 position = transform.position;
+        Vector2 position = transform.position;
+        Vector2 velocity = Velocity;
+        position += velocity * Time.deltaTime;
 
         if (position.x < bounds.min.x)
         {
             position.x = bounds.min.x;
+            velocity.x = 0.0f;
         }
         if (position.x > bounds.max.x)
         {
             position.x = bounds.max.x;
+            velocity.x = 0.0f;
         }
         if (position.y > bounds.max.y)
         {
             position.y = bounds.max.y;
+            velocity.y = 0.0f;
         }
         if (position.y < bounds.min.y)
         {
             position.y = bounds.min.y;
+            velocity.y = 0.0f;
         }
 
+        Velocity = velocity;
         transform.position = position;
     }
 
