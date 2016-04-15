@@ -54,7 +54,7 @@ public class Superhero : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Suicider suicider = other.gameObject.GetComponent<Suicider>();
-        if (suicider != null)
+        if (suicider != null && suicider.IsGrabable)
         {
             if (CanTakeSui())
             {
@@ -90,7 +90,6 @@ public class Superhero : MonoBehaviour
         sui.gameObject.transform.parent = m_suiContainer;
         sui.transform.position = transform.position + suiDirection;
         sui.SetController(new SuiControllerWithSuperhero(sui));
-        sui.GetComponent<Collider>().enabled = false;
     }
 
     private void ReleaseSuiciders()

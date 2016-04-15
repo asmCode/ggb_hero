@@ -10,7 +10,7 @@ public class SuperheroControllerFlappy : MonoBehaviour
 
     private static readonly Vector2 JumpRightVelocity = new Vector2(1.5f, 1.5f);
     private static readonly Vector2 JumpLeftVelocity = new Vector2(-1.5f, 1.5f);
-    private static readonly Vector2 BaseGravity = new Vector2(0, -4.0f);
+    private static readonly Vector2 BaseGravity = new Vector2(0, -3.5f);
 
     private void Awake()
     {

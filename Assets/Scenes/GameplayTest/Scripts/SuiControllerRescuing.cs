@@ -17,5 +17,12 @@ public class SuiControllerRescuing : SuiController
     {
         m_sui.transform.position =
             Vector2.SmoothDamp(m_sui.transform.position, m_destinationPosition, ref m_velocity, 0.2f);
+
+        Vector2 suiPosition = m_sui.transform.position;
+
+        if ((m_destinationPosition - suiPosition).magnitude < 0.01f)
+        {
+            m_sui.SetController(new SuiControllerWalkAway(m_sui));
+        }
 	}
 }
