@@ -26,15 +26,17 @@ public class Superhero : MonoBehaviour
         Vector2 velocity = Velocity;
         position += velocity * Time.deltaTime;
 
+        float bounce_power = 0.3f;
+
         if (position.x < bounds.min.x)
         {
             position.x = bounds.min.x;
-            velocity.x = 0.0f;
+            velocity.x = -velocity.x * bounce_power;
         }
         if (position.x > bounds.max.x)
         {
             position.x = bounds.max.x;
-            velocity.x = 0.0f;
+            velocity.x = -velocity.x * bounce_power;
         }
         if (position.y > bounds.max.y)
         {
@@ -45,6 +47,7 @@ public class Superhero : MonoBehaviour
         {
             position.y = bounds.min.y;
             velocity.y = 0.0f;
+            velocity.x = 0.0f;
         }
 
         Velocity = velocity;

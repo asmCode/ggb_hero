@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SuiControllerSinking : SuiController
 {
-    private const float SinkinkTime = 5.0f;
+    private const float SinkinkTime = 3.0f;
     private float m_time;
 
     public override bool IsGrabable
