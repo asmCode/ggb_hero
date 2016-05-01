@@ -4,6 +4,7 @@ using System.Collections;
 public class SuiControllerFalling : SuiController
 {
     private static readonly float FallingSpeed = 0.25f;
+    private int m_waterStripIndex;
 
     public override bool IsGrabable
     {
@@ -12,6 +13,7 @@ public class SuiControllerFalling : SuiController
 
     public SuiControllerFalling(Suicider sui) : base(sui)
     {
+        m_waterStripIndex = sui.Water.GetWaterStripIndex(sui.transform.position.x);
     }
 
     public override void UpdateSui()
@@ -21,12 +23,12 @@ public class SuiControllerFalling : SuiController
         m_sui.transform.position = position;
     }
 
-    public override void ProcessTriggerEnter(Collider other)
+    public override void LateUpdateSui()
     {
-        DeathArea deathArea = other.GetComponent<DeathArea>();
-        if (deathArea == null)
-            return;
-
-        m_sui.SetController(new SuiControllerSinking(m_sui));
+        if (m_sui.transform.position.y <= m_sui.Water.GetWaterHeight(m_waterStripIndex))
+        {
+            m_sui.SetController(new SuiControllerSinking(m_sui));
+            m_sui.Water.Impulse(m_waterStripIndex, FallingSpeed * 3.0f);
+        }
     }
 }

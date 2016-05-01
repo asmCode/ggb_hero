@@ -8,6 +8,7 @@ public class SuiciderGenerator : MonoBehaviour
     public Transform m_jumpArea;
     public Transform m_bridgeHeight;
     public Transform m_spawnPoint;
+    public Water m_water;
 
     private static readonly float SuicidersDelay = 2.0f;
 
@@ -37,6 +38,7 @@ public class SuiciderGenerator : MonoBehaviour
             m_bridgeHeight.position.y);
 
         Suicider suicider = Instantiate(m_suiciderPrefab).GetComponent<Suicider>();
+        suicider.Initialize(m_water);
         suicider.SetController(new SuiControllerWalkOnBridge(suicider, position, GetRandomJumpCoord()));
         suicider.transform.parent = m_suiciderContainer;
     }

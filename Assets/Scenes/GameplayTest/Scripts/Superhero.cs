@@ -6,6 +6,13 @@ public class Superhero : MonoBehaviour
     public Transform m_hand;
     public Transform m_suiContainer;
     public RectBounds m_superheroArea;
+    public Water m_water;
+   
+    public bool IsOnWater
+    {
+        get;
+        private set;
+    }
 
     public Vector2 Velocity
     {
@@ -43,14 +50,37 @@ public class Superhero : MonoBehaviour
             position.y = bounds.max.y;
             velocity.y = 0.0f;
         }
-        if (position.y < bounds.min.y)
+
+        int waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
+        float waterHeight = m_water.GetWaterHeight(waterStripIndex);
+
+        if (IsOnWater && velocity.y > 0.0f)
         {
-            position.y = bounds.min.y;
+            IsOnWater = false;
+        }
+
+        if (position.y <= waterHeight && !IsOnWater)
+        {
+            IsOnWater = true;
+            m_water.Impulse(waterStripIndex, Velocity.magnitude * 0.5f);
             velocity.y = 0.0f;
             velocity.x = 0.0f;
         }
 
         Velocity = velocity;
+        transform.position = position;
+    }
+
+    void LateUpdate()
+    {
+        if (!IsOnWater)
+            return;
+
+        int waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
+        float waterHeight = m_water.GetWaterHeight(waterStripIndex);
+
+        Vector3 position = transform.position;
+        position.y = waterHeight;
         transform.position = position;
     }
 

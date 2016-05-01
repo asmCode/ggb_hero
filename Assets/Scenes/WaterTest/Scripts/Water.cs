@@ -72,7 +72,7 @@ public class Water : MonoBehaviour
         impulse = new WaterImpulse(power, 20.0f, 0.04f, stripIndex, 1);
         m_waterImpulses.Add(impulse);
 
-        CreateSplash(power * 1.5f, stripIndex);
+        CreateSplash(power * 1.2f, stripIndex);
     }
 
     private void CreateSplash(float speed, int stripIndex)

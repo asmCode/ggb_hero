@@ -17,7 +17,10 @@ public class SuiController
 
     public virtual void UpdateSui()
     {
+    }
 
+    public virtual void LateUpdateSui()
+    {
     }
 
     public virtual void ProcessTriggerEnter(Collider other)
