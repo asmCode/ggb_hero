@@ -16,12 +16,12 @@ public class SuiControllerWalkAway : SuiController
         m_walker.Update();
     }
 
-    public override void ProcessTriggerEnter(Collider other)
+    public override void ProcessTriggerEnter2D(Collider2D other)
     {
         DestroyArea area = other.GetComponent<DestroyArea>();
         if (area == null)
             return;
 
-        Object.Destroy(m_sui.gameObject);
+        Object.Destroy(m_sui.transform.parent.gameObject);
     }
 }

@@ -11,6 +11,7 @@ public class SuiControllerRescuing : SuiController
     {
         m_basePosition = sui.transform.position;
         m_destinationPosition = destinationPosition;
+        sui.IsKinematic = true;
     }
 	
 	public override void UpdateSui()

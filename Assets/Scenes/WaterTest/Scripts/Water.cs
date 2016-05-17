@@ -220,6 +220,7 @@ public class Water : MonoBehaviour
 
     void OnDrawGizmos()
     {
+        return;
         if (Application.isPlaying)
             return;
 

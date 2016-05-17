@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Superhero : MonoBehaviour
 {
-    public Transform m_hand;
-    public Transform m_suiContainer;
     public RectBounds m_superheroArea;
     public Water m_water;
+
+    private Stack<Suicider> m_suiciders = new Stack<Suicider>();
    
     public bool IsOnWater
     {
@@ -20,18 +21,49 @@ public class Superhero : MonoBehaviour
         set;
     }
 
-    public int GetHoldingSuis()
+    public Dude Dude
     {
-        return m_suiContainer.childCount;
+        get;
+        private set;
     }
 
-    void Update()
+    public int GetHoldingSuis()
     {
+        return m_suiciders.Count;
+    }
+
+    private void Awake()
+    {
+        Dude = GetComponent<Dude>();
+    }
+
+    void FixedUpdate()
+    {
+        //return;
+        Vector2 velocity = Velocity;    
+        if (IsOnWater && velocity.y > 0.0f)
+        {
+            IsOnWater = false;
+        }
+
+        Vector2 position;
+        float waterHeight;
+        int waterStripIndex;
+
+        if (IsOnWater)
+        {
+            waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
+            waterHeight = m_water.GetWaterHeight(waterStripIndex);
+
+            position = transform.position;
+            position.y = waterHeight;
+            transform.position = position;
+            return;
+        }
         Bounds bounds = m_superheroArea.GetBounds();
 
-        Vector2 position = transform.position;
-        Vector2 velocity = Velocity;
-        position += velocity * Time.deltaTime;
+        position = transform.position;
+        position += velocity * Time.fixedDeltaTime;
 
         float bounce_power = 0.3f;
 
@@ -51,13 +83,10 @@ public class Superhero : MonoBehaviour
             velocity.y = 0.0f;
         }
 
-        int waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
-        float waterHeight = m_water.GetWaterHeight(waterStripIndex);
+        waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
+        waterHeight = m_water.GetWaterHeight(waterStripIndex);
 
-        if (IsOnWater && velocity.y > 0.0f)
-        {
-            IsOnWater = false;
-        }
+     
 
         if (position.y <= waterHeight && !IsOnWater)
         {
@@ -71,7 +100,7 @@ public class Superhero : MonoBehaviour
         transform.position = position;
     }
 
-    void LateUpdate()
+    void _LateUpdate()
     {
         if (!IsOnWater)
             return;
@@ -84,7 +113,7 @@ public class Superhero : MonoBehaviour
         transform.position = position;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Suicider suicider = other.gameObject.GetComponent<Suicider>();
         if (suicider != null && suicider.IsGrabable)
@@ -108,37 +137,51 @@ public class Superhero : MonoBehaviour
 
     private bool IsFree()
     {
-        return m_suiContainer.childCount == 0;
+        return m_suiciders.Count == 0;
     }
 
     private bool CanTakeSui()
     {
-        return m_suiContainer.childCount < GameSettings.HandCapacity;
+        return GetHoldingSuis() < GameSettings.HandCapacity;
     }
 
     private void AddSui(Suicider sui)
     {
+        /*
         Vector3 suiDirection = (sui.transform.position - transform.position).normalized * 0.11f;
 
         sui.gameObject.transform.parent = m_suiContainer;
         sui.transform.position = transform.position + suiDirection;
         sui.SetController(new SuiControllerWithSuperhero(sui));
+        */
+
+        sui.IsKinematic = false;
+        sui.Dude.PlugIn(Dude);
+        sui.SetController(new SuiControllerWithSuperhero(sui));
+
+        if (m_suiciders.Count > 0)
+        {
+            Dude dude = m_suiciders.Peek().Dude;
+            dude.PlugOut();
+            dude.PlugIn(sui.Dude);
+        }
+        
+        m_suiciders.Push(sui);
     }
 
     private void ReleaseSuiciders()
     {
-        GameSettings.SuiRescuedCount += m_suiContainer.childCount;
+        GameSettings.SuiRescuedCount += GetHoldingSuis();
 
         Vector2 rescuePosition = transform.position.x < 0.0f ?
             GameObject.Find("RescuePointLeft").transform.position :
             GameObject.Find("RescuePointRight").transform.position;
 
-        while (m_suiContainer.childCount > 0)
+        while (m_suiciders.Count > 0)
         {
-            Transform child = m_suiContainer.GetChild(0);
-            child.transform.parent = null;
-            child.GetComponent<Suicider>().SetController(
-                new SuiControllerRescuing(child.GetComponent<Suicider>(), rescuePosition));
+            Suicider sui = m_suiciders.Pop();
+            sui.Dude.PlugOut();
+            sui.SetController(new SuiControllerRescuing(sui, rescuePosition));
         }
     }
 }

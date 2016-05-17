@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SuiciderGenerator : MonoBehaviour
 {
-    public Suicider m_suiciderPrefab;
-    public Transform m_suiciderContainer;
+    public GameObject m_suiciderPrefab;
     public Transform m_jumpArea;
     public Transform m_bridgeHeight;
     public Transform m_spawnPoint;
@@ -12,7 +12,17 @@ public class SuiciderGenerator : MonoBehaviour
 
     private static readonly float SuicidersDelay = 2.0f;
 
+    //private List<Suicider> m_suiciders = new List<Suicider>();
     private float m_cooldown;
+
+    public void Reset()
+    {
+        Object[] suiciders = FindObjectsOfType(typeof(Suicider));
+        foreach (Suicider sui in suiciders)
+        {
+            Destroy(sui.transform.parent.gameObject);
+        }      
+    }
 
     // Use this for initialization
     void Start()
@@ -37,10 +47,11 @@ public class SuiciderGenerator : MonoBehaviour
             Random.Range(0, 2) == 0 ? m_spawnPoint.transform.position.x : -m_spawnPoint.transform.position.x,
             m_bridgeHeight.position.y);
 
-        Suicider suicider = Instantiate(m_suiciderPrefab).GetComponent<Suicider>();
+        GameObject suiciderGroup = (GameObject)Instantiate(m_suiciderPrefab, new Vector3(position.x, position.y, 0.0f), Quaternion.identity);
+        Transform suiciderBody = suiciderGroup.transform.FindChild("SuiBody");
+        Suicider suicider = suiciderBody.GetComponent<Suicider>();
         suicider.Initialize(m_water);
         suicider.SetController(new SuiControllerWalkOnBridge(suicider, position, GetRandomJumpCoord()));
-        suicider.transform.parent = m_suiciderContainer;
     }
 
     private float GetRandomJumpCoord()
