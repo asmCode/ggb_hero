@@ -18,6 +18,29 @@ public class RectBounds : MonoBehaviour
         return new Bounds(transform.position, transform.localScale);
     }
 
+    public bool IsPointInside(Vector2 point)
+    {
+        return
+            IsCoordInsideHori(point.x) &&
+            IsCoordInsideVert(point.y);
+    }
+
+    public bool IsCoordInsideHori(float xCoord)
+    {
+        float halfWidth = transform.localScale.x / 2.0f;
+        return
+            xCoord >= transform.position.x - halfWidth &&
+            xCoord <= transform.position.x + halfWidth;
+    }
+
+    public bool IsCoordInsideVert(float yCoord)
+    {
+        float halfHeight = transform.localScale.y / 2.0f;
+        return
+            yCoord >= transform.position.y - halfHeight &&
+            yCoord <= transform.position.y + halfHeight;
+    }
+
     private void OnDrawGizmos()
     {
         if (Application.isPlaying)
