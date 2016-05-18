@@ -17,4 +17,16 @@ public class RectBounds : MonoBehaviour
     {
         return new Bounds(transform.position, transform.localScale);
     }
+
+    private void OnDrawGizmos()
+    {
+        if (Application.isPlaying)
+            return;
+
+        Vector3 pos = transform.position;
+        Vector3 scl = transform.localScale;
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(pos, scl);
+    }
 }

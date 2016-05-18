@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class Superhero : MonoBehaviour
 {
     public RectBounds m_superheroArea;
+    public RectBounds m_shoreLeftBounds;
+    public RectBounds m_shoreRightBounds;
     public Water m_water;
 
     private Stack<Suicider> m_suiciders = new Stack<Suicider>();
@@ -63,6 +65,7 @@ public class Superhero : MonoBehaviour
         Bounds bounds = m_superheroArea.GetBounds();
 
         position = transform.position;
+        Vector2 prevPosition = position;
         position += velocity * Time.fixedDeltaTime;
 
         float bounce_power = 0.3f;
@@ -81,6 +84,30 @@ public class Superhero : MonoBehaviour
         {
             position.y = bounds.max.y;
             velocity.y = 0.0f;
+        }
+
+        Bounds shoreLeftBounds = m_shoreLeftBounds.GetBounds();
+        if (position.x < shoreLeftBounds.max.x && position.y < shoreLeftBounds.max.y && velocity.y < 0 && prevPosition.y >= shoreLeftBounds.max.y)
+        {
+            position.y = shoreLeftBounds.max.y;
+            velocity = Vector2.zero;
+        }
+        else if (position.x < shoreLeftBounds.max.x && position.y < shoreLeftBounds.max.y && velocity.x < 0 && prevPosition.y <= shoreLeftBounds.max.y)
+        {
+            position.x = shoreLeftBounds.max.x;
+            velocity.x = -velocity.x * bounce_power;
+        }
+
+        Bounds shoreRightBounds = m_shoreRightBounds.GetBounds();
+        if (position.x > shoreRightBounds.min.x && position.y < shoreRightBounds.max.y && velocity.y < 0 && prevPosition.y >= shoreRightBounds.max.y)
+        {
+            position.y = shoreRightBounds.max.y;
+            velocity = Vector2.zero;
+        }
+        else if (position.x > shoreRightBounds.min.x && position.y < shoreRightBounds.max.y && velocity.x > 0 && prevPosition.y <= shoreRightBounds.max.y)
+        {
+            position.x = shoreRightBounds.min.x;
+            velocity.x = -velocity.x * bounce_power;
         }
 
         waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
@@ -121,7 +148,6 @@ public class Superhero : MonoBehaviour
             if (CanTakeSui())
             {
                 AddSui(suicider);
-                return;
             }
         }
 
@@ -130,8 +156,6 @@ public class Superhero : MonoBehaviour
         {
             if (!IsFree())
                 ReleaseSuiciders();
-
-            return;
         }
     }
 
