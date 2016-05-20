@@ -24,6 +24,6 @@ public class SuiControllerDiving : SuiController
         if (area == null)
             return;
 
-        Object.Destroy(m_sui.transform.parent.gameObject);
+        m_sui.Destroy();
     }
 }

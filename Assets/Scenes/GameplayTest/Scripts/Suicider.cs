@@ -3,8 +3,13 @@ using System.Collections;
 
 public class Suicider : MonoBehaviour
 {
-    private SuiController m_suiController;
     private Rigidbody2D m_rigibody;
+
+    public SuiController SuiController
+    {
+        get;
+        private set;
+    }
 
     public Water Water
     {
@@ -16,7 +21,7 @@ public class Suicider : MonoBehaviour
     {
         get
         {
-            return m_suiController.IsGrabable;
+            return SuiController.IsGrabable;
         }
     }
 
@@ -37,9 +42,20 @@ public class Suicider : MonoBehaviour
         Water = water;
     }
 
+    public void Destroy()
+    {
+        // This will force to call SuiController.Leaving();
+        SetController(null);
+
+        Object.Destroy(transform.parent.gameObject);
+    }
+
     public void SetController(SuiController suiController)
     {
-        m_suiController = suiController;
+        if (SuiController != null)
+            SuiController.Leaving();
+
+        SuiController = suiController;
     }
 
     private void Awake()
@@ -52,16 +68,16 @@ public class Suicider : MonoBehaviour
 
     void Update()
     {
-        m_suiController.UpdateSui();
+        SuiController.UpdateSui();
     }
 
     void LateUpdate()
     {
-        m_suiController.LateUpdateSui();
+        SuiController.LateUpdateSui();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        m_suiController.ProcessTriggerEnter2D(other);
+        SuiController.ProcessTriggerEnter2D(other);
     }
 }

@@ -4959,7 +4959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_suiciderPrefab: {fileID: 127028, guid: bb3889884597cd74a920cda42dd548c7, type: 2}
-  m_jumpArea: {fileID: 1770031653}
+  m_jumpArea: {fileID: 1770031651}
   m_bridgeHeight: {fileID: 1669407655}
   m_spawnPoint: {fileID: 1784883571}
   m_water: {fileID: 2034167109}

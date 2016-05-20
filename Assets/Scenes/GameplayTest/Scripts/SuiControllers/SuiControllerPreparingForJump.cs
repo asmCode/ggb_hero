@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SuiControllerPreparingForJump : SuiController
 {
-    private static readonly Vector2 JumpTimeBounds = new Vector2(2.0f, 7.0f);
+    private static readonly Vector2 JumpTimeBounds = new Vector2(2.0f, 4.0f);
     
     private float m_jumpAfterTime;
     private float m_time;

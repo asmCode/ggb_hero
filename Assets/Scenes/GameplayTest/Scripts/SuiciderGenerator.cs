@@ -5,15 +5,15 @@ using System.Collections.Generic;
 public class SuiciderGenerator : MonoBehaviour
 {
     public GameObject m_suiciderPrefab;
-    public Transform m_jumpArea;
+    public RectBounds m_jumpArea;
     public Transform m_bridgeHeight;
     public Transform m_spawnPoint;
     public Water m_water;
     public RectBounds m_bridgeWalkArea;
 
+    private const int WalkingSuisCount = 10;
     private static readonly float SuicidersDelay = 2.0f;
 
-    //private List<Suicider> m_suiciders = new List<Suicider>();
     private float m_cooldown;
 
     private float BridgeHeight
@@ -26,8 +26,8 @@ public class SuiciderGenerator : MonoBehaviour
         Object[] suiciders = FindObjectsOfType(typeof(Suicider));
         foreach (Suicider sui in suiciders)
         {
-            Destroy(sui.transform.parent.gameObject);
-        }      
+            sui.Destroy();
+        }
     }
 
     // Use this for initialization
@@ -35,7 +35,7 @@ public class SuiciderGenerator : MonoBehaviour
     {
         Random.seed = (int)System.DateTime.Now.Ticks;
 
-        Prewarm(10);
+        Prewarm(WalkingSuisCount);
     }
 
     // Update is called once per frame
@@ -44,10 +44,15 @@ public class SuiciderGenerator : MonoBehaviour
         m_cooldown += Time.deltaTime;
         if (m_cooldown >= SuicidersDelay)
         {
+            m_cooldown -= SuicidersDelay;
+            JumpRandomSui();
+        }
+
+        if (SuiControllerWalkOnBridge.Suiciders.Count < WalkingSuisCount)
+        {
             float xCoord = GetRandomOutOfViewSpawnCoord();
             float direction = -Mathf.Sign(xCoord);
             GenerateSuicider(xCoord, direction);
-            m_cooldown -= SuicidersDelay;
         }
     }
 
@@ -77,5 +82,23 @@ public class SuiciderGenerator : MonoBehaviour
     private float GetRandomOutOfViewSpawnCoord()
     {
         return Random.Range(0, 2) == 0 ? m_spawnPoint.transform.position.x : -m_spawnPoint.transform.position.x;
+    }
+
+    private void JumpRandomSui()
+    {
+        Suicider sui = GetRandomWalkingSuiInsideJumpArea();
+        if (sui == null)
+            return;
+
+        sui.SetController(new SuiControllerPreparingForJump(sui));
+    }
+
+    private Suicider GetRandomWalkingSuiInsideJumpArea()
+    {
+        List<Suicider> suisInJumpArea = SuiControllerWalkOnBridge.Suiciders.FindAll(t => { return m_jumpArea.IsCoordInsideHori(t.transform.position.x); });
+        if (suisInJumpArea.Count == 0)
+            return null;
+
+        return suisInJumpArea[Random.Range(0, suisInJumpArea.Count)];
     }
 }

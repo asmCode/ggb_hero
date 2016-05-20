@@ -15,6 +15,10 @@ public class SuiController
         m_sui = sui;
     }
 
+    public virtual void Leaving()
+    { 
+    }
+
     public virtual void UpdateSui()
     {
     }

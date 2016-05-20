@@ -1,14 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SuiControllerWalkOnBridge : SuiController
 {
+    public static List<Suicider> Suiciders
+    {
+        get;
+        private set;
+    }
+
     private float m_horiDirection;
     private Walker m_walker;
     private RectBounds m_bridgeWalkArea;
 
+    public static void Reset()
+    {
+        Suiciders.Clear();
+    }
+
+    static SuiControllerWalkOnBridge()
+    {
+        Suiciders = new List<Suicider>();
+    }
+
     public SuiControllerWalkOnBridge(Suicider sui, Vector2 startPosition, float direction, RectBounds bridgeWalkArea) : base(sui)
     {
+        if (Suiciders == null)
+            Suiciders = new List<Suicider>();
+
+        Suiciders.Add(sui);
+
         sui.transform.position = startPosition;
         m_horiDirection = direction;
         float speed = Random.Range(0.2f, 0.4f);
@@ -22,7 +44,18 @@ public class SuiControllerWalkOnBridge : SuiController
 
         if (!m_bridgeWalkArea.IsCoordInsideHori(m_sui.transform.position.x))
         {
-            Object.Destroy(m_sui.transform.parent.gameObject);
+            m_sui.Destroy();
         }
+    }
+
+    public override void Leaving()
+    {
+        if (Suiciders.Count == 0)
+        {
+            Debug.LogError("Logic error");
+            return;
+        }
+
+        Suiciders.Remove(m_sui);
     }
 }
