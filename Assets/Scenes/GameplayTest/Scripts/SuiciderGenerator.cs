@@ -46,10 +46,10 @@ public class SuiciderGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_cooldown += Time.deltaTime;
-        if (m_cooldown >= SuicidersDelay)
+        m_cooldown -= Time.deltaTime;
+        if (m_cooldown <= 0.0f)
         {
-            m_cooldown -= SuicidersDelay;
+            m_cooldown += SuicidersDelay;
             JumpRandomSui();
         }
 

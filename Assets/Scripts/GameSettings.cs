@@ -45,13 +45,13 @@ public class GameSettings
     public static void Restart()
     {
         HandCapacity = 3;
-        GravityPerSuicider = 2.0f;
+        GravityPerSuicider = 2.5f;
         SuiDeathsLimit = 3;
         SuiDeathsCount = 0;
         SuiRescuedCount = 0;
 
-        SuiJumpDelayEasiest = 4.0f;
-        SuiJumpDelayHardest = 1.5f;
-        SuiJumpDelayHardestAfterTime = 2.0f * 60.0f;
+        SuiJumpDelayEasiest = 3.0f;
+        SuiJumpDelayHardest = 1.6f;
+        SuiJumpDelayHardestAfterTime = 4.0f * 60.0f;
     }
 }

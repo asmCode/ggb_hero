@@ -218,28 +218,28 @@ public class Water : MonoBehaviour
         SetSpringFrequency(m_springFrequency);
     }
 
-    void OnDrawGizmos()
-    {
-        return;
-        if (Application.isPlaying)
-            return;
+    //void OnDrawGizmos()
+    //{
+    //    return;
+    //    if (Application.isPlaying)
+    //        return;
 
-        Water water = this;
-        Vector3 pos = water.transform.position;
-        pos.z = -water.m_sortingOrder;
-        Vector3 scl = water.transform.localScale;
-        scl.z = 0.01f;
-        float hx = scl.x / 2.0f;
-        float hy = scl.y / 2.0f;
+    //    Water water = this;
+    //    Vector3 pos = water.transform.position;
+    //    pos.z = -water.m_sortingOrder;
+    //    Vector3 scl = water.transform.localScale;
+    //    scl.z = 0.01f;
+    //    float hx = scl.x / 2.0f;
+    //    float hy = scl.y / 2.0f;
 
-        Gizmos.color = water.m_color;
-        Gizmos.DrawCube(pos, scl);
-        //Gizmos.DrawPolyLine(
-        //    new Vector3(pos.x - hx, pos.y - hy, 0),
-        //    new Vector3(pos.x + hx, pos.y - hy, 0),
-        //    new Vector3(pos.x + hx, pos.y + hy, 0),
-        //    new Vector3(pos.x - hx, pos.y + hy, 0),
-        //    new Vector3(pos.x - hx, pos.y - hy, 0));
-    }
+    //    Gizmos.color = water.m_color;
+    //    Gizmos.DrawCube(pos, scl);
+    //    //Gizmos.DrawPolyLine(
+    //    //    new Vector3(pos.x - hx, pos.y - hy, 0),
+    //    //    new Vector3(pos.x + hx, pos.y - hy, 0),
+    //    //    new Vector3(pos.x + hx, pos.y + hy, 0),
+    //    //    new Vector3(pos.x - hx, pos.y + hy, 0),
+    //    //    new Vector3(pos.x - hx, pos.y - hy, 0));
+    //}
 }
 
