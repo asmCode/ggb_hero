@@ -11,10 +11,15 @@ public class SuiciderGenerator : MonoBehaviour
     public Water m_water;
     public RectBounds m_bridgeWalkArea;
 
-    private const int WalkingSuisCount = 10;
-    private static readonly float SuicidersDelay = 2.0f;
+    private const int WalkingSuisCount = 20;
 
     private float m_cooldown;
+
+    public float SuicidersDelay
+    {
+        get;
+        set;
+    }
 
     private float BridgeHeight
     {

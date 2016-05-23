@@ -3995,7 +3995,7 @@ GameObject:
   - 4: {fileID: 1436093241}
   - 114: {fileID: 1436093240}
   m_Layer: 0
-  m_Name: GameplayTestController
+  m_Name: Gameplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
