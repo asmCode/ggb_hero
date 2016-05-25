@@ -14,21 +14,18 @@ public class SuiControllerWalkOnBridge : SuiController
     private Walker m_walker;
     private RectBounds m_bridgeWalkArea;
 
-    public static void Reset()
-    {
-        Suiciders.Clear();
-    }
-
     static SuiControllerWalkOnBridge()
     {
         Suiciders = new List<Suicider>();
     }
 
+    public static void Reset()
+    {
+        Suiciders.Clear();
+    }
+
     public SuiControllerWalkOnBridge(Suicider sui, Vector2 startPosition, float direction, RectBounds bridgeWalkArea) : base(sui)
     {
-        if (Suiciders == null)
-            Suiciders = new List<Suicider>();
-
         Suiciders.Add(sui);
 
         sui.transform.position = startPosition;

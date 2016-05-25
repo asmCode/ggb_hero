@@ -1,17 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SuiControllerPreparingForJump : SuiController
 {
     private static readonly Vector2 JumpTimeBounds = new Vector2(2.0f, 4.0f);
-    
+
     private float m_jumpAfterTime;
     private float m_time;
     private Vector2 m_basePosition;
     private float m_jumpOverFenceProgress;
 
+    public static List<Suicider> Suiciders
+    {
+        get;
+        private set;
+    }
+
+    static SuiControllerPreparingForJump()
+    {
+        Suiciders = new List<Suicider>();
+    }
+
+    public static void Reset()
+    {
+        Suiciders.Clear();
+    }
+
     public SuiControllerPreparingForJump(Suicider sui) : base(sui)
     {
+        Suiciders.Add(sui);
+
         m_basePosition = sui.transform.position;
         m_jumpAfterTime = Random.Range(JumpTimeBounds.x, JumpTimeBounds.y);
     }
@@ -35,5 +54,16 @@ public class SuiControllerPreparingForJump : SuiController
         {
             m_sui.SetController(new SuiControllerFalling(m_sui));
         }
+    }
+
+    public override void Leaving()
+    {
+        if (Suiciders.Count == 0)
+        {
+            Debug.LogError("Logic error");
+            return;
+        }
+
+        Suiciders.Remove(m_sui);
     }
 }

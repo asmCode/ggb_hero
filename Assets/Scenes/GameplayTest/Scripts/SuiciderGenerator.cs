@@ -35,22 +35,32 @@ public class SuiciderGenerator : MonoBehaviour
         }
     }
 
+    public bool JumpSuis
+    {
+        get;
+        set;
+    }
+
     // Use this for initialization
     void Start()
     {
         Random.seed = (int)System.DateTime.Now.Ticks;
 
         Prewarm(WalkingSuisCount);
+        JumpSuis = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_cooldown -= Time.deltaTime;
-        if (m_cooldown <= 0.0f)
+        if (JumpSuis)
         {
-            m_cooldown += SuicidersDelay;
-            JumpRandomSui();
+            m_cooldown -= Time.deltaTime;
+            if (m_cooldown <= 0.0f)
+            {
+                m_cooldown += SuicidersDelay;
+                JumpRandomSui();
+            }
         }
 
         if (SuiControllerWalkOnBridge.Suiciders.Count < WalkingSuisCount)
