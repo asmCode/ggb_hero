@@ -8,6 +8,7 @@ public class Gameplay : MonoBehaviour
     public SuiManager m_suiManager;
     public SummaryView m_summaryView;
     public GrabPanel m_grabPanel;
+    public WaveIndicator m_waveIndicator;
 
     private float start_time = 0.0f;
     private bool m_isRoundEnded = false;
