@@ -52,6 +52,9 @@ public class Superhero : MonoBehaviour
         float waterHeight;
         int waterStripIndex;
 
+        position = transform.position;
+        Vector2 prevPosition = position;
+
         if (IsOnWater)
         {
             waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
@@ -61,13 +64,13 @@ public class Superhero : MonoBehaviour
             position.y = waterHeight;
             position.x += velocity.x * Time.fixedDeltaTime;
             transform.position = position;
-            return;
         }
-        Bounds bounds = m_superheroArea.GetBounds();
+        else
+        {
+            position += velocity * Time.fixedDeltaTime;
+        }
 
-        position = transform.position;
-        Vector2 prevPosition = position;
-        position += velocity * Time.fixedDeltaTime;
+        Bounds bounds = m_superheroArea.GetBounds();
 
         float bounce_power = 0.3f;
 
