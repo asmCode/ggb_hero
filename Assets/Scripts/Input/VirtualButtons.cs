@@ -3,14 +3,16 @@ using System.Collections;
 
 public class VirtualButtons : Buttons
 {
-    private int m_currentlyPressedIndex = -1;
+    private int m_currentlyPressedId = -1;
 
     void Update()
     {
-        int lastTouchBeganIndex = GetLastTouchIndex(TouchPhase.Began);
+        int fingerId = 0;
+
+        int lastTouchBeganIndex = GetLastTouchIndex(TouchPhase.Began, out fingerId);
         if (lastTouchBeganIndex != -1)
         {
-            m_currentlyPressedIndex = lastTouchBeganIndex;
+            m_currentlyPressedId = fingerId;
 
             Vector2 touchPosition = Input.GetTouch(lastTouchBeganIndex).position;
 
@@ -25,10 +27,13 @@ public class VirtualButtons : Buttons
             }
         }
 
-        int lastTouchEndedIndex = GetLastTouchIndex(TouchPhase.Ended);
-        if (lastTouchEndedIndex != -1 && m_currentlyPressedIndex == lastTouchEndedIndex)
+        
+        int lastTouchEndedIndex = GetLastTouchIndex(TouchPhase.Ended, out fingerId);
+        if (lastTouchEndedIndex == -1)
+            lastTouchEndedIndex = GetLastTouchIndex(TouchPhase.Canceled, out fingerId);
+        if (lastTouchEndedIndex != -1 && m_currentlyPressedId == fingerId)
         {
-            lastTouchEndedIndex = -1;
+            m_currentlyPressedId  = -1;
 
             Vector2 touchPosition = Input.GetTouch(lastTouchEndedIndex).position;
 
@@ -44,14 +49,18 @@ public class VirtualButtons : Buttons
         }
     }
 
-    private int GetLastTouchIndex(TouchPhase phase)
+    private int GetLastTouchIndex(TouchPhase phase, out int fingerId)
     {
         for (int i = 0; i < Input.touchCount; i++)
         {
             if (Input.GetTouch(i).phase == phase)
+            {
+                fingerId = Input.GetTouch(i).fingerId;
                 return i;
+            }
         }
 
+        fingerId = -1;
         return -1;
     }
 }

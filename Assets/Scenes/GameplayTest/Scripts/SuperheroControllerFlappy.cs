@@ -40,6 +40,7 @@ public class SuperheroControllerFlappy : MonoBehaviour
     private void HandleLeftButtonPressed()
     {
         m_leftPressed = true;
+        m_rightPressed = false;
 
         if (m_superhero.IsOnWater)
         {
@@ -64,6 +65,7 @@ public class SuperheroControllerFlappy : MonoBehaviour
     private void HandleRightButtonPressed()
     {
         m_rightPressed = true;
+        m_leftPressed = false;
 
         if (m_superhero.IsOnWater)
         {
