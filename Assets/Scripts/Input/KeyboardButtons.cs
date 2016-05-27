@@ -9,5 +9,10 @@ public class KeyboardButtons : Buttons
             OnLeftButtonPressed();
         else if (Input.GetKeyDown(KeyCode.RightArrow))
             OnRightButtonPressed();
+
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
+            OnLeftButtonReleased();
+        else if (Input.GetKeyUp(KeyCode.RightArrow))
+            OnRightButtonReleased();
     }
 }

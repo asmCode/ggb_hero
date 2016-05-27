@@ -33,6 +33,8 @@ public class GameSettings
         set;
     }
 
+    public static float OnWaterSpeed { get; private set; }
+
     public static float SuiJumpDelayEasiest { get; private set; }
     public static float SuiJumpDelayHardest { get; private set; }
     public static float SuiJumpDelayHardestAfterTime { get; private set; }
@@ -57,6 +59,8 @@ public class GameSettings
         SuiDeathsLimit = 3;
         SuiDeathsCount = 0;
         SuiRescuedCount = 0;
+
+        OnWaterSpeed = 1.0f;
 
         SuiJumpDelayEasiestFirstWave = 2.5f;
         SuiJumpDelayHardestFirstWave = 2.0f;

@@ -59,6 +59,7 @@ public class Superhero : MonoBehaviour
 
             position = transform.position;
             position.y = waterHeight;
+            position.x += velocity.x * Time.fixedDeltaTime;
             transform.position = position;
             return;
         }
