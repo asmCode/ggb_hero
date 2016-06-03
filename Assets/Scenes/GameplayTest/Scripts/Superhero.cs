@@ -41,7 +41,7 @@ public class Superhero : MonoBehaviour
 
     void FixedUpdate()
     {
-        //return;
+        return;
         Vector2 velocity = Velocity;    
         if (IsOnWater && velocity.y > 0.0f)
         {
