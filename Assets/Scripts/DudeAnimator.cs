@@ -36,6 +36,11 @@ public class DudeAnimator : MonoBehaviour
         //SetupPivots();
     }
 
+    public void ClearClip()
+    {
+        m_clip = null;
+    }
+
     public void SwimLeft()
     {
         SetupPivots();
@@ -44,16 +49,18 @@ public class DudeAnimator : MonoBehaviour
 
     public void SwimRight()
     {
-        //SetupPivots();
+        SetupPivots();
         m_clip = new DudeSwimming(this, -1);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            SwimLeft();
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            SwimRight();
+        //if (Input.GetKeyDown(KeyCode.LeftArrow))
+        //    SwimLeft();
+        //if (Input.GetKeyDown(KeyCode.RightArrow))
+        //    SwimRight();
+
+        SetupPivot(m_bodyPivot, out m_bodyAngle);
 
         if (m_clip == null)
             return;
@@ -72,11 +79,11 @@ public class DudeAnimator : MonoBehaviour
         float smoothTime = 0.05f;
         angle = Mathf.SmoothDampAngle(angle, angleTarget, ref speed, smoothTime);
         tr.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        //tr.localRotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 
     private void SetupPivots()
     {
+        SetupPivot(m_bodyPivot, out m_bodyAngle);
         SetupPivot(m_handPivotLeft, out m_handLeftAngle);
         SetupPivot(m_handPivotRight, out m_handRightAngle);
         SetupPivot(m_legPivotLeft, out m_legLeftAngle);

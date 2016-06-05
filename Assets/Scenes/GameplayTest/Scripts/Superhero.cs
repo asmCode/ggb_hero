@@ -10,6 +10,7 @@ public class Superhero : MonoBehaviour
     public Water m_water;
 
     private Stack<Suicider> m_suiciders = new Stack<Suicider>();
+    private bool m_isPLayingSwimmAnim;
    
     public bool IsOnWater
     {
@@ -29,6 +30,12 @@ public class Superhero : MonoBehaviour
         private set;
     }
 
+    public DudeAnimator DudeAnimator
+    {
+        get;
+        private set;
+    }
+
     public int GetHoldingSuis()
     {
         return m_suiciders.Count;
@@ -37,14 +44,17 @@ public class Superhero : MonoBehaviour
     private void Awake()
     {
         Dude = GetComponent<Dude>();
+        DudeAnimator = GetComponent<DudeAnimator>();
     }
 
     void FixedUpdate()
     {
-        return;
         Vector2 velocity = Velocity;    
         if (IsOnWater && velocity.y > 0.0f)
         {
+            Dude.SetBobyPartsKinematic(false);
+            DudeAnimator.ClearClip();
+            m_isPLayingSwimmAnim = false;
             IsOnWater = false;
         }
 
@@ -116,9 +126,7 @@ public class Superhero : MonoBehaviour
 
         waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
         waterHeight = m_water.GetWaterHeight(waterStripIndex);
-
-     
-
+        
         if (position.y <= waterHeight && !IsOnWater)
         {
             IsOnWater = true;
@@ -127,16 +135,28 @@ public class Superhero : MonoBehaviour
             velocity.x = 0.0f;
         }
 
+        if (IsOnWater && !m_isPLayingSwimmAnim)
+        {
+            if (velocity.x < 0)
+            {
+                Dude.SetBobyPartsKinematic(true);
+                DudeAnimator.SwimLeft();
+                m_isPLayingSwimmAnim = true;
+            }
+            else if (velocity.x > 0)
+            {
+                Dude.SetBobyPartsKinematic(true);
+                DudeAnimator.SwimRight();
+                m_isPLayingSwimmAnim = true;
+            }
+        }
+
         Velocity = velocity;
         transform.position = position;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            Dude.SetBobyPartsKinematic(true);
-        if (Input.GetKeyDown(KeyCode.L))
-            Dude.SetBobyPartsKinematic(false);
     }
 
     void _LateUpdate()
