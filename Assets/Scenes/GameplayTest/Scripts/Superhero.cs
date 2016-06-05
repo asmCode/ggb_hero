@@ -131,6 +131,14 @@ public class Superhero : MonoBehaviour
         transform.position = position;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+            Dude.SetBobyPartsKinematic(true);
+        if (Input.GetKeyDown(KeyCode.L))
+            Dude.SetBobyPartsKinematic(false);
+    }
+
     void _LateUpdate()
     {
         if (!IsOnWater)

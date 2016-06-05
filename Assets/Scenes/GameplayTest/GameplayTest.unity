@@ -386,6 +386,34 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 8.023809
+--- !u!1 &162581202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 162581203}
+  m_Layer: 0
+  m_Name: ChildPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &162581203
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 162581202}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.045, y: -0.005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 614215925}
+  m_RootOrder: 1
 --- !u!1 &176019025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1193,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1673328413}
+  - {fileID: 1651092710}
   m_Father: {fileID: 1347731691}
   m_RootOrder: 0
 --- !u!114 &356418602
@@ -1235,7 +1264,7 @@ Rigidbody2D:
   m_Mass: 20
   m_LinearDrag: 10
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 3
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1660,7 +1689,8 @@ Transform:
   m_LocalPosition: {x: -0.0096, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 1436558717}
   m_Father: {fileID: 1432437069}
   m_RootOrder: 0
 --- !u!114 &479976740
@@ -1708,7 +1738,7 @@ Rigidbody2D:
   m_Mass: 20
   m_LinearDrag: 10
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 3
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2016,6 +2046,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 606755801}
+  - {fileID: 162581203}
   m_Father: {fileID: 657572157}
   m_RootOrder: 0
 --- !u!114 &614215926
@@ -2086,7 +2117,7 @@ Rigidbody2D:
   m_Mass: 20
   m_LinearDrag: 10
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 3
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2368,7 +2399,8 @@ Transform:
   m_LocalPosition: {x: 0.01, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 1393121216}
   m_Father: {fileID: 1605172578}
   m_RootOrder: 0
 --- !u!114 &678930234
@@ -2416,7 +2448,7 @@ Rigidbody2D:
   m_Mass: 20
   m_LinearDrag: 10
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 3
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -4293,6 +4325,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!1 &1393121215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1393121216}
+  m_Layer: 0
+  m_Name: ChildPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1393121216
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393121215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.010000002, y: 0.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 678930233}
+  m_RootOrder: 0
 --- !u!1 &1395001309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4787,6 +4847,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!1 &1436558716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1436558717}
+  m_Layer: 0
+  m_Name: ChildPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1436558717
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1436558716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0096, y: 0.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 479976739}
+  m_RootOrder: 0
 --- !u!1 &1458667825
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,13 +4992,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 1281
+  mWidth: 1280
   mHeight: 720
   mDepth: 13
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.7791667
+  aspectRatio: 1.7777778
 --- !u!1 &1477271262
 GameObject:
   m_ObjectHideFlags: 0
@@ -5325,6 +5413,11 @@ MonoBehaviour:
   - {fileID: 1673328414}
   - {fileID: 606755802}
   m_plugs: []
+  m_bodyParts:
+  - {fileID: 356418605}
+  - {fileID: 614215929}
+  - {fileID: 678930236}
+  - {fileID: 479976742}
 --- !u!255 &1570926632
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -5532,6 +5625,34 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 659491989}
+  m_RootOrder: 1
+--- !u!1 &1651092709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1651092710}
+  m_Layer: 0
+  m_Name: ChildPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1651092710
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651092709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.045, y: -0.005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 356418601}
   m_RootOrder: 1
 --- !u!1 &1669407654
 GameObject:

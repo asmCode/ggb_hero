@@ -31,15 +31,29 @@ public class DudeAnimator : MonoBehaviour
 
     private DudeAnimationClip m_clip;
 
+    private void Awake()
+    {
+        //SetupPivots();
+    }
+
     public void SwimLeft()
     {
+        SetupPivots();
         m_clip = new DudeSwimming(this, 1);
+    }
+
+    public void SwimRight()
+    {
+        //SetupPivots();
+        m_clip = new DudeSwimming(this, -1);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
             SwimLeft();
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            SwimRight();
 
         if (m_clip == null)
             return;
@@ -55,7 +69,33 @@ public class DudeAnimator : MonoBehaviour
 
     private void Smooth(ref float angle, float angleTarget, ref float speed, Transform tr)
     {
-        angle = Mathf.SmoothDampAngle(angle, angleTarget, ref speed, 0.08f);
+        float smoothTime = 0.05f;
+        angle = Mathf.SmoothDampAngle(angle, angleTarget, ref speed, smoothTime);
         tr.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //tr.localRotation = Quaternion.AngleAxis(0, Vector3.forward);
+    }
+
+    private void SetupPivots()
+    {
+        SetupPivot(m_handPivotLeft, out m_handLeftAngle);
+        SetupPivot(m_handPivotRight, out m_handRightAngle);
+        SetupPivot(m_legPivotLeft, out m_legLeftAngle);
+        SetupPivot(m_legPivotRight, out m_legRightAngle);
+    }
+
+    private static void SetupPivot(Transform pivot, out float angle)
+    {
+        Transform bodyPart = pivot.GetChild(0);
+        Transform childPivot = bodyPart.FindChild("ChildPivot");
+        Vector3 pos = bodyPart.position;
+        Quaternion rot = bodyPart.rotation;
+        pivot.position = childPivot.position;
+        pivot.rotation = childPivot.rotation;
+        bodyPart.position = pos;
+        bodyPart.rotation = rot;
+
+        angle = Vector2.Angle(Vector2.right, pivot.right);
+        if (pivot.right.y < 0.0f)
+            angle = -angle;
     }
 }

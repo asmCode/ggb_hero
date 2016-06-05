@@ -5,6 +5,16 @@ public class Dude : MonoBehaviour
 {
     public Socket[] m_sockets;
     public Plug[] m_plugs;
+    public Rigidbody2D[] m_bodyParts;
+
+    public void SetBobyPartsKinematic(bool isKinematic)
+    {
+        if (m_bodyParts == null)
+            return;
+
+        foreach (var item in m_bodyParts)
+            item.isKinematic = isKinematic;
+    }
 
     public void PlugIn(Dude sourceDude)
     {

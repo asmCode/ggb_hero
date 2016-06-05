@@ -20,7 +20,7 @@ public class DudeSwimming : DudeAnimationClip
         DudeAnimator.HandLeftAngleTarget = m_time * 300.0f * m_direction;
         DudeAnimator.HandRightAngleTarget = m_time * 300.0f * m_direction;
 
-        DudeAnimator.LegLeftAngleTarget = Mathf.Sin(m_time * 15.0f) * 15.0f * m_direction;
-        DudeAnimator.LegRightAngleTarget = Mathf.Sin(m_time * 15.0f + 3.1415f) * 15.0f * m_direction;
+        DudeAnimator.LegLeftAngleTarget = Mathf.Sin(m_time * 20.0f) * 20.0f * m_direction;
+        DudeAnimator.LegRightAngleTarget = Mathf.Sin(m_time * 20.0f + 3.1415f) * 20.0f * m_direction;
     }
 }
