@@ -11,7 +11,8 @@ public class Superhero : MonoBehaviour
 
     private Stack<Suicider> m_suiciders = new Stack<Suicider>();
     private bool m_isPLayingSwimmAnim;
-   
+    private bool m_isPLayingJumpAnim;
+
     public bool IsOnWater
     {
         get;
@@ -140,15 +141,36 @@ public class Superhero : MonoBehaviour
             if (velocity.x < 0)
             {
                 Dude.SetBobyPartsKinematic(true);
+                if (Dude.IsConnected(BodyPartType.HandLeft))
+                    Dude.SetBobyPartKinematic(BodyPartType.HandLeft, false);
+                if (Dude.IsConnected(BodyPartType.HandRight))
+                    Dude.SetBobyPartKinematic(BodyPartType.HandRight, false);
                 DudeAnimator.SwimLeft();
                 m_isPLayingSwimmAnim = true;
+                m_isPLayingJumpAnim = false;
             }
             else if (velocity.x > 0)
             {
                 Dude.SetBobyPartsKinematic(true);
+                if (Dude.IsConnected(BodyPartType.HandLeft))
+                    Dude.SetBobyPartKinematic(BodyPartType.HandLeft, false);
+                if (Dude.IsConnected(BodyPartType.HandRight))
+                    Dude.SetBobyPartKinematic(BodyPartType.HandRight, false);
                 DudeAnimator.SwimRight();
                 m_isPLayingSwimmAnim = true;
+                m_isPLayingJumpAnim = false;
             }
+        }
+
+        if (!IsOnWater && !m_isPLayingJumpAnim)
+        {
+            Dude.SetBobyPartsKinematic(true);
+            if (Dude.IsConnected(BodyPartType.HandLeft))
+                Dude.SetBobyPartKinematic(BodyPartType.HandLeft, false);
+            if (Dude.IsConnected(BodyPartType.HandRight))
+                Dude.SetBobyPartKinematic(BodyPartType.HandRight, false);
+            DudeAnimator.Jump();
+            m_isPLayingJumpAnim = true;
         }
 
         Velocity = velocity;
@@ -180,6 +202,12 @@ public class Superhero : MonoBehaviour
             if (CanTakeSui())
             {
                 AddSui(suicider);
+                Dude.SetBobyPartsKinematic(true);
+                DudeAnimator.SetupPivots();
+                if (Dude.IsConnected(BodyPartType.HandLeft))
+                    Dude.SetBobyPartKinematic(BodyPartType.HandLeft, false);
+                if (Dude.IsConnected(BodyPartType.HandRight))
+                    Dude.SetBobyPartKinematic(BodyPartType.HandRight, false);
             }
         }
 
@@ -227,6 +255,9 @@ public class Superhero : MonoBehaviour
 
     private void ReleaseSuiciders()
     {
+        Dude.SetBobyPartsKinematic(true);
+        DudeAnimator.SetupPivots();
+
         GameSettings.SuiRescuedCount += GetHoldingSuis();
 
         Vector2 rescuePosition = transform.position.x < 0.0f ?

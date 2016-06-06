@@ -3454,7 +3454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1031523582
 Transform:
   m_ObjectHideFlags: 0
@@ -5442,11 +5442,6 @@ MonoBehaviour:
   - {fileID: 1673328414}
   - {fileID: 606755802}
   m_plugs: []
-  m_bodyParts:
-  - {fileID: 356418605}
-  - {fileID: 614215929}
-  - {fileID: 678930236}
-  - {fileID: 479976742}
 --- !u!255 &1570926632
 FixedJoint2D:
   m_ObjectHideFlags: 0

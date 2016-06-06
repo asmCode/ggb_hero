@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum BodyPartFlag
+public enum BodyPartType
 {
-    Hands = 1 << 0,
-    Legs = 1 << 1
+    HandLeft = 0,
+    HandRight,
+    LegLeft,
+    LegRight,
 }

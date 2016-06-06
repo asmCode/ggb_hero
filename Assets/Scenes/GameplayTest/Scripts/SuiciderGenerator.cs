@@ -75,7 +75,7 @@ public class SuiciderGenerator : MonoBehaviour
     {
         Vector3 initialPosition = new Vector3(xCoord, BridgeHeight, 0.0f);
         GameObject suiciderGroup = (GameObject)Instantiate(m_suiciderPrefab, initialPosition, Quaternion.identity);
-        Transform suiciderBody = suiciderGroup.transform.FindChild("SuiBody");
+        Transform suiciderBody = suiciderGroup.transform.Find("BodyPivot/Body");
         Suicider suicider = suiciderBody.GetComponent<Suicider>();
         suicider.Initialize(m_water);
         suicider.SetController(new SuiControllerWalkOnBridge(suicider, initialPosition, direction, m_bridgeWalkArea));

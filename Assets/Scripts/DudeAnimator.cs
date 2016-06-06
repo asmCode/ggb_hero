@@ -53,6 +53,12 @@ public class DudeAnimator : MonoBehaviour
         m_clip = new DudeSwimming(this, -1);
     }
 
+    public void Jump()
+    {
+        SetupPivots();
+        m_clip = new DudeJumping(this, -1);
+    }
+
     private void FixedUpdate()
     {
         //if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -76,12 +82,15 @@ public class DudeAnimator : MonoBehaviour
 
     private void Smooth(ref float angle, float angleTarget, ref float speed, Transform tr)
     {
+        if (!tr.GetChild(0).GetComponent<Rigidbody2D>().isKinematic)
+            return;
+
         float smoothTime = 0.05f;
         angle = Mathf.SmoothDampAngle(angle, angleTarget, ref speed, smoothTime);
         tr.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    private void SetupPivots()
+    public void SetupPivots()
     {
         SetupPivot(m_bodyPivot, out m_bodyAngle);
         SetupPivot(m_handPivotLeft, out m_handLeftAngle);
