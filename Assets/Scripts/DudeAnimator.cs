@@ -41,22 +41,16 @@ public class DudeAnimator : MonoBehaviour
         m_clip = null;
     }
 
-    public void SwimLeft()
+    public void Swim()
     {
         SetupPivots();
-        m_clip = new DudeSwimming(this, 1);
-    }
-
-    public void SwimRight()
-    {
-        SetupPivots();
-        m_clip = new DudeSwimming(this, -1);
+        m_clip = new DudeSwimming(this);
     }
 
     public void Jump()
     {
         SetupPivots();
-        m_clip = new DudeJumping(this, -1);
+        m_clip = new DudeJumping(this);
     }
 
     private void FixedUpdate()

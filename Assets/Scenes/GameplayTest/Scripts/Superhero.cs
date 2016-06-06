@@ -138,28 +138,14 @@ public class Superhero : MonoBehaviour
 
         if (IsOnWater && !m_isPLayingSwimmAnim)
         {
-            if (velocity.x < 0)
-            {
-                Dude.SetBobyPartsKinematic(true);
-                if (Dude.IsConnected(BodyPartType.HandLeft))
-                    Dude.SetBobyPartKinematic(BodyPartType.HandLeft, false);
-                if (Dude.IsConnected(BodyPartType.HandRight))
-                    Dude.SetBobyPartKinematic(BodyPartType.HandRight, false);
-                DudeAnimator.SwimLeft();
-                m_isPLayingSwimmAnim = true;
-                m_isPLayingJumpAnim = false;
-            }
-            else if (velocity.x > 0)
-            {
-                Dude.SetBobyPartsKinematic(true);
-                if (Dude.IsConnected(BodyPartType.HandLeft))
-                    Dude.SetBobyPartKinematic(BodyPartType.HandLeft, false);
-                if (Dude.IsConnected(BodyPartType.HandRight))
-                    Dude.SetBobyPartKinematic(BodyPartType.HandRight, false);
-                DudeAnimator.SwimRight();
-                m_isPLayingSwimmAnim = true;
-                m_isPLayingJumpAnim = false;
-            }
+            Dude.SetBobyPartsKinematic(true);
+            if (Dude.IsConnected(BodyPartType.HandLeft))
+                Dude.SetBobyPartKinematic(BodyPartType.HandLeft, false);
+            if (Dude.IsConnected(BodyPartType.HandRight))
+                Dude.SetBobyPartKinematic(BodyPartType.HandRight, false);
+            DudeAnimator.Swim();
+            m_isPLayingSwimmAnim = true;
+            m_isPLayingJumpAnim = false;
         }
 
         if (!IsOnWater && !m_isPLayingJumpAnim)
