@@ -226,6 +226,8 @@ public class Superhero : MonoBehaviour
         */
 
         sui.IsKinematic = false;
+        sui.Dude.SetBobyPartsKinematic(false);
+        sui.DudeAnimator.ClearClip();
         sui.Dude.PlugIn(Dude);
         sui.SetController(new SuiControllerWithSuperhero(sui));
 

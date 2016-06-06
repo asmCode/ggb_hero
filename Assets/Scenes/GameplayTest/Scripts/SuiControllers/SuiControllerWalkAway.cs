@@ -8,7 +8,9 @@ public class SuiControllerWalkAway : SuiController
     public SuiControllerWalkAway(Suicider sui) : base(sui)
     {
         float direction = m_sui.transform.position.x < 0.0f ? -1.0f : 1.0f;
-        m_walker = new Walker(sui.transform, direction, 0.3f);
+        m_walker = new Walker(sui.transform, direction, Random.Range(0.2f, 0.4f));
+        sui.Dude.SetBobyPartsKinematic(true);
+        sui.DudeAnimator.Walk();
     }
 
     public override void UpdateSui()

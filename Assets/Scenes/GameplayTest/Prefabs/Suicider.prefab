@@ -80,6 +80,7 @@ GameObject:
   - 114: {fileID: 11410662}
   - 114: {fileID: 11436224}
   - 58: {fileID: 5863304}
+  - 114: {fileID: 11411730}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -845,6 +846,22 @@ MonoBehaviour:
   m_plugs:
   - {fileID: 11435966}
   - {fileID: 11443248}
+--- !u!114 &11411730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d12301a54406549981590073eb4335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bodyPivot: {fileID: 426282}
+  m_handPivotLeft: {fileID: 491772}
+  m_handPivotRight: {fileID: 435252}
+  m_legPivotLeft: {fileID: 434644}
+  m_legPivotRight: {fileID: 414434}
 --- !u!114 &11421462
 MonoBehaviour:
   m_ObjectHideFlags: 1

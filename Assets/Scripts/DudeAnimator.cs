@@ -53,12 +53,14 @@ public class DudeAnimator : MonoBehaviour
         m_clip = new DudeJumping(this);
     }
 
+    public void Walk()
+    {
+        SetupPivots();
+        m_clip = new DudeWalking(this);
+    }
+
     private void FixedUpdate()
     {
-        //if (Input.GetKeyDown(KeyCode.LeftArrow))
-        //    SwimLeft();
-        //if (Input.GetKeyDown(KeyCode.RightArrow))
-        //    SwimRight();
 
         SetupPivot(m_bodyPivot, out m_bodyAngle);
 
@@ -96,6 +98,11 @@ public class DudeAnimator : MonoBehaviour
     private static void SetupPivot(Transform pivot, out float angle)
     {
         Transform bodyPart = pivot.GetChild(0);
+        if (!bodyPart.GetComponent<Rigidbody2D>().isKinematic)
+        {
+            angle = 0.0f;
+            return;
+        }
         Transform childPivot = bodyPart.FindChild("ChildPivot");
         Vector3 pos = bodyPart.position;
         Quaternion rot = bodyPart.rotation;

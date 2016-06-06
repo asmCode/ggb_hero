@@ -37,6 +37,12 @@ public class Suicider : MonoBehaviour
         private set;
     }
 
+    public DudeAnimator DudeAnimator
+    {
+        get;
+        private set;
+    }
+
     public void Initialize(Water water)
     {
         Water = water;
@@ -62,11 +68,12 @@ public class Suicider : MonoBehaviour
     {
         m_rigibody = GetComponent<Rigidbody2D>();
         Dude = GetComponent<Dude>();
+        DudeAnimator = GetComponent<DudeAnimator>();
 
         SetController(new SuiControllerIdleTest(this));
     }
 
-    void Update()
+    void FixedUpdate()
     {
         SuiController.UpdateSui();
     }

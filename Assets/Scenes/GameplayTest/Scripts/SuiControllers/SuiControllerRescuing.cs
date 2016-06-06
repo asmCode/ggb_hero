@@ -8,18 +8,18 @@ public class SuiControllerRescuing : SuiController
 
     public SuiControllerRescuing(Suicider sui, Vector2 destinationPosition) : base(sui)
     {
-        m_destinationPosition = destinationPosition;
+        m_destinationPosition = destinationPosition + Random.insideUnitCircle * 0.1f;
         sui.IsKinematic = true;
     }
 	
 	public override void UpdateSui()
     {
         m_sui.transform.position =
-            Vector2.SmoothDamp(m_sui.transform.position, m_destinationPosition, ref m_velocity, 0.2f);
+            Vector2.SmoothDamp(m_sui.transform.position, m_destinationPosition, ref m_velocity, 0.13f);
 
         Vector2 suiPosition = m_sui.transform.position;
 
-        if ((m_destinationPosition - suiPosition).magnitude < 0.01f)
+        if ((m_destinationPosition - suiPosition).magnitude < 0.05f)
         {
             m_sui.SetController(new SuiControllerWalkAway(m_sui));
         }
