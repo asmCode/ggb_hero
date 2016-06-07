@@ -15,10 +15,10 @@ public class DudePreparingToJump : DudeAnimationClip
 
         DudeAnimator.BodyAngleTarget = 0;
 
-        DudeAnimator.HandRightAngleTarget = Mathf.Sin(m_time * 40.0f) * 20.0f + 70.0f;
-        DudeAnimator.HandLeftAngleTarget = Mathf.Sin(m_time * 40.0f + 3.1415f) * 20.0f - 70.0f;
+        DudeAnimator.HandRightAngleTarget = -30.0f;
+        DudeAnimator.HandLeftAngleTarget = 30.0f;
 
-        DudeAnimator.LegRightAngleTarget = Mathf.Sin(m_time * 30.0f) * 15.0f + 40;
-        DudeAnimator.LegLeftAngleTarget = Mathf.Sin(m_time * 30.0f + 3.1415f) * 15.0f - 40;
+        DudeAnimator.LegRightAngleTarget = 10.0f;
+        DudeAnimator.LegLeftAngleTarget = -10.0f;
     }
 }

@@ -49,6 +49,12 @@ public class DudeAnimator : MonoBehaviour
         m_clip = new DudeSwimming(this);
     }
 
+    public void PrepareToJump()
+    {
+        SetupPivots();
+        m_clip = new DudePreparingToJump(this);
+    }
+
     public void Sink()
     {
         SetupPivots();

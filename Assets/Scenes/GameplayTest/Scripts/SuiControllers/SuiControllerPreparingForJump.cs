@@ -10,6 +10,7 @@ public class SuiControllerPreparingForJump : SuiController
     private float m_time;
     private Vector2 m_basePosition;
     private float m_jumpOverFenceProgress;
+    private bool m_changedSpriteOrder;
 
     public static List<Suicider> Suiciders
     {
@@ -33,6 +34,8 @@ public class SuiControllerPreparingForJump : SuiController
 
         m_basePosition = sui.transform.position;
         m_jumpAfterTime = Random.Range(JumpTimeBounds.x, JumpTimeBounds.y);
+        sui.Dude.SetBobyPartsKinematic(true);
+        sui.DudeAnimator.PrepareToJump();
     }
 
     public override void UpdateSui()
@@ -43,9 +46,15 @@ public class SuiControllerPreparingForJump : SuiController
 
         if (m_jumpOverFenceProgress < 1.0f)
         {
+            if (m_jumpOverFenceProgress >= 0.5f && !m_changedSpriteOrder)
+            {
+                m_sui.SortOrder = m_sui.SortOrder + 2;
+                m_changedSpriteOrder = true;
+            }
+
             m_jumpOverFenceProgress = Mathf.Min(m_jumpOverFenceProgress + Time.deltaTime * 1.0f, 1.0f);
             Vector2 position = m_basePosition;
-            position.y += Mathf.Sin(m_jumpOverFenceProgress * Mathf.PI) * 0.08f;
+            position.y += Mathf.Sin(m_jumpOverFenceProgress * Mathf.PI) * 0.15f;
             m_sui.transform.position = position;
             return;
         }
