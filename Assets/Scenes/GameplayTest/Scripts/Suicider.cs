@@ -53,7 +53,7 @@ public class Suicider : MonoBehaviour
         // This will force to call SuiController.Leaving();
         SetController(null);
 
-        Object.Destroy(transform.parent.gameObject);
+        Object.Destroy(transform.parent.parent.gameObject);
     }
 
     public void SetController(SuiController suiController)

@@ -4142,8 +4142,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1497883667}
-  m_RootOrder: 0
+  m_Father: {fileID: 1570926628}
+  m_RootOrder: 1
 --- !u!233 &1348476397
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -4179,7 +4179,7 @@ Rigidbody2D:
   m_LinearDrag: 10
   m_AngularDrag: 10
   m_GravityScale: 3
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -4828,7 +4828,7 @@ Transform:
   - {fileID: 1605172578}
   - {fileID: 1432437069}
   m_Father: {fileID: 1497883667}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1436093239
 GameObject:
   m_ObjectHideFlags: 0
@@ -5165,7 +5165,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1348476396}
   - {fileID: 1434216655}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -5396,6 +5395,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 485915547}
+  - {fileID: 1348476396}
   m_Father: {fileID: 1434216655}
   m_RootOrder: 0
 --- !u!58 &1570926629

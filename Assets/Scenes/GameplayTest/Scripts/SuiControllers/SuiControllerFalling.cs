@@ -36,6 +36,8 @@ public class SuiControllerFalling : SuiController
         m_waterStripIndex = sui.Water.GetWaterStripIndex(sui.transform.position.x);
 
         m_fallingSpeed = BaseFallingSpeed * Random.Range(0.8f, 1.4f);
+        sui.Dude.SetBobyPartsKinematic(true);
+        sui.DudeAnimator.Fall();
     }
 
     public override void UpdateSui()

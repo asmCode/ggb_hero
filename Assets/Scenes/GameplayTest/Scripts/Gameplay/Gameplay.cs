@@ -79,6 +79,11 @@ public class Gameplay : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Space))
+            Time.timeScale = 5.0f;
+        else
+            Time.timeScale = 1.0f;
+
         if (m_isRoundEnded)
             return;
 

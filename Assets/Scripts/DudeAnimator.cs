@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class DudeAnimator : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class DudeAnimator : MonoBehaviour
     public float BodyAngleTarget { get; set; }
     public float HandLeftAngleTarget { get; set; }
     public float HandRightAngleTarget { get; set; }
+
     public float LegLeftAngleTarget { get; set; }
     public float LegRightAngleTarget { get; set; }
 
@@ -47,6 +49,12 @@ public class DudeAnimator : MonoBehaviour
         m_clip = new DudeSwimming(this);
     }
 
+    public void Sink()
+    {
+        SetupPivots();
+        m_clip = new DudeSinking(this);
+    }
+
     public void Jump()
     {
         SetupPivots();
@@ -59,9 +67,14 @@ public class DudeAnimator : MonoBehaviour
         m_clip = new DudeWalking(this);
     }
 
+    public void Fall()
+    {
+        SetupPivots();
+        m_clip = new DudeFalling(this);
+    }
+
     private void FixedUpdate()
     {
-
         SetupPivot(m_bodyPivot, out m_bodyAngle);
 
         if (m_clip == null)

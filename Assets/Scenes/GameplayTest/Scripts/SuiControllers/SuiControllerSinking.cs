@@ -34,6 +34,9 @@ public class SuiControllerSinking : SuiController
         Suiciders.Add(sui);
 
         m_waterStripIndex = sui.Water.GetWaterStripIndex(sui.transform.position.x);
+
+        sui.Dude.SetBobyPartsKinematic(true);
+        sui.DudeAnimator.Sink();
     }
 
     public override void UpdateSui()

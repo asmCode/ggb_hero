@@ -26,5 +26,6 @@ public class InspectorValue<T>
 
         if (Changed != null)
             Changed();
-    }      
+    }       
 }
+ 

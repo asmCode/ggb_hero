@@ -9,6 +9,7 @@ public class SuiControllerDiving : SuiController
     public SuiControllerDiving(Suicider sui) : base(sui)
     {
         GameSettings.SuiDeathsCount++;
+        sui.DudeAnimator.ClearClip();
     }
 
     public override void UpdateSui()
