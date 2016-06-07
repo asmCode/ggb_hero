@@ -56,7 +56,7 @@ public class GameSettings
     {
         HandCapacity = 3;
         GravityPerSuicider = 2.5f;
-        SuiDeathsLimit = 3000;
+        SuiDeathsLimit = 3;
         SuiDeathsCount = 0;
         SuiRescuedCount = 0;
 
