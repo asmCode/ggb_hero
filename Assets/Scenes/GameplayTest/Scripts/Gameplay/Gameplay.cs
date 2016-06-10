@@ -9,6 +9,7 @@ public class Gameplay : MonoBehaviour
     public SummaryView m_summaryView;
     public GrabPanel m_grabPanel;
     public WaveIndicator m_waveIndicator;
+    public Transform m_shoreArrows;
 
     private float start_time = 0.0f;
     private bool m_isRoundEnded = false;
@@ -89,6 +90,8 @@ public class Gameplay : MonoBehaviour
 
         m_suiManager.m_suiGenerator.SuicidersDelay = CalculateSuiDelay(m_waveNumber, m_currentWaveTime);
 
+        m_shoreArrows.gameObject.SetActive(m_superhero.GetHoldingSuis() > 0);
+
         m_currentWaveTime += Time.deltaTime;
         if (m_currentWaveTime >= m_currentWaveLength)
         {
@@ -129,7 +132,7 @@ public class Gameplay : MonoBehaviour
 
     void DestroySuperhero()
     {
-        Destroy(m_superhero.gameObject);
+        Destroy(m_superhero.transform.parent.gameObject);
         Destroy(m_superheroController.gameObject);
     }
 
