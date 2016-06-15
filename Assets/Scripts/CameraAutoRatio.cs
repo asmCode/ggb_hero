@@ -25,8 +25,10 @@ public class CameraAutoRatio : MonoBehaviour
             SetSize();
     }
 
-    private void SetSize()
+    public void SetSize()
     {
+        if (m_isSizeSet)
+            return;
         Camera camera = GetComponent<Camera>();
         m_baseCameraSize = camera.orthographicSize;
         float baseRatio = 640.0f / 480.0f;

@@ -4,10 +4,11 @@ using System.Collections;
 public class Paralaxa : MonoBehaviour
 {
     public Transform m_objectToFollow;
+    public RectBounds m_objectToFollowBounds;
 
     private Vector3 m_velocity;
     private Vector3 m_basePosition;
-    private static readonly Vector2 m_bounds = new Vector2(0.15f, 0.06f);
+    private static readonly Vector2 m_bounds = new Vector2(0.2f, 0.1f);
 
     private void Awake()
     {
@@ -20,10 +21,11 @@ public class Paralaxa : MonoBehaviour
         //position = Vector3.SmoothDamp(position, m_objectToFollow.position, ref m_velocity, 0.1f);
         //position.z = transform.position.z;
 
-        position.x = Mathf.Lerp(-m_bounds.x, m_bounds.x, (m_objectToFollow.position.x + 2.88874f) / (2.88874f * 2));
-        position.y = Mathf.Lerp(-m_bounds.y, m_bounds.y, (m_objectToFollow.position.y + 1.04258f) / (1.04258f * 2));
+        Bounds bounds = m_objectToFollowBounds.GetBounds();
+        position.x = Mathf.Lerp(-m_bounds.x, m_bounds.x, (m_objectToFollow.position.x - bounds.min.x) / bounds.size.x);
+        position.y = Mathf.Lerp(-m_bounds.y, m_bounds.y, (m_objectToFollow.position.y - bounds.min.y) / bounds.size.y);
         position.z = transform.position.z;
 
-        transform.position = Vector3.SmoothDamp(transform.position, m_basePosition + position, ref m_velocity, 0.03f);
+        transform.position = Vector3.SmoothDamp(transform.position, m_basePosition + position, ref m_velocity, 0.4f);
     }
 }

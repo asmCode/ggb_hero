@@ -4,6 +4,7 @@ using System.Collections;
 public class SmoothCamera : MonoBehaviour
 {
     public Transform m_objectToFollow;
+    public RectBounds m_objectToFollowBounds;
 
     private Vector3 m_velocity;
     private Vector2 m_bounds;
@@ -11,8 +12,12 @@ public class SmoothCamera : MonoBehaviour
     private void Start()
     {
         CameraAutoRatio cameraAutoRato = GetComponent<CameraAutoRatio>();
-        //m_bounds = new Vector2(
-            //cameraAutoRato.full cameraAutoRato.BaseCameraSize
+        cameraAutoRato.SetSize();
+        Camera camera = GetComponent<Camera>();
+        float aspect = (float)Screen.width / Screen.height;
+        float camSizeDiffX = CameraAutoRatio.FullCameraSize * (4.0f / 3.0f) - camera.orthographicSize * aspect;
+        float camSizeDiffY = CameraAutoRatio.FullCameraSize - camera.orthographicSize;
+        m_bounds = new Vector2(camSizeDiffX, camSizeDiffY);
     }
 
     private void FixedUpdate()
@@ -21,10 +26,11 @@ public class SmoothCamera : MonoBehaviour
         //position = Vector3.SmoothDamp(position, m_objectToFollow.position, ref m_velocity, 0.1f);
         //position.z = transform.position.z;
 
-        position.x = Mathf.Lerp(-m_bounds.x, m_bounds.x, (m_objectToFollow.position.x + 1.88874f) / (1.88874f * 2));
-        position.y = Mathf.Lerp(-m_bounds.y, m_bounds.y, (m_objectToFollow.position.y + 0.54258f) / (0.54258f * 2));
+        Bounds bounds = m_objectToFollowBounds.GetBounds();
+        position.x = Mathf.Lerp(-m_bounds.x, m_bounds.x, (m_objectToFollow.position.x - bounds.min.x) / bounds.size.x);
+        position.y = Mathf.Lerp(-m_bounds.y, m_bounds.y, (m_objectToFollow.position.y - bounds.min.y) / bounds.size.y);
         position.z = transform.position.z;
 
-        transform.position = Vector3.SmoothDamp(transform.position, position, ref m_velocity, 0.03f);
+        transform.position = Vector3.SmoothDamp(transform.position, position, ref m_velocity, 0.4f);
     }
 }
