@@ -8,7 +8,7 @@ public class Paralaxa : MonoBehaviour
 
     private Vector3 m_velocity;
     private Vector3 m_basePosition;
-    private static readonly Vector2 m_bounds = new Vector2(0.2f, 0.1f);
+    private static readonly Vector2 m_bounds = new Vector2(0.1f, 0.1f);
 
     private void Awake()
     {

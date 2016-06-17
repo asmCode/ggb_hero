@@ -43,8 +43,8 @@ public class RectBounds : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (Application.isPlaying)
-            return;
+        //if (Application.isPlaying)
+        //    return;
 
         Vector3 pos = transform.position;
         Vector3 scl = transform.localScale;
