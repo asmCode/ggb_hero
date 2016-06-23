@@ -132,8 +132,9 @@ public class Gameplay : MonoBehaviour
 
     void DestroySuperhero()
     {
-        Destroy(m_superhero.transform.parent.gameObject);
-        Destroy(m_superheroController.gameObject);
+        m_superhero.transform.parent.gameObject.SetActive(false);
+        //Destroy(m_superhero.transform.parent.gameObject);
+        //Destroy(m_superheroController.gameObject);
     }
 
     void DestroySuiciders()

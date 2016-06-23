@@ -8,11 +8,13 @@ public class Paralaxa : MonoBehaviour
 
     private Vector3 m_velocity;
     private Vector3 m_basePosition;
-    private static readonly Vector2 m_bounds = new Vector2(0.1f, 0.1f);
+    private Vector2 m_bounds;
 
     private void Awake()
     {
         m_basePosition = transform.position;
+        float ratio = (float)Screen.width / Screen.height;
+        m_bounds = new Vector2(0.1f, 0.1f / ratio);
     }
 
     private void FixedUpdate()

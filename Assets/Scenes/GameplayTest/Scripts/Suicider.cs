@@ -116,6 +116,7 @@ public class Suicider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        SuiController.ProcessTriggerEnter2D(other);
+        if (SuiController != null)
+            SuiController.ProcessTriggerEnter2D(other);
     }
 }
