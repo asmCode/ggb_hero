@@ -10,7 +10,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Semi-Serious Games
-  productName: Golden Gate Bridge Hero
+  productName: Golden Gate Hero
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -91,15 +91,15 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.semiseriousgames.ggbh
-  bundleVersion: 1.0.10
+  bundleIdentifier: com.semiseriousgames.gghero
+  bundleVersion: 1.0.11
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: 997715a5c4160fc4eba0ee99e3516189
-  AndroidBundleVersionCode: 11
+  AndroidBundleVersionCode: 12
   AndroidMinSdkVersion: 15
   AndroidPreferredInstallLocation: 1
   aotOptions: 

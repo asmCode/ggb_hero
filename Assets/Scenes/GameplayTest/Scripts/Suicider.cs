@@ -11,6 +11,16 @@ public class Suicider : MonoBehaviour
     private SpriteRenderer m_legLeftSprite;
     private SpriteRenderer m_legRightSprite;
 
+    public Color TintColor
+    {
+        set
+        {
+            m_bodySprite.color = value;
+            m_handLeftSprite.color = value;
+            m_handRightSprite.color = value;
+        }
+    }
+
     public SuiController SuiController
     {
         get;

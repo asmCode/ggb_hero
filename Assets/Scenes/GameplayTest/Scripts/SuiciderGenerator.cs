@@ -77,6 +77,7 @@ public class SuiciderGenerator : MonoBehaviour
         GameObject suiciderGroup = (GameObject)Instantiate(m_suiciderPrefab, initialPosition, Quaternion.identity);
         Transform suiciderBody = suiciderGroup.transform.Find("BodyPivot/Body");
         Suicider suicider = suiciderBody.GetComponent<Suicider>();
+        suicider.TintColor = ColorPalette.GetRandomColor();
         suicider.Initialize(m_water);
         suicider.SetController(new SuiControllerWalkOnBridge(suicider, initialPosition, direction, m_bridgeWalkArea));
     }
