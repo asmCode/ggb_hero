@@ -48,7 +48,7 @@ public class SuiControllerPreparingForJump : SuiController
         {
             if (m_jumpOverFenceProgress >= 0.5f && !m_changedSpriteOrder)
             {
-                m_sui.SortOrder = m_sui.SortOrder + 2;
+                m_sui.SortOrder = m_sui.SortOrder + 5;
                 m_changedSpriteOrder = true;
             }
 

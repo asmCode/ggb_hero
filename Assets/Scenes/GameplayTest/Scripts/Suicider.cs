@@ -53,11 +53,11 @@ public class Suicider : MonoBehaviour
         set
         {
             m_bodySprite.sortingOrder = value;
-            m_headSprite.sortingOrder = value;
-            m_handLeftSprite.sortingOrder = value;
-            m_handRightSprite.sortingOrder = value;
-            m_legLeftSprite.sortingOrder = value;
-            m_legRightSprite.sortingOrder = value;
+            m_headSprite.sortingOrder = value + 2;
+            m_handLeftSprite.sortingOrder = value + 1;
+            m_handRightSprite.sortingOrder = value + 1;
+            m_legLeftSprite.sortingOrder = value + 1;
+            m_legRightSprite.sortingOrder = value + 1;
 }
     }
 
