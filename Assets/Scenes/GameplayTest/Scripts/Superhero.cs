@@ -8,6 +8,7 @@ public class Superhero : MonoBehaviour
     public RectBounds m_shoreLeftBounds;
     public RectBounds m_shoreRightBounds;
     public Water m_water;
+    public GrabEffectPool m_grabEffectPool;
 
     private Stack<Suicider> m_suiciders = new Stack<Suicider>();
     private bool m_isPLayingSwimmAnim;
@@ -217,13 +218,12 @@ public class Superhero : MonoBehaviour
 
     private void AddSui(Suicider sui)
     {
-        /*
-        Vector3 suiDirection = (sui.transform.position - transform.position).normalized * 0.11f;
-
-        sui.gameObject.transform.parent = m_suiContainer;
-        sui.transform.position = transform.position + suiDirection;
-        sui.SetController(new SuiControllerWithSuperhero(sui));
-        */
+        GrabEffect grabEffect = m_grabEffectPool.Get();
+        if (grabEffect != null)
+        {
+            grabEffect.transform.position = sui.transform.position;
+            grabEffect.Play();
+        }
 
         sui.IsKinematic = false;
         sui.Dude.SetBobyPartsKinematic(false);

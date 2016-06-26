@@ -5842,6 +5842,7 @@ MonoBehaviour:
   m_shoreLeftBounds: {fileID: 2127120167}
   m_shoreRightBounds: {fileID: 664779497}
   m_water: {fileID: 2034167109}
+  m_grabEffectPool: {fileID: 1686080945}
 --- !u!114 &1570926631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6292,6 +6293,48 @@ SpriteRenderer:
   m_Color: {r: 0.49264705, g: 0.49264705, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1686080944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1686080946}
+  - 114: {fileID: 1686080945}
+  m_Layer: 0
+  m_Name: GrabEffectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1686080945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686080944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0379b4cca147f3e4db9db84eaf769f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_prefab: {fileID: 11405054, guid: 503d46aa8a5baaf43aeb65ad8ad60c51, type: 2}
+  m_count: 3
+--- !u!4 &1686080946
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686080944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1945903, y: 0.75573206, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
 --- !u!1 &1693790938
 GameObject:
   m_ObjectHideFlags: 0
