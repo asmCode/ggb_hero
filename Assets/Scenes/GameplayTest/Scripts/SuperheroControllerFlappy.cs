@@ -15,6 +15,20 @@ public class SuperheroControllerFlappy : MonoBehaviour
     private Buttons m_buttons;
     private bool m_leftPressed;
     private bool m_rightPressed;
+    private bool m_isRunning = false;
+
+    public event System.Action Started;
+
+    public void StartRunning()
+    {
+        if (m_isRunning)
+            return;
+
+        m_isRunning = true;
+
+        if (Started != null)
+            Started();
+    }
 
     private void Awake()
     {
@@ -39,6 +53,8 @@ public class SuperheroControllerFlappy : MonoBehaviour
 
     private void HandleLeftButtonPressed()
     {
+        StartRunning();
+
         m_leftPressed = true;
         m_rightPressed = false;
 
@@ -64,6 +80,8 @@ public class SuperheroControllerFlappy : MonoBehaviour
 
     private void HandleRightButtonPressed()
     {
+        StartRunning();
+
         m_rightPressed = true;
         m_leftPressed = false;
 
@@ -89,6 +107,9 @@ public class SuperheroControllerFlappy : MonoBehaviour
 
     void Update()
     {
+        if (!m_isRunning)
+            return;
+
         if (m_superhero.IsOnWater)
         {
             if (m_leftPressed)

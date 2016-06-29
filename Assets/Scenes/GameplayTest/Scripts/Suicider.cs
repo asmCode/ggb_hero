@@ -68,7 +68,7 @@ public class Suicider : MonoBehaviour
             m_handRightSprite.sortingOrder = value + 1;
             m_legLeftSprite.sortingOrder = value + 1;
             m_legRightSprite.sortingOrder = value + 1;
-}
+        }
     }
 
     public DudeAnimator DudeAnimator

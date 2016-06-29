@@ -10,6 +10,8 @@ public class Gameplay : MonoBehaviour
     public GrabPanel m_grabPanel;
     public WaveIndicator m_waveIndicator;
     public Transform m_shoreArrows;
+    public GameObject m_beforeStartFade;
+    public GameObject m_beforeStartTutorial;
 
     private float start_time = 0.0f;
     private bool m_isRoundEnded = false;
@@ -32,7 +34,14 @@ public class Gameplay : MonoBehaviour
     void Awake()
     {
         NGUITools.SetActive(m_summaryView.gameObject, false);
+        m_superheroController.Started += M_superheroController_Started;
     }
+
+    private void M_superheroController_Started()
+    {
+        m_beforeStartFade.SetActive(false);
+        m_beforeStartTutorial.SetActive(false);
+}
 
     void Start()
     {
