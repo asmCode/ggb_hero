@@ -41,7 +41,14 @@ public class Gameplay : MonoBehaviour
     {
         m_beforeStartFade.SetActive(false);
         m_beforeStartTutorial.SetActive(false);
-}
+        Invoke("StartGame", 0.6f);
+    }
+
+    void StartGame()
+    {
+        ShowCurrentWaveTitle();
+        Invoke("StartWave", 1.2f);
+    }
 
     void Start()
     {
@@ -60,8 +67,6 @@ public class Gameplay : MonoBehaviour
 
         m_currentWaveLength = GetWaveLength(m_waveNumber);
         m_waitingForNextWave = true;
-        ShowCurrentWaveTitle();
-        Invoke("StartWave", 2.0f);
     }
 
     void NextWave()
@@ -73,7 +78,7 @@ public class Gameplay : MonoBehaviour
         m_currentWaveTime = 0.0f;
 
         ShowCurrentWaveTitle();
-        Invoke("StartWave", 2.0f);
+        Invoke("StartWave", 1.2f);
     }
 
     private void ShowCurrentWaveTitle()

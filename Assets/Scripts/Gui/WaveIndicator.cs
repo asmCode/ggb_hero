@@ -22,7 +22,7 @@ public class WaveIndicator : MonoBehaviour
         NGUITools.SetActive(m_labelGo.gameObject, false);
         NGUITools.SetActive(gameObject, true);
 
-        Invoke("ShowGo", 3.0f);
+        Invoke("ShowGo", 2.0f);
 
         m_isVisible = true;
     }
@@ -33,7 +33,7 @@ public class WaveIndicator : MonoBehaviour
         NGUITools.SetActive(m_labelSuiciders.gameObject, false);
         NGUITools.SetActive(m_labelGo.gameObject, true);
 
-        Invoke("Hide", 1.0f);
+        Invoke("Hide", 0.7f);
     }
 
     private void Hide()
