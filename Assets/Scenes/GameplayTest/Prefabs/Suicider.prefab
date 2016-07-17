@@ -47,6 +47,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &105146
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 465022}
+  m_Layer: 0
+  m_Name: HealthBarPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &115468
 GameObject:
   m_ObjectHideFlags: 1
@@ -604,12 +619,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 486606}
   - {fileID: 448408}
+  - {fileID: 465022}
   m_Father: {fileID: 426282}
   m_RootOrder: 0
 --- !u!4 &459464
@@ -639,6 +655,19 @@ Transform:
   - {fileID: 426282}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &465022
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1392, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 459296}
+  m_RootOrder: 2
 --- !u!4 &467406
 Transform:
   m_ObjectHideFlags: 1
@@ -956,6 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a922e13230521f24295f25674d063cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_healthBarPosition: {fileID: 465022}
 --- !u!114 &11439146
 MonoBehaviour:
   m_ObjectHideFlags: 1

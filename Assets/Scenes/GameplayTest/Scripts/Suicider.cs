@@ -3,13 +3,18 @@ using System.Collections;
 
 public class Suicider : MonoBehaviour
 {
+    public Transform m_healthBarPosition;
+
+    private HealthBar m_healthBar;
     private Rigidbody2D m_rigibody;
     private SpriteRenderer m_bodySprite;
     private SpriteRenderer m_headSprite;
     private SpriteRenderer m_handLeftSprite;
     private SpriteRenderer m_handRightSprite;
+    private SpriteRenderer m_fistRightSprite;
     private SpriteRenderer m_legLeftSprite;
     private SpriteRenderer m_legRightSprite;
+    private SpriteRenderer m_fistLeftSprite;
 
     public Color TintColor
     {
@@ -66,8 +71,10 @@ public class Suicider : MonoBehaviour
             m_headSprite.sortingOrder = value + 2;
             m_handLeftSprite.sortingOrder = value + 1;
             m_handRightSprite.sortingOrder = value + 1;
+            m_fistRightSprite.sortingOrder = value + 1;
             m_legLeftSprite.sortingOrder = value + 1;
             m_legRightSprite.sortingOrder = value + 1;
+            m_fistLeftSprite.sortingOrder = value + 1;
         }
     }
 
@@ -80,6 +87,34 @@ public class Suicider : MonoBehaviour
     public void Initialize(Water water)
     {
         Water = water;
+    }
+
+    public void SetHealthBarVisible(bool visible)
+    {
+        if (visible)
+        {
+            if (m_healthBar != null)
+                return;
+
+            m_healthBar = HealthBarPool.Instance.Get();
+            UptadeHealthBarPosition();
+        }
+        else
+        {
+            if (m_healthBar == null)
+                return;
+
+            m_healthBar.gameObject.SetActive(false);
+            m_healthBar = null;
+        }
+    }
+
+    public void SetHealthValue(float health)
+    {
+        if (m_healthBar == null)
+            return;
+
+        m_healthBar.SetHealth(health);
     }
 
     public void Destroy()
@@ -108,10 +143,25 @@ public class Suicider : MonoBehaviour
         m_headSprite = transform.Find("Head").GetComponent<SpriteRenderer>();
         m_handLeftSprite = transform.parent.Find("HandLeftPivot/HandLeft").GetComponent<SpriteRenderer>();
         m_handRightSprite = transform.parent.Find("HandRightPivot/HandRight").GetComponent<SpriteRenderer>();
+        m_fistRightSprite = transform.parent.Find("HandRightPivot/HandRight/SuiFist").GetComponent<SpriteRenderer>();
+        m_fistLeftSprite = transform.parent.Find("HandLeftPivot/HandLeft/SuiFist").GetComponent<SpriteRenderer>();
         m_legLeftSprite = transform.parent.Find("LegLeftPivot/LegLeft").GetComponent<SpriteRenderer>();
         m_legRightSprite = transform.parent.Find("LegRightPivot/LegRight").GetComponent<SpriteRenderer>();
 
         SetController(new SuiControllerIdleTest(this));
+    }
+
+    void Update()
+    {
+        UptadeHealthBarPosition();
+    }
+
+    private void UptadeHealthBarPosition()
+    {
+        if (m_healthBar != null)
+        {
+            m_healthBar.transform.OverlayPosition(m_healthBarPosition);
+        }
     }
 
     void FixedUpdate()

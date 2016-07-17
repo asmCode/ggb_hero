@@ -37,11 +37,15 @@ public class SuiControllerSinking : SuiController
 
         sui.Dude.SetBobyPartsKinematic(true);
         sui.DudeAnimator.Sink();
+        m_sui.SetHealthBarVisible(true);
+        m_sui.SetHealthValue(1.0f);
     }
 
     public override void UpdateSui()
     {
         m_time += Time.deltaTime;
+
+        m_sui.SetHealthValue(1.0f - m_time / SinkinkTime);
 
         if (m_time < SinkinkTime)
             return;
@@ -64,6 +68,7 @@ public class SuiControllerSinking : SuiController
             return;
         }
 
+        m_sui.SetHealthBarVisible(false);
         Suiciders.Remove(m_sui);
     }
 }
