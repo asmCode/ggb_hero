@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GameAnalyticsSDK;
 
 public class Gameplay : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class Gameplay : MonoBehaviour
 
     private void M_superheroController_Started()
     {
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Waves", 0);
+
         m_beforeStartFade.SetActive(false);
         m_beforeStartTutorial.SetActive(false);
         Invoke("StartGame", 0.6f);
@@ -134,6 +137,9 @@ public class Gameplay : MonoBehaviour
 
     void EndRound()
     {
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Waves", GameSettings.SuiRescuedCount);
+        GameAnalytics.NewDesignEvent("WavesCompleted", m_waveNumber);
+
         DestroySuperhero();
         DestroySuiciders();
 

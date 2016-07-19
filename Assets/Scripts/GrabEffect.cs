@@ -19,7 +19,6 @@ public class GrabEffect : MonoBehaviour
 
     private void HandleAnimationEnded()
     {
-        Debug.Log("Animation Ended");
         gameObject.SetActive(false);
     }
 }
