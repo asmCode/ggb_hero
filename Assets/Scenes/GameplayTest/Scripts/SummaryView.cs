@@ -6,6 +6,7 @@ public class SummaryView : MonoBehaviour
 {
     public UILabel m_rescuedValue;
     public UILabel m_recordValue;
+    public GameObject m_continueButton;
 
     public void Show()
     {
@@ -17,6 +18,13 @@ public class SummaryView : MonoBehaviour
             PlayerPrefs.SetInt("record", record);
         }
         m_recordValue.text = record.ToString();
+
+        NGUITools.SetActive(m_continueButton.gameObject, RewardedAds.IsReady());
+    }
+
+    public void HandleContinueClicked()
+    {
+        RewardedAds.Play(null);
     }
 
     public void HandleRestartClicked()
