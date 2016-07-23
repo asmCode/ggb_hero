@@ -18,7 +18,10 @@ public class GGHeroGame : MonoBehaviour
 #else
         Debug.Log("Creating VungleAdaper");
         Vungle.init("578f0a3200e14959060000bb", "578f0a0be024f26c23000093");
-        RewardedAds.Add(new VungleAdaper());
+        RewardedAds.GetInstance().Add(new VungleAdaper());
+
+        Debug.Log("Creating UnityAdaper");
+        RewardedAds.GetInstance().Add(new UnityAdapter());
 #endif
     }
 }

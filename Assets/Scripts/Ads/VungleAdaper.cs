@@ -31,7 +31,7 @@ namespace Ssg.Ads
             {
                 System.Action<AdFinishedEventArgs> tmp_cb = m_currentAdFinishedCallback;
                 m_currentAdFinishedCallback = null;
-                tmp_cb(new AdFinishedEventArgs(obj.IsCompletedView ? AdFinishedEventArgs.ResultType.FullyWatched : AdFinishedEventArgs.ResultType.NotFullyWatched));
+                tmp_cb(new AdFinishedEventArgs(obj.IsCompletedView ? AdFinishedEventArgs.ResultType.FullyWatched : AdFinishedEventArgs.ResultType.Skipped));
             }
         }
     }

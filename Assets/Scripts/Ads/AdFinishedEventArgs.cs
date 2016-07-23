@@ -5,7 +5,7 @@
         public enum ResultType
         {
             FullyWatched,
-            NotFullyWatched,
+            Skipped,
             Error
         }
 
