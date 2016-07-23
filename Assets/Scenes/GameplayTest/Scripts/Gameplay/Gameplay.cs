@@ -129,7 +129,7 @@ public class Gameplay : MonoBehaviour
 
         UpdateGrabStats();
 
-        if (!m_isRoundEnded && GameSettings.SuiDeathsCount == GameSettings.SuiDeathsLimit)
+        if (!m_isRoundEnded && GameSettings.SuiDeathsCount >= GameSettings.SuiDeathsLimit)
         {
             EndRound();
         }
