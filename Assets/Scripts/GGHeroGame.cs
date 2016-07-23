@@ -9,6 +9,8 @@ public class GGHeroGame : MonoBehaviour
         InitRewardedAds();
     }
 
+
+
     private void InitRewardedAds()
     {
         Debug.Log("Initializing rewarded ads");
@@ -23,5 +25,17 @@ public class GGHeroGame : MonoBehaviour
         Debug.Log("Creating UnityAdaper");
         RewardedAds.GetInstance().Add(new UnityAdapter());
 #endif
+    }
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            Vungle.onPause();
+        }
+        else
+        {
+            Vungle.onResume();
+        }
     }
 }
