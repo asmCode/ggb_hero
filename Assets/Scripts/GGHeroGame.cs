@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Ssg.Ads;
 
 public class GGHeroGame : MonoBehaviour
 {
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         InitRewardedAds();
     }
 
     private void InitRewardedAds()
     {
-        Debug.Log("initializing vungle");
-        Vungle.setLogEnable(true);
+        Debug.Log("Initializing rewarded ads");
 #if UNITY_EDITOR
-        RewardedAds.Add(new UnityEditorAdsAdaper());
+        Debug.Log("Creating UnityEditorAdsAdaper");
+        RewardedAds.GetInstance().Add(new UnityEditorAdsAdaper());
 #else
-        Debug.Log("cyc");
+        Debug.Log("Creating VungleAdaper");
         Vungle.init("578f0a3200e14959060000bb", "578f0a0be024f26c23000093");
         RewardedAds.Add(new VungleAdaper());
 #endif

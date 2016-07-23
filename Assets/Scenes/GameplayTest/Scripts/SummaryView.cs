@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
+using Ssg.Ads;
 
 public class SummaryView : MonoBehaviour
 {
@@ -19,12 +19,12 @@ public class SummaryView : MonoBehaviour
         }
         m_recordValue.text = record.ToString();
 
-        NGUITools.SetActive(m_continueButton.gameObject, RewardedAds.IsReady());
+        NGUITools.SetActive(m_continueButton.gameObject, RewardedAds.GetInstance().IsReady());
     }
 
     public void HandleContinueClicked()
     {
-        RewardedAds.Play(null);
+        RewardedAds.GetInstance().Play(null);
     }
 
     public void HandleRestartClicked()
