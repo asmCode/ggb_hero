@@ -178,6 +178,8 @@ public class Gameplay : MonoBehaviour
 
     public void ContinueWithAd()
     {
+        GameAnalytics.NewDesignEvent("ContinueWithAd", GameSettings.SuiRescuedCount);
+
         RewardedAds.GetInstance().Play((args) =>
         {
             if (args.Result == Ssg.Ads.AdFinishedEventArgs.ResultType.FullyWatched)
