@@ -47,6 +47,14 @@ public class Gameplay : MonoBehaviour
         m_pauseView.Gameplay = this;
     }
 
+    private void OnApplicationPause(bool paused)
+    {
+        if (m_state == null && !m_beforeStartTutorial.activeSelf)
+        {
+            Pause();
+        }
+    }
+
     private void M_superheroController_Started()
     {
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Waves", 0);
