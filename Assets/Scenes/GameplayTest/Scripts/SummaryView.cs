@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using Ssg.Ads;
 
 public class SummaryView : MonoBehaviour
@@ -7,6 +6,9 @@ public class SummaryView : MonoBehaviour
     public UILabel m_rescuedValue;
     public UILabel m_recordValue;
     public GameObject m_continueButton;
+
+    public event System.Action ContinueClicked;
+    public event System.Action PlayAgainClicked;
 
     public void Show()
     {
@@ -24,12 +26,17 @@ public class SummaryView : MonoBehaviour
 
     public void HandleContinueClicked()
     {
-        RewardedAds.GetInstance().Play(null);
+        if (ContinueClicked != null)
+        {
+            ContinueClicked();
+        }
     }
 
     public void HandleRestartClicked()
     {
-        GameSettings.Restart();
-        SceneManager.LoadScene("GameplayTest");
+        if (PlayAgainClicked != null)
+        {
+            PlayAgainClicked();
+        }
     }
 }

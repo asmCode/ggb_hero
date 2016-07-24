@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 using GameAnalyticsSDK;
+using Ssg.Ads;
 
 public class Gameplay : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Gameplay : MonoBehaviour
     public GameObject m_beforeStartFade;
     public GameObject m_beforeStartTutorial;
 
+    private GameplayState m_state;
     private float start_time = 0.0f;
     private bool m_isRoundEnded = false;
 
@@ -36,6 +38,9 @@ public class Gameplay : MonoBehaviour
     {
         NGUITools.SetActive(m_summaryView.gameObject, false);
         m_superheroController.Started += M_superheroController_Started;
+
+        m_summaryView.ContinueClicked += () => { ContinueWithAd(); };
+        m_summaryView.PlayAgainClicked += () => { PlayAgain(); };
     }
 
     private void M_superheroController_Started()
@@ -97,10 +102,19 @@ public class Gameplay : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-            Time.timeScale = 5.0f;
-        else
-            Time.timeScale = 1.0f;
+        if (Time.timeScale != 0.0f)
+        {
+            if (Input.GetKey(KeyCode.Space))
+                Time.timeScale = 5.0f;
+            else
+                Time.timeScale = 1.0f;
+        }
+
+        if (m_state != null)
+        {
+            m_state.Update();
+            return;
+        }
 
         if (m_isRoundEnded)
             return;
@@ -108,6 +122,13 @@ public class Gameplay : MonoBehaviour
         m_suiManager.m_suiGenerator.SuicidersDelay = CalculateSuiDelay(m_waveNumber, m_currentWaveTime);
 
         m_shoreArrows.gameObject.SetActive(m_superhero.GetHoldingSuis() > 0);
+
+        if (!m_isRoundEnded && GameSettings.SuiDeathsCount >= GameSettings.SuiDeathsLimit)
+        {
+            m_state = new GameplayStateSummary(this);
+            m_state.Enter();
+            return;
+        }
 
         m_currentWaveTime += Time.deltaTime;
         if (m_currentWaveTime >= m_currentWaveLength)
@@ -128,26 +149,67 @@ public class Gameplay : MonoBehaviour
         }
 
         UpdateGrabStats();
-
-        if (!m_isRoundEnded && GameSettings.SuiDeathsCount >= GameSettings.SuiDeathsLimit)
-        {
-            EndRound();
-        }
     }
 
-    void EndRound()
+    public void EndRound()
     {
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Waves", GameSettings.SuiRescuedCount);
         GameAnalytics.NewDesignEvent("WavesCompleted", m_waveNumber);
 
-        DestroySuperhero();
-        DestroySuiciders();
+        Time.timeScale = 0.0f;
 
         NGUITools.SetActive(m_summaryView.gameObject, true);
         m_summaryView.Show();
 
         NGUITools.SetActive(m_waveIndicator.gameObject, false);
         m_isRoundEnded = true;
+    }
+
+    public void PlayAgain()
+    {
+        Time.timeScale = 1.0f;
+
+        DestroySuperhero();
+        DestroySuiciders();
+
+        GameSettings.Restart();
+        SceneManager.LoadScene("GameplayTest");
+    }
+
+    public void ContinueWithAd()
+    {
+        RewardedAds.GetInstance().Play((args) =>
+        {
+            if (args.Result == Ssg.Ads.AdFinishedEventArgs.ResultType.FullyWatched)
+            {
+                Continue();
+            }
+        });
+    }
+
+    public void Continue()
+    {
+        m_isRoundEnded = false;
+        m_state = null;
+
+        DestroyFallingAndSinkingSuis();
+
+        NGUITools.SetActive(m_summaryView.gameObject, false);
+        GameSettings.SuiDeathsCount = 0;
+        Time.timeScale = 1.0f;
+    }
+
+    private void DestroyFallingAndSinkingSuis()
+    {
+        while (SuiControllerFalling.Suiciders.Count > 0)
+        {
+            SuiControllerFalling.Suiciders[0].Destroy();
+        }
+
+        while (SuiControllerSinking.Suiciders.Count > 0)
+        {
+            SuiControllerSinking.Suiciders[0].Destroy();
+        }
     }
 
     void DestroySuperhero()
