@@ -5,10 +5,12 @@ using Ssg.Ads;
 
 public class Gameplay : MonoBehaviour
 {
+    public GameObject m_pauseButton;
     public Superhero m_superhero;
     public SuperheroControllerFlappy m_superheroController;
     public SuiManager m_suiManager;
     public SummaryView m_summaryView;
+    public PauseView m_pauseView;
     public GrabPanel m_grabPanel;
     public WaveIndicator m_waveIndicator;
     public Transform m_shoreArrows;
@@ -41,6 +43,8 @@ public class Gameplay : MonoBehaviour
 
         m_summaryView.ContinueClicked += () => { ContinueWithAd(); };
         m_summaryView.PlayAgainClicked += () => { PlayAgain(); };
+
+        m_pauseView.Gameplay = this;
     }
 
     private void M_superheroController_Started()
@@ -49,6 +53,7 @@ public class Gameplay : MonoBehaviour
 
         m_beforeStartFade.SetActive(false);
         m_beforeStartTutorial.SetActive(false);
+        NGUITools.SetActive(m_pauseButton.gameObject, true);
         Invoke("StartGame", 0.6f);
     }
 
@@ -75,6 +80,12 @@ public class Gameplay : MonoBehaviour
 
         m_currentWaveLength = GetWaveLength(m_waveNumber);
         m_waitingForNextWave = true;
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0.0f;
+        NGUITools.SetActive(m_pauseView.gameObject, true);
     }
 
     void NextWave()
@@ -163,6 +174,8 @@ public class Gameplay : MonoBehaviour
 
         NGUITools.SetActive(m_waveIndicator.gameObject, false);
         m_isRoundEnded = true;
+
+        NGUITools.SetActive(m_pauseButton.gameObject, false);
     }
 
     public void PlayAgain()
@@ -197,6 +210,7 @@ public class Gameplay : MonoBehaviour
         DestroyFallingAndSinkingSuis();
 
         NGUITools.SetActive(m_summaryView.gameObject, false);
+        NGUITools.SetActive(m_pauseButton.gameObject, true);
         GameSettings.SuiDeathsCount = 0;
         Time.timeScale = 1.0f;
     }
