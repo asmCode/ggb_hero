@@ -43,8 +43,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 324aa4d1a09dec04b96ae1a8e4ef16e1, type: 2}
   mSprites:
   - name: HealthBar
-    x: 179
-    y: 252
+    x: 129
+    y: 153
     width: 30
     height: 4
     borderLeft: 0
@@ -56,8 +56,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: HealthBarFill
-    x: 173
-    y: 235
+    x: 162
+    y: 198
     width: 4
     height: 4
     borderLeft: 1
@@ -68,9 +68,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 2
     paddingBottom: 2
+  - name: icon_tv
+    x: 129
+    y: 208
+    width: 43
+    height: 48
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: stick
     x: 129
-    y: 224
+    y: 175
     width: 32
     height: 32
     borderLeft: 0
@@ -96,7 +109,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: SuperheroHand
     x: 162
-    y: 235
+    y: 203
     width: 10
     height: 4
     borderLeft: 0
@@ -108,8 +121,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: white_rect
-    x: 162
-    y: 240
+    x: 129
+    y: 158
     width: 16
     height: 16
     borderLeft: 7
@@ -121,8 +134,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: WhitePixel
-    x: 162
-    y: 233
+    x: 167
+    y: 201
     width: 1
     height: 1
     borderLeft: 0
