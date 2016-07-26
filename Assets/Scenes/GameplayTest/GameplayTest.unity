@@ -2327,7 +2327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 2}
@@ -6064,7 +6064,7 @@ MonoBehaviour:
   m_waterStripPrefab: {fileID: 11400842, guid: 5c02ebf4e42f76944bbf82d60fee976e, type: 2}
   m_waterSplashPrefab: {fileID: 0}
   m_waterStripContainer: {fileID: 1481576706}
-  m_color: {r: 0.17306443, g: 0.17306443, b: 0.71323526, a: 1}
+  m_color: {r: 0.13408302, g: 0.13408302, b: 0.58823526, a: 1}
   m_waterStripWidth: 0.06
   m_sortingOrder: 200
   m_springDampingRatio: 0.2
@@ -10990,7 +10990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1723293355
 Transform:
   m_ObjectHideFlags: 0
