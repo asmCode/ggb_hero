@@ -16,6 +16,7 @@ public class Gameplay : MonoBehaviour
     public Transform m_shoreArrows;
     public GameObject m_beforeStartFade;
     public GameObject m_beforeStartTutorial;
+    public GameObject m_swimmingTutorial;
 
     private GameplayState m_state;
     private float start_time = 0.0f;
@@ -137,6 +138,15 @@ public class Gameplay : MonoBehaviour
 
         if (m_isRoundEnded)
             return;
+
+        if (m_superhero.IsOnWater && !m_superhero.IsSwimming)
+        {
+            NGUITools.SetActive(m_swimmingTutorial, true);
+        }
+        else
+        {
+            NGUITools.SetActive(m_swimmingTutorial, false);
+        }
 
         m_suiManager.m_suiGenerator.SuicidersDelay = CalculateSuiDelay(m_waveNumber, m_currentWaveTime);
 

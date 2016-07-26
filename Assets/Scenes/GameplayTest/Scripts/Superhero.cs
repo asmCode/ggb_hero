@@ -20,6 +20,11 @@ public class Superhero : MonoBehaviour
         private set;
     }
 
+    public bool IsSwimming
+    {
+        get { return m_isPLayingSwimmAnim && Velocity.x != 0.0f; }
+    }
+
     public Vector2 Velocity
     {
         get;

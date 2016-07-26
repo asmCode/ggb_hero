@@ -6215,6 +6215,73 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!1 &1049940437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1049940438}
+  - 114: {fileID: 1049940439}
+  m_Layer: 9
+  m_Name: SwimmingTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1049940438
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049940437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1342658073}
+  m_Father: {fileID: 1414513429}
+  m_RootOrder: 6
+--- !u!114 &1049940439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049940437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858a20c1b21a3f94bb5b2d3b901c9aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 2029426326}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 2029426326}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 2029426326}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 2029426326}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 1280
+  mHeight: 720
+  mDepth: 17
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1.7777778
 --- !u!1 &1054677090
 GameObject:
   m_ObjectHideFlags: 0
@@ -7000,7 +7067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1195712897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7758,6 +7825,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 659491989}
   m_RootOrder: 0
+--- !u!1 &1342658072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1342658073}
+  - 114: {fileID: 1342658074}
+  m_Layer: 9
+  m_Name: Label
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1342658073
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1342658072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -344, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1049940438}
+  m_RootOrder: 0
+--- !u!114 &1342658074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1342658072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 1259058862}
+    relative: 0.5
+    absolute: -320
+  rightAnchor:
+    target: {fileID: 1259058862}
+    relative: 0.5
+    absolute: 320
+  bottomAnchor:
+    target: {fileID: 1259058862}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 1259058862}
+    relative: 0
+    absolute: 32
+  updateAnchors: 1
+  mColor: {r: 0.3897059, g: 0.3897059, b: 0.3897059, a: 1}
+  mPivot: 4
+  mWidth: 640
+  mHeight: 32
+  mDepth: 12
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 20
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mFont: {fileID: 0}
+  mText: TAP  AND  HOLD  TO  SWIM
+  mFontSize: 28
+  mFontStyle: 0
+  mAlignment: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 0
+  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 0
+  mMaterial: {fileID: 0}
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mUseFloatSpacing: 0
+  mFloatSpacingX: 0
+  mFloatSpacingY: 0
+  mOverflowEllipsis: 0
+  mOverflowWidth: 0
+  mModifier: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &1347213259
 GameObject:
   m_ObjectHideFlags: 0
@@ -8497,6 +8661,7 @@ Transform:
   - {fileID: 1463454872}
   - {fileID: 1259058862}
   - {fileID: 840739819}
+  - {fileID: 1049940438}
   m_Father: {fileID: 2029426326}
   m_RootOrder: 0
 --- !u!114 &1414513430
@@ -8772,6 +8937,7 @@ MonoBehaviour:
   m_shoreArrows: {fileID: 1932769009}
   m_beforeStartFade: {fileID: 1195712896}
   m_beforeStartTutorial: {fileID: 1259058861}
+  m_swimmingTutorial: {fileID: 1049940437}
 --- !u!4 &1436093241
 Transform:
   m_ObjectHideFlags: 0
