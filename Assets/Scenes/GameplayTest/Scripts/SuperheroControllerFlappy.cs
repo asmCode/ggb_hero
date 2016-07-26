@@ -121,6 +121,10 @@ public class SuperheroControllerFlappy : MonoBehaviour
         {
             Vector2 gravity = BaseGravity;
             gravity.y -= GameSettings.GravityPerSuicider * m_superhero.GetHoldingSuis();
+            if (m_superhero.GetHoldingSuis() >= 4)
+            {
+                gravity.y *= 1.4f;
+            }
             m_superhero.Velocity = m_superhero.Velocity + gravity * Time.deltaTime;
         }
     }

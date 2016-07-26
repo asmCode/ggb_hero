@@ -54,7 +54,7 @@ public class GameSettings
 
     public static void Restart()
     {
-        HandCapacity = 3;
+        HandCapacity = 10;
         GravityPerSuicider = 2.5f;
         SuiDeathsLimit = 3;
         SuiDeathsCount = 0;

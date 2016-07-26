@@ -302,7 +302,7 @@ public class Gameplay : MonoBehaviour
         CalcGrabStats(GameSettings.SuiRescuedCount, out grabCapacity, out suiSaved, out suiGoal);
 
         m_grabPanel.SetGrabCapacity(grabCapacity);
-        GameSettings.HandCapacity = grabCapacity;
+        //GameSettings.HandCapacity = grabCapacity;
 
         if (suiGoal > 0)
         {
@@ -319,7 +319,7 @@ public class Gameplay : MonoBehaviour
         //    Debug.LogFormat("{0}: cap: {1}, {2}/{3}", i, grabCapacity, suiSaved, suiGoal);
         //}
 
-        GameSettings.HandCapacity = 3;
+        //HandCapacityGameSettings.HandCapacity = 3;
     }
 
     private void CalcGrabStats(int totalSuiRescued, out int grabCapacity, out int suiSaved, out int suiGoal)
