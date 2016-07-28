@@ -92,14 +92,14 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.semiseriousgames.gghero
-  bundleVersion: 1.0.12
+  bundleVersion: 1.0.14
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: 997715a5c4160fc4eba0ee99e3516189
-  AndroidBundleVersionCode: 13
+  AndroidBundleVersionCode: 15
   AndroidMinSdkVersion: 15
   AndroidPreferredInstallLocation: 1
   aotOptions: 

@@ -5,11 +5,11 @@ using System;
 public class DudeAnimator : MonoBehaviour
 {
     #region Transform
-    public Transform m_bodyPivot;
-    public Transform m_handPivotLeft;
-    public Transform m_handPivotRight;
-    public Transform m_legPivotLeft;
-    public Transform m_legPivotRight;
+    public BodyPartPivot m_bodyPivot;
+    public BodyPartPivot m_handPivotLeft;
+    public BodyPartPivot m_handPivotRight;
+    public BodyPartPivot m_legPivotLeft;
+    public BodyPartPivot m_legPivotRight;
     #endregion
 
     private float m_bodyAngle;
@@ -42,7 +42,7 @@ public class DudeAnimator : MonoBehaviour
     {
         m_clip = null;
     }
-
+    
     public void Swim()
     {
         SetupPivots();
@@ -95,14 +95,14 @@ public class DudeAnimator : MonoBehaviour
         Smooth(ref m_legRightAngle, LegRightAngleTarget, ref m_legRightAngleSpeed, m_legPivotRight);
     }
 
-    private void Smooth(ref float angle, float angleTarget, ref float speed, Transform tr)
+    private void Smooth(ref float angle, float angleTarget, ref float speed, BodyPartPivot tr)
     {
-        if (!tr.GetChild(0).GetComponent<Rigidbody2D>().isKinematic)
+        if (!tr.BodyPart.Rigidbody.isKinematic)
             return;
 
         float smoothTime = 0.05f;
         angle = Mathf.SmoothDampAngle(angle, angleTarget, ref speed, smoothTime);
-        tr.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        tr.transform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     public void SetupPivots()
@@ -114,24 +114,28 @@ public class DudeAnimator : MonoBehaviour
         SetupPivot(m_legPivotRight, out m_legRightAngle);
     }
 
-    private static void SetupPivot(Transform pivot, out float angle)
+    private static void SetupPivot(BodyPartPivot pivot, out float angle)
     {
-        Transform bodyPart = pivot.GetChild(0);
-        if (!bodyPart.GetComponent<Rigidbody2D>().isKinematic)
+        if (pivot == null || pivot.BodyPart == null)
+        {
+            int e = 0;
+        }
+        BodyPart bodyPart = pivot.BodyPart;
+        if (!bodyPart.Rigidbody.isKinematic)
         {
             angle = 0.0f;
             return;
         }
-        Transform childPivot = bodyPart.FindChild("ChildPivot");
-        Vector3 pos = bodyPart.position;
-        Quaternion rot = bodyPart.rotation;
-        pivot.position = childPivot.position;
-        pivot.rotation = childPivot.rotation;
-        bodyPart.position = pos;
-        bodyPart.rotation = rot;
+        Transform childPivot = bodyPart.ChildPivot;
+        Vector3 pos = bodyPart.transform.position;
+        Quaternion rot = bodyPart.transform.rotation;
+        pivot.transform.position = childPivot.position;
+        pivot.transform.rotation = childPivot.rotation;
+        bodyPart.transform.position = pos;
+        bodyPart.transform.rotation = rot;
 
-        angle = Vector2.Angle(Vector2.right, pivot.right);
-        if (pivot.right.y < 0.0f)
+        angle = Vector2.Angle(Vector2.right, pivot.transform.right);
+        if (pivot.transform.right.y < 0.0f)
             angle = -angle;
     }
 }

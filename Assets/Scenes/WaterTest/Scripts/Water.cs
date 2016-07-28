@@ -22,6 +22,8 @@ public class Water : MonoBehaviour
     private InspectorValue<float> m_springFrequencyWrap;
     private InspectorValue<int> m_constantImpulsesCountWrap;
 
+    private float[] m_currentHeights;
+
     private List<WaterStrip> m_waterStrips = new List<WaterStrip>();
     private List<WaterImpulse> m_waterImpulses = new List<WaterImpulse>();
 
@@ -47,11 +49,15 @@ public class Water : MonoBehaviour
             m_waterStrips.Add(waterStrip);
         }
 
+        m_currentHeights = new float[m_waterStrips.Count];
+
         CreateConstantImpulses();
     }
 
     public int GetWaterStripIndex(float horiCoord)
     {
+        if (m_waterStrips == null || m_waterStrips.Count == 0)
+            return -1;
         float min = m_waterStrips[0].transform.position.x;
         float max = m_waterStrips[m_waterStrips.Count - 1].transform.position.x;
         horiCoord = Mathf.Clamp(horiCoord, min, max);
@@ -142,10 +148,9 @@ public class Water : MonoBehaviour
         //    return;
         //}
 
-        float[] currentHeights = new float[m_waterStrips.Count];
         for (int i = 0; i < m_waterStrips.Count; i++)
         {
-            currentHeights[i] = m_waterStrips[i].transform.position.y;
+            m_currentHeights[i] = m_waterStrips[i].transform.position.y;
         }
 
         float nWage = 0.2f;
@@ -158,18 +163,18 @@ public class Water : MonoBehaviour
 
             if (i == 0)
             {
-                position.y = currentHeights[0] * c1Wage + currentHeights[1] * nWage;
+                position.y = m_currentHeights[0] * c1Wage + m_currentHeights[1] * nWage;
             }
             else if (i == m_waterStrips.Count - 1)
             {
-                position.y = currentHeights[m_waterStrips.Count - 2] * nWage + currentHeights[m_waterStrips.Count - 1] * c1Wage;
+                position.y = m_currentHeights[m_waterStrips.Count - 2] * nWage + m_currentHeights[m_waterStrips.Count - 1] * c1Wage;
             }
             else
             {
                 position.y =
-                    nWage * currentHeights[i - 1] +
-                    c2Wage * currentHeights[i] +
-                    nWage * currentHeights[i + 1];
+                    nWage * m_currentHeights[i - 1] +
+                    c2Wage * m_currentHeights[i] +
+                    nWage * m_currentHeights[i + 1];
             }
 
             m_waterStrips[i].transform.position = position;
