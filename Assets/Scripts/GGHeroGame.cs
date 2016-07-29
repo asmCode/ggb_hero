@@ -3,10 +3,18 @@ using Ssg.Ads;
 
 public class GGHeroGame : MonoBehaviour
 {
+    static bool m_isInitialized = false;
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (m_isInitialized)
+        {
+            return;
+        }
+
         InitRewardedAds();
+
+        m_isInitialized = true;
     }
 
 

@@ -9862,7 +9862,6 @@ GameObject:
   - 114: {fileID: 1570926631}
   - 114: {fileID: 1570926630}
   - 58: {fileID: 1570926629}
-  - 255: {fileID: 1570926632}
   - 114: {fileID: 1570926633}
   - 114: {fileID: 1570926634}
   m_Layer: 0
@@ -9979,23 +9978,6 @@ MonoBehaviour:
   - {fileID: 1673328414}
   - {fileID: 606755802}
   m_plugs: []
---- !u!255 &1570926632
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1570926625}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_DampingRatio: 0
-  m_Frequency: 0
 --- !u!114 &1570926633
 MonoBehaviour:
   m_ObjectHideFlags: 0
