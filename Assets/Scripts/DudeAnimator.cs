@@ -116,10 +116,6 @@ public class DudeAnimator : MonoBehaviour
 
     private static void SetupPivot(BodyPartPivot pivot, out float angle)
     {
-        if (pivot == null || pivot.BodyPart == null)
-        {
-            int e = 0;
-        }
         BodyPart bodyPart = pivot.BodyPart;
         if (!bodyPart.Rigidbody.isKinematic)
         {
