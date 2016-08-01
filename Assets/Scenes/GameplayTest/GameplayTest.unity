@@ -5496,6 +5496,8 @@ Transform:
   - {fileID: 1669407655}
   - {fileID: 1784883571}
   - {fileID: 2013618254}
+  - {fileID: 1930795054}
+  - {fileID: 997286195}
   m_Father: {fileID: 0}
   m_RootOrder: 11
 --- !u!1 &893012173
@@ -5876,6 +5878,49 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &997286194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 997286195}
+  - 114: {fileID: 997286196}
+  m_Layer: 0
+  m_Name: SuiciderPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997286195
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997286194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 888066280}
+  m_RootOrder: 6
+--- !u!114 &997286196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997286194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51318620f439b04f91729afb1a9d272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_prefab: {fileID: 11448840, guid: bb3889884597cd74a920cda42dd548c7, type: 2}
+  m_count: 40
+  m_container: {fileID: 1930795054}
 --- !u!1 &1007620634
 GameObject:
   m_ObjectHideFlags: 0
@@ -11582,7 +11627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda0648fd56d4ea49869db6d19966cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_suiciderPrefab: {fileID: 127028, guid: bb3889884597cd74a920cda42dd548c7, type: 2}
+  m_suiciderPool: {fileID: 997286196}
   m_jumpArea: {fileID: 1770031651}
   m_bridgeHeight: {fileID: 1669407655}
   m_spawnPoint: {fileID: 1784883571}
@@ -11836,6 +11881,34 @@ MonoBehaviour:
   mAtlas: {fileID: 11400838, guid: 70886dd22d78de04f86d628ad587f40e, type: 2}
   mSpriteName: white_rect
   mFillCenter: 1
+--- !u!1 &1930795053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1930795054}
+  m_Layer: 0
+  m_Name: SuiciderContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1930795054
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1930795053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 888066280}
+  m_RootOrder: 5
 --- !u!1 &1932769008
 GameObject:
   m_ObjectHideFlags: 0

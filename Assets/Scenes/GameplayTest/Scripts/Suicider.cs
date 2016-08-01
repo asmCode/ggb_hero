@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Suicider : MonoBehaviour
 {
+    public SuiciderRoot m_root;
     public Transform m_healthBarPosition;
-
+    
     private HealthBar m_healthBar;
     private Rigidbody2D m_rigibody;
     private SpriteRenderer m_bodySprite;
@@ -122,7 +123,7 @@ public class Suicider : MonoBehaviour
         // This will force to call SuiController.Leaving();
         SetController(null);
 
-        Object.Destroy(transform.parent.parent.gameObject);
+        m_root.gameObject.SetActive(false);
     }
 
     public void SetController(SuiController suiController)

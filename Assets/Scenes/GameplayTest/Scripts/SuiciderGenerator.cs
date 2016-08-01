@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SuiciderGenerator : MonoBehaviour
 {
-    public GameObject m_suiciderPrefab;
+    public SuiciderPool m_suiciderPool;
     public RectBounds m_jumpArea;
     public Transform m_bridgeHeight;
     public Transform m_spawnPoint;
@@ -74,11 +74,12 @@ public class SuiciderGenerator : MonoBehaviour
     private void GenerateSuicider(float xCoord, float direction)
     {
         Vector3 initialPosition = new Vector3(xCoord, BridgeHeight, 0.0f);
-        GameObject suiciderGroup = (GameObject)Instantiate(m_suiciderPrefab, initialPosition, Quaternion.identity);
-        Transform suiciderBody = suiciderGroup.transform.Find("BodyPivot/Body");
-        Suicider suicider = suiciderBody.GetComponent<Suicider>();
+        SuiciderRoot suiciderRoot = m_suiciderPool.Get();
+        suiciderRoot.transform.position = initialPosition;
+        Suicider suicider = suiciderRoot.Suicider;
         suicider.TintColor = ColorPalette.GetRandomColor();
         suicider.Initialize(m_water);
+        suicider.SortOrder = 21;
         suicider.SetController(new SuiControllerWalkOnBridge(suicider, initialPosition, direction, m_bridgeWalkArea));
     }
 
