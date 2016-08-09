@@ -52,7 +52,7 @@ public class SuiControllerFalling : SuiController
         if (m_sui.transform.position.y <= m_sui.Water.GetWaterHeight(m_waterStripIndex))
         {
             m_sui.SetController(new SuiControllerSinking(m_sui));
-            m_sui.Water.Impulse(m_waterStripIndex, m_fallingSpeed * 3.0f);
+            m_sui.Water.Impulse(m_waterStripIndex, m_fallingSpeed * 8.0f);
         }
     }
 

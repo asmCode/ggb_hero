@@ -65,11 +65,9 @@ public class Superhero : MonoBehaviour
             IsOnWater = false;
         }
 
-        Vector2 position;
+        Vector2 position = transform.position;
         float waterHeight;
         int waterStripIndex;
-
-        position = transform.position;
         Vector2 prevPosition = position;
 
         if (IsOnWater)
@@ -133,11 +131,11 @@ public class Superhero : MonoBehaviour
 
         waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
         waterHeight = m_water.GetWaterHeight(waterStripIndex);
-        
+
         if (position.y <= waterHeight && !IsOnWater)
         {
             IsOnWater = true;
-            m_water.Impulse(waterStripIndex, Velocity.magnitude * 0.4f);
+            m_water.Impulse(waterStripIndex, Velocity.magnitude * 0.8f);
             velocity.y = 0.0f;
             velocity.x = 0.0f;
         }
@@ -166,7 +164,7 @@ public class Superhero : MonoBehaviour
         }
 
         Velocity = velocity;
-        transform.position = position;
+        transform.position = new Vector3(position.x, position.y, -0.3f);
     }
 
     private void Update()

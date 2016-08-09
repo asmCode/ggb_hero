@@ -4,10 +4,11 @@ using System.Collections;
 public class WaterSplash : MonoBehaviour
 {
     private ParticleSystem m_particle;
-    private WaterStrip m_waterStrip;
+    //private WaterStrip m_waterStrip;
 
-    public void Splash(float speed, Vector2 direction, WaterStrip waterStrip)
+    public void Splash(float speed, Vector2 direction/*, WaterStrip waterStrip*/)
     {
+        /*
         m_waterStrip = waterStrip;
 
         Vector3 position = m_waterStrip.transform.position;
@@ -16,6 +17,7 @@ public class WaterSplash : MonoBehaviour
 
         m_particle.startSpeed = speed;
         m_particle.Play();
+        */
     }
 
     private void Awake()

@@ -155,6 +155,8 @@ public class Suicider : MonoBehaviour
     void Update()
     {
         UptadeHealthBarPosition();
+
+        SuiController.UpdateSui();
     }
 
     private void UptadeHealthBarPosition()
@@ -167,12 +169,15 @@ public class Suicider : MonoBehaviour
 
     void FixedUpdate()
     {
-        SuiController.UpdateSui();
     }
 
     void LateUpdate()
     {
         SuiController.LateUpdateSui();
+
+        Vector3 position = transform.position;
+        position.z = -0.3f;
+        transform.position = position;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
