@@ -8,16 +8,14 @@ public class GGHeroGame : MonoBehaviour
     private void Awake()
     {
         if (m_isInitialized)
-        {
             return;
-        }
 
         InitRewardedAds();
 
+        Application.targetFrameRate = 300;
+
         m_isInitialized = true;
     }
-
-
 
     private void InitRewardedAds()
     {
