@@ -38,9 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: SpritesBehindWater
-    uniqueID: 3504160409
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
