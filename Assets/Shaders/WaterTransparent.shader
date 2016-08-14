@@ -1,4 +1,4 @@
-﻿Shader "Unlit/Water"
+﻿Shader "Unlit/WaterTransparent"
 {
 	Properties
 	{
@@ -12,6 +12,9 @@
 
 			Pass
 			{
+				Blend SrcAlpha OneMinusSrcAlpha
+				ZWrite Off
+
 				CGPROGRAM
 				#pragma vertex vert
 				#pragma fragment frag

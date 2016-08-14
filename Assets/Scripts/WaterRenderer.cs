@@ -3,6 +3,7 @@ using System.Collections;
 
 public class WaterRenderer : MonoBehaviour
 {
+    public bool m_transparent = false;
     public Color m_colorTop;
     public Color m_colorBottom;
  
@@ -10,6 +11,7 @@ public class WaterRenderer : MonoBehaviour
     private MaterialPropertyBlock m_materialPropertyBlock;
     private Material m_material;
     private Mesh m_mesh;
+    private MeshRenderer m_meshRenderer;
 
     private float[] m_heights;
 
@@ -20,6 +22,10 @@ public class WaterRenderer : MonoBehaviour
 
     void Awake()
     {
+        m_meshRenderer = GetComponent<MeshRenderer>();
+        if (m_transparent)
+            GetComponent<MeshRenderer>().sortingLayerID = SortingLayer.NameToID("PixelWater");
+
         InitMesh();
         InitMaterial();
 
@@ -30,9 +36,13 @@ public class WaterRenderer : MonoBehaviour
 
     private void InitMaterial()
     {
-        m_material = new Material(Shader.Find("Unlit/Water"));
+        string shaderName = m_transparent ? "Unlit/WaterTransparent" : "Unlit/Water";
+
+        m_material = new Material(Shader.Find(shaderName));
         m_material.SetColor("_ColorTop", m_colorTop);
         m_material.SetColor("_ColorBottom", m_colorBottom);
+
+        m_meshRenderer.material = m_material;
     }
 
     private void InitMesh()
@@ -54,6 +64,9 @@ public class WaterRenderer : MonoBehaviour
         m_mesh = new Mesh();
         m_mesh.vertices = vertices;
         m_mesh.triangles = triangles;
+
+        GetComponent<MeshFilter>().mesh = m_mesh;
+
     }
 
     private void Update()
@@ -62,6 +75,8 @@ public class WaterRenderer : MonoBehaviour
             return;
 
         m_materialPropertyBlock.SetFloatArray(m_heightsUniformId, m_heights);
-        Graphics.DrawMesh(m_mesh, transform.localToWorldMatrix, m_material, 0, null, 0, m_materialPropertyBlock);
+        m_meshRenderer.SetPropertyBlock(m_materialPropertyBlock);
+
+        // Graphics.DrawMesh(m_mesh, transform.localToWorldMatrix, m_material, 0, null, 0, m_materialPropertyBlock);
     }
 }
