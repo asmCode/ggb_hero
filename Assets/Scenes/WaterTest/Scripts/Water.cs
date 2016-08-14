@@ -6,8 +6,6 @@ public class Water : MonoBehaviour
 {
     #region Inspector
     public int m_segmentsCount = 512;
-    public WaterSplash m_waterSplashPrefab;
-    public int m_sortingOrder = 0;
     public int m_constantImpulsesCount = 10;
     public Vector2 m_constantImpulsesSpeed = new Vector2(5, 15);
     public Vector2 m_constantImpulsesPower = new Vector2(0.1f, 0.4f);
@@ -45,7 +43,7 @@ public class Water : MonoBehaviour
         return height;
     }
 
-    public void Impulse(int stripIndex, float power)
+    public void Impulse(int stripIndex, float power, float xCoord)
     {
         WaterImpulse impulse = new WaterImpulse(m_segmentsCount, power, 40.0f, 0.04f, stripIndex - 1, -1);
         m_waterImpulses.Add(impulse);
@@ -53,16 +51,15 @@ public class Water : MonoBehaviour
         m_waterImpulses.Add(impulse);
         m_waterPhysics.AddSpeed(stripIndex, -power * 1.01f);
 
-        CreateSplash(power * 1.2f, stripIndex);
+        CreateSplash(power * 1.2f, stripIndex, xCoord);
     }
 
-    private void CreateSplash(float speed, int stripIndex)
+    private void CreateSplash(float speed, int stripIndex, float xCoord)
     {
-        /*
-        WaterStrip waterStrip = m_waterStrips[stripIndex];
-        WaterSplash splash = Instantiate(m_waterSplashPrefab);
-        splash.Splash(speed, Vector2.up, waterStrip);
-        */
+        WaterSplash splash = WaterSplashPool.Instance.Get();
+        if (splash == null)
+           return;
+        splash.Splash(speed * 0.5f, Vector2.up, GetWaterHeight(stripIndex), xCoord);
     }
 
     private void CreateConstantImpulses()

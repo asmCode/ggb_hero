@@ -41,7 +41,7 @@ public class test : MonoBehaviour
             if (waterHeight >= position.y - 0.01f)
             {
                 falling = false;
-                m_water.Impulse(m_waterStripIndex, 1.3f);
+                m_water.Impulse(m_waterStripIndex, 1.3f, 0.0f);
                 position.y = waterHeight;
             }
         }

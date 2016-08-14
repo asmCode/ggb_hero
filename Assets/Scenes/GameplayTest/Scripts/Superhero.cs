@@ -135,7 +135,7 @@ public class Superhero : MonoBehaviour
         if (position.y <= waterHeight && !IsOnWater)
         {
             IsOnWater = true;
-            m_water.Impulse(waterStripIndex, Velocity.magnitude * 0.8f);
+            m_water.Impulse(waterStripIndex, Mathf.Min(3.0f, Velocity.magnitude), position.x);
             velocity.y = 0.0f;
             velocity.x = 0.0f;
         }

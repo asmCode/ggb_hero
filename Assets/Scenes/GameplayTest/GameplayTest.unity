@@ -774,8 +774,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_segmentsCount: 512
-  m_waterSplashPrefab: {fileID: 0}
-  m_sortingOrder: 3
   m_constantImpulsesCount: 20
   m_constantImpulsesSpeed: {x: 5, y: 20}
   m_constantImpulsesPower: {x: 0.01, y: 0.02}
@@ -8578,8 +8576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_segmentsCount: 512
-  m_waterSplashPrefab: {fileID: 0}
-  m_sortingOrder: 3
   m_constantImpulsesCount: 10
   m_constantImpulsesSpeed: {x: 50, y: 150}
   m_constantImpulsesPower: {x: 0.2, y: 0.4}
@@ -9437,6 +9433,49 @@ MonoBehaviour:
   mAtlas: {fileID: 11400838, guid: 70886dd22d78de04f86d628ad587f40e, type: 2}
   mSpriteName: white_rect
   mFillCenter: 1
+--- !u!1 &1137667838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1137667840}
+  - 114: {fileID: 1137667839}
+  m_Layer: 0
+  m_Name: WaterSplashPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1137667839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137667838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: debb8c7e49b84574086d33f098289caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_prefab: {fileID: 11420152, guid: 5d2d1b82974e54c48965bb01523a8bb5, type: 2}
+  m_count: 10
+  m_container: {fileID: 1137667840}
+--- !u!4 &1137667840
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137667838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
 --- !u!1 &1142699380
 GameObject:
   m_ObjectHideFlags: 0
@@ -9810,7 +9849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1195712897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16717,8 +16756,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_segmentsCount: 512
-  m_waterSplashPrefab: {fileID: 0}
-  m_sortingOrder: 3
   m_constantImpulsesCount: 10
   m_constantImpulsesSpeed: {x: 20, y: 50}
   m_constantImpulsesPower: {x: 0.1, y: 0.3}
@@ -17129,8 +17166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_segmentsCount: 512
-  m_waterSplashPrefab: {fileID: 0}
-  m_sortingOrder: 3
   m_constantImpulsesCount: 10
   m_constantImpulsesSpeed: {x: 13, y: 30}
   m_constantImpulsesPower: {x: 0.05, y: 0.1}

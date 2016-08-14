@@ -4,20 +4,16 @@ using System.Collections;
 public class WaterSplash : MonoBehaviour
 {
     private ParticleSystem m_particle;
-    //private WaterStrip m_waterStrip;
 
-    public void Splash(float speed, Vector2 direction/*, WaterStrip waterStrip*/)
+    public void Splash(float speed, Vector2 direction, float height, float xCoord)
     {
-        /*
-        m_waterStrip = waterStrip;
-
-        Vector3 position = m_waterStrip.transform.position;
-        position.y = m_waterStrip.GetHeight() - 0.1f;
+        Vector3 position = transform.position;
+        position.y = height - 0.2f;
+        position.x = xCoord;
         transform.position = position;
 
         m_particle.startSpeed = speed;
         m_particle.Play();
-        */
     }
 
     private void Awake()
@@ -25,7 +21,7 @@ public class WaterSplash : MonoBehaviour
         m_particle = GetComponent<ParticleSystem>();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         //Vector3 position = m_waterStrip.transform.position;
         //position.y = m_waterStrip.GetHeight() - 1.0f;
@@ -33,7 +29,7 @@ public class WaterSplash : MonoBehaviour
   
         if (!m_particle.IsAlive())
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
