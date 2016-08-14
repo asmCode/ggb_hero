@@ -8,7 +8,7 @@ public class SuiControllerRescuing : SuiController
 
     public SuiControllerRescuing(Suicider sui, Vector2 destinationPosition) : base(sui)
     {
-        m_destinationPosition = destinationPosition + Random.insideUnitCircle * 0.1f;
+        m_destinationPosition = destinationPosition + Random.insideUnitCircle * 0.06f;
         sui.IsKinematic = true;
     }
 	
