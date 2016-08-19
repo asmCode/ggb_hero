@@ -2,11 +2,11 @@
 
 class FpsCounterView : MonoBehaviour
 {
-    public UILabel m_label;
-    public Color m_colorGood;
-    public Color m_colorAverage;
-    public Color m_colorBad;
-    public FpsCounter m_fpsCounter;
+    public UILabel m_label = null;
+    public Color m_colorGood = Color.white;
+    public Color m_colorAverage = Color.white;
+    public Color m_colorBad = Color.white;
+    public FpsCounter m_fpsCounter = null;
 
     private void Update()
     {
