@@ -50,7 +50,7 @@
 			fixed4 frag(v2f i) : SV_Target
 			{
 				float normalized_x_coord = i.position_base * 0.5 + 0.5;
-				int index = int(clamp(normalized_x_coord * float(SegmentsCount), 0, SegmentsCount));
+				int index = int(clamp(normalized_x_coord * float(SegmentsCount), 0, SegmentsCount - 1));
 				float height = _Heights[index];
 
 				fixed4 col = fixed4(0.2, 0.2, 1, 1);
