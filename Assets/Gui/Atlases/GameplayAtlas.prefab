@@ -43,8 +43,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 324aa4d1a09dec04b96ae1a8e4ef16e1, type: 2}
   mSprites:
   - name: HealthBar
-    x: 129
-    y: 153
+    x: 173
+    y: 252
     width: 30
     height: 4
     borderLeft: 0
@@ -120,6 +120,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: TextBubble
+    x: 129
+    y: 143
+    width: 14
+    height: 14
+    borderLeft: 6
+    borderRight: 6
+    borderTop: 6
+    borderBottom: 6
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: white_rect
     x: 129
     y: 158
@@ -138,6 +151,19 @@ MonoBehaviour:
     y: 201
     width: 1
     height: 1
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: WhiteRect16
+    x: 146
+    y: 158
+    width: 16
+    height: 16
     borderLeft: 0
     borderRight: 0
     borderTop: 0
