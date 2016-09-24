@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Water : MonoBehaviour
 {
     #region Inspector
-    public int m_segmentsCount = 512;
+    public int m_segmentsCount = 128;
     public int m_constantImpulsesCount = 10;
     public Vector2 m_constantImpulsesSpeed = new Vector2(5, 15);
     public Vector2 m_constantImpulsesPower = new Vector2(0.1f, 0.4f);

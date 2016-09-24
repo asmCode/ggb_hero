@@ -775,7 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba24468cd9cc7f49934e20e6ead4ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_segmentsCount: 512
+  m_segmentsCount: 128
   m_constantImpulsesCount: 20
   m_constantImpulsesSpeed: {x: 5, y: 20}
   m_constantImpulsesPower: {x: 0.01, y: 0.02}
@@ -8615,7 +8615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba24468cd9cc7f49934e20e6ead4ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_segmentsCount: 512
+  m_segmentsCount: 128
   m_constantImpulsesCount: 10
   m_constantImpulsesSpeed: {x: 50, y: 150}
   m_constantImpulsesPower: {x: 0.2, y: 0.4}
@@ -16875,7 +16875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba24468cd9cc7f49934e20e6ead4ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_segmentsCount: 512
+  m_segmentsCount: 128
   m_constantImpulsesCount: 10
   m_constantImpulsesSpeed: {x: 20, y: 50}
   m_constantImpulsesPower: {x: 0.1, y: 0.3}
@@ -17323,7 +17323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba24468cd9cc7f49934e20e6ead4ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_segmentsCount: 512
+  m_segmentsCount: 128
   m_constantImpulsesCount: 10
   m_constantImpulsesSpeed: {x: 13, y: 30}
   m_constantImpulsesPower: {x: 0.05, y: 0.1}
