@@ -42,9 +42,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 324aa4d1a09dec04b96ae1a8e4ef16e1, type: 2}
   mSprites:
+  - name: ButtonBg
+    x: 240
+    y: 241
+    width: 15
+    height: 15
+    borderLeft: 6
+    borderRight: 6
+    borderTop: 6
+    borderBottom: 6
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Frame
+    x: 129
+    y: 188
+    width: 66
+    height: 68
+    borderLeft: 30
+    borderRight: 32
+    borderTop: 32
+    borderBottom: 32
+    paddingLeft: 2
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 0
   - name: HealthBar
-    x: 173
-    y: 252
+    x: 195
+    y: 159
     width: 30
     height: 4
     borderLeft: 0
@@ -56,8 +82,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: HealthBarFill
-    x: 162
-    y: 198
+    x: 251
+    y: 221
     width: 4
     height: 4
     borderLeft: 1
@@ -69,7 +95,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: icon_tv
-    x: 129
+    x: 196
     y: 208
     width: 43
     height: 48
@@ -81,9 +107,61 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: LeaderboardIcon
+    x: 195
+    y: 164
+    width: 34
+    height: 23
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: PauseIcon
+    x: 129
+    y: 128
+    width: 26
+    height: 26
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: SpeakerCrossedIcon
+    x: 162
+    y: 160
+    width: 32
+    height: 27
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: SpeakerIcon
+    x: 162
+    y: 132
+    width: 32
+    height: 27
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: stick
     x: 129
-    y: 175
+    y: 155
     width: 32
     height: 32
     borderLeft: 0
@@ -108,8 +186,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: SuperheroHand
-    x: 162
-    y: 203
+    x: 240
+    y: 221
     width: 10
     height: 4
     borderLeft: 0
@@ -121,8 +199,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: TextBubble
-    x: 129
-    y: 143
+    x: 240
+    y: 226
     width: 14
     height: 14
     borderLeft: 6
@@ -134,8 +212,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: white_rect
-    x: 129
-    y: 158
+    x: 196
+    y: 191
     width: 16
     height: 16
     borderLeft: 7
@@ -147,8 +225,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: WhitePixel
-    x: 167
-    y: 201
+    x: 240
+    y: 219
     width: 1
     height: 1
     borderLeft: 0
@@ -160,8 +238,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: WhiteRect16
-    x: 146
-    y: 158
+    x: 213
+    y: 191
     width: 16
     height: 16
     borderLeft: 0

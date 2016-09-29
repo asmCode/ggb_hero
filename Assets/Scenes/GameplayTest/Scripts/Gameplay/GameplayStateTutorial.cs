@@ -6,6 +6,7 @@
 
     public override void Enter()
     {
+        Gameplay.SetHudVisible(false);
         Gameplay.SetTutorialVisible(true);
         Gameplay.m_superheroController.gameObject.SetActive(true);
         Gameplay.SetStartScreenVisible(false);
