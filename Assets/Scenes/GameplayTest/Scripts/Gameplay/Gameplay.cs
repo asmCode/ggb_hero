@@ -20,6 +20,7 @@ public class Gameplay : MonoBehaviour
     public GameObject m_swimmingTutorial;
     public GameObject m_startScreen;
     public GameObject m_hud;
+    public UILabel m_record;
 
     internal GameplayState m_state;
     internal float start_time = 0.0f;
@@ -38,6 +39,11 @@ public class Gameplay : MonoBehaviour
     private float GameplayTime
     {
         get { return Time.time - start_time; }
+    }
+
+    public void SetRecord(int record)
+    {
+        m_record.text = record.ToString();
     }
 
     public void ChangeState(GameplayState state)
