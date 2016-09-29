@@ -66,6 +66,7 @@ public class Gameplay : MonoBehaviour
         m_superheroController.gameObject.SetActive(false);
         SetTutorialVisible(false);
         SetHudVisible(false);
+        m_swimmingTutorial.gameObject.SetActive(false);
 
         ChangeState(new GameplayStateStart(this));
     }
