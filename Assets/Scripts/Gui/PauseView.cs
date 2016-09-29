@@ -32,12 +32,12 @@ public class PauseView : MonoBehaviour
 
     public void PlayAgainButtonPressed()
     {
-        Gameplay.PlayAgain();
+        Gameplay.RestartGame(false);
     }
 
     public void ExitToMenuButtonPressed()
     {
-        // TODO
+        Gameplay.RestartGame(true);
     }
 
     private void UpdateButtons()

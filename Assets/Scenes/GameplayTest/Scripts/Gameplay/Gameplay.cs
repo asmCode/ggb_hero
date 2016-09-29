@@ -5,6 +5,7 @@ using Ssg.Ads;
 
 public class Gameplay : MonoBehaviour
 {
+    static bool m_playAgain;
     public GameObject m_pauseButton;
     public Superhero m_superhero;
     public SuperheroControllerFlappy m_superheroController;
@@ -17,24 +18,66 @@ public class Gameplay : MonoBehaviour
     public GameObject m_beforeStartFade;
     public GameObject m_beforeStartTutorial;
     public GameObject m_swimmingTutorial;
+    public GameObject m_startScreen;
+    public GameObject m_hud;
 
-    private GameplayState m_state;
-    private float start_time = 0.0f;
-    private bool m_isRoundEnded = false;
+    internal GameplayState m_state;
+    internal float start_time = 0.0f;
+    internal bool m_isRoundEnded = false;
 
     //private int[] m_incGrabGoals = { 10, 30, 60, 100 };
     private int[] m_incGrabGoals = { 5, 15, 30, 60 };
     //private int m_incGrabCount = 0;
     //private int m_grabCount = 1;
 
-    private int m_waveNumber = 0;
-    private float m_currentWaveLength;
-    private float m_currentWaveTime;
-    private bool m_waitingForNextWave;
+    internal int m_waveNumber = 0;
+    internal float m_currentWaveLength;
+    internal float m_currentWaveTime;
+    internal bool m_waitingForNextWave;
 
     private float GameplayTime
     {
         get { return Time.time - start_time; }
+    }
+
+    public void ChangeState(GameplayState state)
+    {
+        if (m_state != null)
+        {
+            m_state.Leave();
+        }
+
+        m_state = state;
+
+        if (m_state != null)
+        {
+            m_state.Enter();
+        }
+    }
+
+    public void SetStartScreen()
+    {
+        m_superheroController.gameObject.SetActive(false);
+        SetTutorialVisible(false);
+        SetHudVisible(false);
+
+        ChangeState(new GameplayStateStart(this));
+    }
+
+    public void SetStartScreenVisible(bool visible)
+    {
+        NGUITools.SetActive(m_startScreen, visible);
+    }
+
+    public void SetTutorialVisible(bool visible)
+    {
+        m_beforeStartFade.SetActive(visible);
+        m_beforeStartTutorial.SetActive(visible);
+    }
+
+    public void SetHudVisible(bool visible)
+    {
+        NGUITools.SetActive(m_hud.gameObject, visible);
     }
 
     void Awake()
@@ -43,14 +86,14 @@ public class Gameplay : MonoBehaviour
         m_superheroController.Started += M_superheroController_Started;
 
         m_summaryView.ContinueClicked += () => { ContinueWithAd(); };
-        m_summaryView.PlayAgainClicked += () => { PlayAgain(); };
+        m_summaryView.PlayAgainClicked += () => { RestartGame(false); };
 
         m_pauseView.Gameplay = this;
     }
 
     private void OnApplicationPause(bool paused)
     {
-        if (m_state == null && !m_beforeStartTutorial.activeSelf)
+        if (paused && m_state != null && m_state.IsPauseable)
         {
             Pause();
         }
@@ -58,10 +101,10 @@ public class Gameplay : MonoBehaviour
 
     private void M_superheroController_Started()
     {
+        ChangeState(new GameplayStatePlay(this));
+
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Waves", 0);
 
-        m_beforeStartFade.SetActive(false);
-        m_beforeStartTutorial.SetActive(false);
         NGUITools.SetActive(m_pauseButton.gameObject, true);
         Invoke("StartGame", 0.6f);
     }
@@ -74,18 +117,16 @@ public class Gameplay : MonoBehaviour
 
     void Start()
     {
+        if (m_playAgain)
+        {
+            m_playAgain = false;
+            ChangeState(new GameplayStateTutorial(this));
+        }
+        else
+            SetStartScreen();
+
         start_time = Time.time;
         m_suiManager.m_suiGenerator.SuicidersDelay = GameSettings.SuiJumpDelayEasiest;
-
-        //for (int i = 0; i < 15; i++)
-        //{
-        //    Debug.LogFormat("=== WAVE {0}: Time {1}", i, GetWaveLength(i));
-
-        //    for (float t = 0.0f; t < GetWaveLength(i); t += 10.0f)
-        //    {
-        //        CalculateSuiDelay(i, t);
-        //    }
-        //}
 
         m_currentWaveLength = GetWaveLength(m_waveNumber);
         m_waitingForNextWave = true;
@@ -97,7 +138,7 @@ public class Gameplay : MonoBehaviour
         NGUITools.SetActive(m_pauseView.gameObject, true);
     }
 
-    void NextWave()
+    internal void NextWave()
     {
         GameSettings.SuiDeathsCount = 0;
 
@@ -135,49 +176,6 @@ public class Gameplay : MonoBehaviour
             m_state.Update();
             return;
         }
-
-        if (m_isRoundEnded)
-            return;
-
-        if (m_superhero.IsOnWater && !m_superhero.IsSwimming)
-        {
-            NGUITools.SetActive(m_swimmingTutorial, true);
-        }
-        else
-        {
-            NGUITools.SetActive(m_swimmingTutorial, false);
-        }
-
-        m_suiManager.m_suiGenerator.SuicidersDelay = CalculateSuiDelay(m_waveNumber, m_currentWaveTime);
-
-        m_shoreArrows.gameObject.SetActive(m_superhero.GetHoldingSuis() > 0);
-
-        if (!m_isRoundEnded && GameSettings.SuiDeathsCount >= GameSettings.SuiDeathsLimit)
-        {
-            m_state = new GameplayStateSummary(this);
-            m_state.Enter();
-            return;
-        }
-
-        m_currentWaveTime += Time.deltaTime;
-        if (m_currentWaveTime >= m_currentWaveLength)
-        {
-            m_suiManager.m_suiGenerator.JumpSuis = false;
-
-            if (!m_waitingForNextWave)
-            {
-                if (SuiControllerPreparingForJump.Suiciders.Count == 0 &&
-                    SuiControllerFalling.Suiciders.Count == 0 &&
-                    SuiControllerSinking.Suiciders.Count == 0 &&
-                    SuiControllerWithSuperhero.Suiciders.Count == 0)
-                {
-                    m_waitingForNextWave = true;
-                    NextWave();
-                }
-            }
-        }
-
-        UpdateGrabStats();
     }
 
     public void EndRound()
@@ -196,8 +194,10 @@ public class Gameplay : MonoBehaviour
         NGUITools.SetActive(m_pauseButton.gameObject, false);
     }
 
-    public void PlayAgain()
+    public void RestartGame(bool goToDesktop)
     {
+        m_playAgain = !goToDesktop;
+
         Time.timeScale = 1.0f;
 
         DestroySuperhero();
@@ -223,7 +223,7 @@ public class Gameplay : MonoBehaviour
     public void Continue()
     {
         m_isRoundEnded = false;
-        m_state = null;
+        m_state = new GameplayStatePlay(this);
 
         DestroyFallingAndSinkingSuis();
 
@@ -265,7 +265,7 @@ public class Gameplay : MonoBehaviour
         SuiControllerWithSuperhero.Reset();
     }
 
-    private float CalculateSuiDelay(int waveNumber, float waveTime)
+    internal float CalculateSuiDelay(int waveNumber, float waveTime)
     {
         /*
         // Endless mode
@@ -294,7 +294,7 @@ public class Gameplay : MonoBehaviour
         return waveLength;
     }
 
-    private void UpdateGrabStats()
+    internal void UpdateGrabStats()
     {
         int grabCapacity;
         int suiSaved;
@@ -343,6 +343,14 @@ public class Gameplay : MonoBehaviour
             grabCapacity = m_incGrabGoals.Length + 1;
             suiSaved = 0;
             suiGoal = 0;
+        }
+    }
+
+    public void HandleStartClicked()
+    {
+        if (m_state != null)
+        {
+            m_state.HandleStartClicked();
         }
     }
 }
