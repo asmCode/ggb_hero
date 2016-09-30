@@ -3,7 +3,6 @@
 public class PauseView : MonoBehaviour
 {
     public UILabel m_soundLabel;
-    public UILabel m_musicLabel;
 
     public Gameplay Gameplay { get; set; }
 
@@ -24,12 +23,6 @@ public class PauseView : MonoBehaviour
         UpdateButtons();
     }
 
-    public void MusicBeuttonPressed()
-    {
-        AudioManager.GetInstance().SetMusicEnabled(!AudioManager.GetInstance().MusicEnabled);
-        UpdateButtons();
-    }
-
     public void PlayAgainButtonPressed()
     {
         Gameplay.RestartGame(false);
@@ -43,6 +36,5 @@ public class PauseView : MonoBehaviour
     private void UpdateButtons()
     {
         m_soundLabel.text = AudioManager.GetInstance().SoundsEnabled ? "SOUNDS ON" : "SOUNDS OFF";
-        m_musicLabel.text = AudioManager.GetInstance().MusicEnabled ? "MUSIC ON" : "MUSIC OFF";
     }
 }

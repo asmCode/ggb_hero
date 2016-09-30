@@ -22,6 +22,7 @@ public class Gameplay : MonoBehaviour
     public GameObject m_hud;
     public UILabel m_record;
     public UILabel m_version;
+    public UISprite m_speakerIcon;
 
     internal GameplayState m_state;
     internal float start_time = 0.0f;
@@ -99,6 +100,8 @@ public class Gameplay : MonoBehaviour
         m_pauseView.Gameplay = this;
 
         m_version.text = "v" + Application.version;
+
+        UpdateSpeakerIcon();
     }
 
     private void OnApplicationPause(bool paused)
@@ -362,5 +365,16 @@ public class Gameplay : MonoBehaviour
         {
             m_state.HandleStartClicked();
         }
+    }
+
+    public void ToggleSound()
+    {
+        AudioManager.GetInstance().SetSoundsEnabled(!AudioManager.GetInstance().SoundsEnabled);
+        UpdateSpeakerIcon();
+    }
+
+    private void UpdateSpeakerIcon()
+    {
+        m_speakerIcon.spriteName = AudioManager.GetInstance().SoundsEnabled ? "SpeakerIcon" : "SpeakerCrossedIcon";
     }
 }

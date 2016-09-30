@@ -7662,7 +7662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_soundLabel: {fileID: 1115888995}
-  m_musicLabel: {fileID: 0}
 --- !u!1 &840829361
 GameObject:
   m_ObjectHideFlags: 0
@@ -8916,7 +8915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1028892294
 Transform:
   m_ObjectHideFlags: 0
@@ -8985,7 +8984,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.7777778
+  aspectRatio: 1.3333334
 --- !u!1 &1031523581
 GameObject:
   m_ObjectHideFlags: 0
@@ -10940,11 +10939,7 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick:
-  - mTarget: {fileID: 1028892295}
-    mMethodName: HandleRestartClicked
-    mParameters: []
-    oneShot: 0
+  onClick: []
 --- !u!114 &1255869580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13262,6 +13257,7 @@ MonoBehaviour:
   m_hud: {fileID: 1463454871}
   m_record: {fileID: 1500360573}
   m_version: {fileID: 1203268106}
+  m_speakerIcon: {fileID: 554087968}
 --- !u!4 &1436093241
 Transform:
   m_ObjectHideFlags: 0
@@ -13373,8 +13369,8 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
-  - mTarget: {fileID: 1028892295}
-    mMethodName: HandleRestartClicked
+  - mTarget: {fileID: 1436093240}
+    mMethodName: ToggleSound
     mParameters: []
     oneShot: 0
 --- !u!114 &1445114080
