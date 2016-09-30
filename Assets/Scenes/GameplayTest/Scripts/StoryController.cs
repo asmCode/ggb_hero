@@ -17,6 +17,8 @@ public class StoryController : MonoBehaviour
         AnimationMarkers animationMarkers = m_story.GetComponent<AnimationMarkers>();
         m_stopTimes = new float[animationMarkers.Markers.Length];
         System.Array.Copy(animationMarkers.Markers, m_stopTimes, animationMarkers.Markers.Length);
+
+        m_storyAnimator.Play("Story");
     }
 
     private void Update()
