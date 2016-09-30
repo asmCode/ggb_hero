@@ -167,8 +167,8 @@ public class Water : MonoBehaviour
     void OnDrawGizmos()
     {
         return;
-        if (Application.isPlaying)
-            return;
+        //if (Application.isPlaying)
+        //    return;
 
         //Water water = this;
         //Vector3 pos = water.transform.position;

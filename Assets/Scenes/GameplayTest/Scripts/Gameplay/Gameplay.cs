@@ -21,6 +21,7 @@ public class Gameplay : MonoBehaviour
     public GameObject m_startScreen;
     public GameObject m_hud;
     public UILabel m_record;
+    public UILabel m_version;
 
     internal GameplayState m_state;
     internal float start_time = 0.0f;
@@ -96,6 +97,8 @@ public class Gameplay : MonoBehaviour
         m_summaryView.PlayAgainClicked += () => { RestartGame(false); };
 
         m_pauseView.Gameplay = this;
+
+        m_version.text = "v" + Application.version;
     }
 
     private void OnApplicationPause(bool paused)

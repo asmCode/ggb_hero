@@ -44,7 +44,7 @@ public class SuiciderGenerator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Random.seed = (int)System.DateTime.Now.Ticks;
+        Random.InitState((int)System.DateTime.Now.Ticks);
 
         Prewarm(WalkingSuisCount);
         JumpSuis = false;

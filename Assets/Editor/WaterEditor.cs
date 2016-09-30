@@ -9,7 +9,7 @@ public class WaterEditor : Editor
     {
         DrawDefaultInspector();
 
-        Water water = (Water)target;
+        //Water water = (Water)target;
 
         if (GUILayout.Button("Recalculate"))
         {

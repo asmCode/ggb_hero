@@ -8,7 +8,7 @@ public class InspectorValue<T>
     private T m_prev;
     private CurrentValueDelegate m_currentValueDelegate;
 
-    public event System.Action Changed;
+    public event System.Action Changed = null;
 
     public InspectorValue(CurrentValueDelegate currentValueDelegate)
     {
@@ -26,6 +26,5 @@ public class InspectorValue<T>
 
         if (Changed != null)
             Changed();
-    }       
+    }
 }
- 
