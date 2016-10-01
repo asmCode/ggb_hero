@@ -12,7 +12,8 @@ public class StoryController : MonoBehaviour
     private void Start()
     {
         m_storyAnimator = m_story.GetComponent<Animator>();
-        m_animationLength = m_storyAnimator.GetCurrentAnimatorStateInfo(0).length;
+        int storyClipIndex = GetClipIndex("Story");
+        m_animationLength = m_storyAnimator.runtimeAnimatorController.animationClips[storyClipIndex].length;
 
         AnimationMarkers animationMarkers = m_story.GetComponent<AnimationMarkers>();
         m_stopTimes = new float[animationMarkers.Markers.Length];
@@ -27,6 +28,20 @@ public class StoryController : MonoBehaviour
         {
             Skip();
         }
+    }
+
+    private int GetClipIndex(string clipName)
+    {
+        int index = 0;
+        foreach (var clip in m_storyAnimator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == clipName)
+                return index;
+
+            index++; 
+        }
+
+        return -1;
     }
 
     private void Skip()
