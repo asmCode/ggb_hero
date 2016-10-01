@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 public class StoryController : MonoBehaviour
 {
     public Transform m_story = null;
+    public GameObject m_topfade = null;
 
     private Animator m_storyAnimator;
     private float[] m_stopTimes;
     private float m_animationLength = 0;
+
+    private bool m_storyStarted;
 
     private void Start()
     {
@@ -19,7 +22,15 @@ public class StoryController : MonoBehaviour
         m_stopTimes = new float[animationMarkers.Markers.Length];
         System.Array.Copy(animationMarkers.Markers, m_stopTimes, animationMarkers.Markers.Length);
 
+        // Delay is required cos there are lags on the ios and the game starts with the animation started.
+        Invoke("StartStory", 1.0f);
+    }
+
+    private void StartStory()
+    {
+        m_topfade.gameObject.SetActive(false);
         m_storyAnimator.Play("Story");
+        m_storyStarted = true;
     }
 
     private void Update()
@@ -46,6 +57,9 @@ public class StoryController : MonoBehaviour
 
     private void Skip()
     {
+        if (!m_storyStarted)
+            return;
+
         int nextStopIndex = GetNextStopTimeIndex();
         if (nextStopIndex == -1)
             return;
