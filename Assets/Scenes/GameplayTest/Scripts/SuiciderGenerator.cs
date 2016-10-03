@@ -78,8 +78,10 @@ public class SuiciderGenerator : MonoBehaviour
         suiciderRoot.transform.position = initialPosition;
         Suicider suicider = suiciderRoot.Suicider;
         suicider.TintColor = ColorPalette.GetRandomColor();
+        suicider.SkinTintColor = ColorPalette.GetRandomSkinColor();
         suicider.Initialize(m_water);
         suicider.SortOrder = 21;
+        suicider.SetIsFemale(Random.value > 0.5f);
         suicider.SetController(new SuiControllerWalkOnBridge(suicider, initialPosition, direction, m_bridgeWalkArea));
     }
 

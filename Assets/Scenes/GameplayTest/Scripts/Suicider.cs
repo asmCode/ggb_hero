@@ -5,7 +5,9 @@ public class Suicider : MonoBehaviour
 {
     public SuiciderRoot m_root;
     public Transform m_healthBarPosition;
-    
+    public Sprite m_maleHead;
+    public Sprite m_femaleHead;
+
     private HealthBar m_healthBar;
     private Rigidbody2D m_rigibody;
     private SpriteRenderer m_bodySprite;
@@ -17,6 +19,12 @@ public class Suicider : MonoBehaviour
     private SpriteRenderer m_legRightSprite;
     private SpriteRenderer m_fistLeftSprite;
 
+    public bool IsFemale
+    {
+        get;
+        private set;
+    }
+
     public Color TintColor
     {
         set
@@ -24,6 +32,16 @@ public class Suicider : MonoBehaviour
             m_bodySprite.color = value;
             m_handLeftSprite.color = value;
             m_handRightSprite.color = value;
+        }
+    }
+
+    public Color SkinTintColor
+    {
+        set
+        {
+            m_headSprite.color = value;
+            m_fistRightSprite.color = value;
+            m_fistLeftSprite.color = value;
         }
     }
 
@@ -88,6 +106,11 @@ public class Suicider : MonoBehaviour
     public void Initialize(Water water)
     {
         Water = water;
+    }
+
+    public void SetIsFemale(bool isFemale)
+    {
+        m_headSprite.sprite = isFemale ? m_femaleHead : m_maleHead;
     }
 
     public void SetHealthBarVisible(bool visible)

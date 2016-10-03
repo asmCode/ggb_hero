@@ -1142,6 +1142,15 @@ MonoBehaviour:
   - {r: 0.2580558, g: 0.8161765, b: 0.49285135, a: 1}
   - {r: 1, g: 0.3517241, b: 0, a: 1}
   - {r: 0.44852942, g: 0.28692693, b: 0.28692693, a: 1}
+  m_skinColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.30882353, g: 0.13624567, b: 0.13624567, a: 1}
+  - {r: 0.5294118, g: 0.3581315, b: 0.3581315, a: 1}
+  - {r: 0.7941176, g: 0.50800174, b: 0.50800174, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.94482756, g: 1, b: 0, a: 1}
+  - {r: 0.7941176, g: 0.50800174, b: 0.50800174, a: 1}
+  - {r: 0.5294118, g: 0.3581315, b: 0.3581315, a: 1}
 --- !u!1 &123038581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,7 +3302,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 2}
@@ -7505,7 +7514,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &820762106
 MonoBehaviour:
   m_ObjectHideFlags: 0
