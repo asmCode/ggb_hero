@@ -27,6 +27,11 @@ public class Suicider : MonoBehaviour
 
     public Color TintColor
     {
+        get
+        {
+            return m_bodySprite.color;
+        }
+
         set
         {
             m_bodySprite.color = value;
@@ -110,6 +115,7 @@ public class Suicider : MonoBehaviour
 
     public void SetIsFemale(bool isFemale)
     {
+        IsFemale = isFemale;
         m_headSprite.sprite = isFemale ? m_femaleHead : m_maleHead;
     }
 

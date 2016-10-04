@@ -38,6 +38,8 @@ public class Gameplay : MonoBehaviour
     internal float m_currentWaveTime;
     internal bool m_waitingForNextWave;
 
+    private RandomNames m_randomNames = null;
+
     private float GameplayTime
     {
         get { return Time.time - start_time; }
@@ -91,6 +93,9 @@ public class Gameplay : MonoBehaviour
 
     void Awake()
     {
+        m_randomNames = new RandomNames();
+        m_randomNames.Initialize();
+
         NGUITools.SetActive(m_summaryView.gameObject, false);
         m_superheroController.Started += M_superheroController_Started;
 

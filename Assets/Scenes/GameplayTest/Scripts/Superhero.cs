@@ -7,8 +7,15 @@ public class Superhero : MonoBehaviour
     public RectBounds m_superheroArea;
     public RectBounds m_shoreLeftBounds;
     public RectBounds m_shoreRightBounds;
+    public Transform m_rescuePointLeft;
+    public Transform m_rescuePointRight;
     public Water m_water;
     public GrabEffectPool m_grabEffectPool;
+
+    public Transform m_survivalNamesLeft;
+    public Transform m_survivalNamesRight;
+    private RandomNames m_randomNames;
+    public SurvivorNamePool m_survivorNamePool;
 
     private Stack<Suicider> m_suiciders = new Stack<Suicider>();
     private bool m_isPLayingSwimmAnim;
@@ -52,6 +59,9 @@ public class Superhero : MonoBehaviour
     {
         Dude = GetComponent<Dude>();
         DudeAnimator = GetComponent<DudeAnimator>();
+
+        m_randomNames = new RandomNames();
+        m_randomNames.Initialize();
     }
 
     void FixedUpdate()
@@ -169,6 +179,10 @@ public class Superhero : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ShowSurvivalName(SuiControllerWalkOnBridge.Suiciders[0]);
+        }
     }
 
     void _LateUpdate()
@@ -252,14 +266,32 @@ public class Superhero : MonoBehaviour
         GameSettings.SuiRescuedCount += GetHoldingSuis();
 
         Vector2 rescuePosition = transform.position.x < 0.0f ?
-            GameObject.Find("RescuePointLeft").transform.position :
-            GameObject.Find("RescuePointRight").transform.position;
+            m_rescuePointLeft.position :
+            m_rescuePointRight.position;
 
         while (m_suiciders.Count > 0)
         {
             Suicider sui = m_suiciders.Pop();
+            ShowSurvivalName(sui);
             sui.Dude.PlugOut();
             sui.SetController(new SuiControllerRescuing(sui, rescuePosition));
         }
+    }
+
+    private void ShowSurvivalName(Suicider sui)
+    {
+        if (sui == null)
+            return;
+
+        var name = m_survivorNamePool.Get();
+        if (name == null)
+            return;
+
+        Transform container = sui.transform.position.x < 0.0f ? m_survivalNamesLeft : m_survivalNamesRight;
+
+        name.gameObject.transform.parent = container;
+        name.transform.OverlayPosition(sui.gameObject.transform);
+        name.transform.localScale = new Vector3(1, 1, 1);
+        name.SetName(m_randomNames.GetName(sui.IsFemale), sui.TintColor);
     }
 }
