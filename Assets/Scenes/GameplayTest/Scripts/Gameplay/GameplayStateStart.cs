@@ -12,6 +12,7 @@ class GameplayStateStart : GameplayState
 
         int record = PlayerPrefs.GetInt("record", 0);
         Gameplay.SetRecord(record);
+        Gameplay.QueryLeaderboardRank();
     }
 
     public override void Leave()

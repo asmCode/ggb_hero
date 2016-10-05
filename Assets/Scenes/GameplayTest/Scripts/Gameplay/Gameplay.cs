@@ -21,6 +21,10 @@ public class Gameplay : MonoBehaviour
     public GameObject m_startScreen;
     public GameObject m_hud;
     public UILabel m_record;
+    public UILabel m_labelRankValue;
+    public UILabel m_labelRankText;
+    public UILabel m_labelSummaryRankValue;
+    public UILabel m_labelSummaryRankText;
     public UILabel m_version;
     public UISprite m_speakerIcon;
 
@@ -38,7 +42,7 @@ public class Gameplay : MonoBehaviour
     internal float m_currentWaveTime;
     internal bool m_waitingForNextWave;
 
-    private RandomNames m_randomNames = null;
+    private long m_cachedLeaderboardRank = 0;
 
     private float GameplayTime
     {
@@ -91,11 +95,56 @@ public class Gameplay : MonoBehaviour
         NGUITools.SetActive(m_hud.gameObject, visible);
     }
 
+    private void UpdatePlayerRank()
+    {
+        if (m_cachedLeaderboardRank == 0)
+        {
+            NGUITools.SetActive(m_labelRankText.gameObject, false);
+            NGUITools.SetActive(m_labelRankValue.gameObject, false);
+            NGUITools.SetActive(m_labelSummaryRankText.gameObject, false);
+            NGUITools.SetActive(m_labelSummaryRankValue.gameObject, false);
+            return;
+        }
+
+        NGUITools.SetActive(m_labelRankText.gameObject, true);
+        NGUITools.SetActive(m_labelRankValue.gameObject, true);
+        NGUITools.SetActive(m_labelSummaryRankText.gameObject, true);
+        NGUITools.SetActive(m_labelSummaryRankValue.gameObject, true);
+
+        m_labelRankValue.text = m_cachedLeaderboardRank.ToString();
+        m_labelSummaryRankValue.text = m_cachedLeaderboardRank.ToString();
+    }
+
+    public void QueryLeaderboardRank()
+    {
+        if (!Ssg.Social.Social.GetInstance().IsAuthenticated)
+        {
+            Ssg.Social.Social.GetInstance().Authenticate((success) =>
+            {
+                if (success)
+                    QueryLeaderboardRank();
+                else
+                {
+                    m_cachedLeaderboardRank = 0;
+                    UpdatePlayerRank();
+                }
+            });
+
+            return;
+        }
+
+        Ssg.Social.Social.GetInstance().GetLocalUserScore("gghero.guis_saved", (score) =>
+        {
+            m_cachedLeaderboardRank = 0;
+            if (score != null)
+                m_cachedLeaderboardRank = score.Rank;
+
+            UpdatePlayerRank();
+        });
+    }
+
     void Awake()
     {
-        m_randomNames = new RandomNames();
-        m_randomNames.Initialize();
-
         NGUITools.SetActive(m_summaryView.gameObject, false);
         m_superheroController.Started += M_superheroController_Started;
 
@@ -154,6 +203,29 @@ public class Gameplay : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         NGUITools.SetActive(m_pauseView.gameObject, true);
+    }
+
+    public void SubmitScores()
+    {
+        var social = Ssg.Social.Social.GetInstance();
+
+        if (!social.IsAuthenticated)
+        {
+            social.Authenticate((success) =>
+            {
+                if (success)
+                    SubmitScores();
+            });
+
+            return;
+        }
+
+        social.ReportLocalUserScore("gghero.suis_saved", PlayerPrefs.GetInt("record", 0), (success) =>
+        {
+            if (success)
+                QueryLeaderboardRank();
+        });
+        social.ReportLocalUserScore("gghero.total_suis_saved", PlayerPrefs.GetInt("total", 0), null);
     }
 
     internal void NextWave()
