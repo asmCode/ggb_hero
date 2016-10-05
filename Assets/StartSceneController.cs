@@ -4,8 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class StartSceneController : MonoBehaviour
 {
-    private void Start()
+    private void Update()
     {
-        SceneManager.LoadScene("IntroScene");
+        if (!Application.isShowingSplashScreen)
+        {
+            SceneManager.LoadScene("IntroScene");
+        }
     }
 }
