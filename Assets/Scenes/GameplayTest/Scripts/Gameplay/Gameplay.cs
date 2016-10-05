@@ -133,7 +133,7 @@ public class Gameplay : MonoBehaviour
             return;
         }
 
-        Ssg.Social.Social.GetInstance().GetLocalUserScore("gghero.guis_saved", (score) =>
+        Ssg.Social.Social.GetInstance().GetLocalUserScore("gghero.suis_saved", (score) =>
         {
             m_cachedLeaderboardRank = 0;
             if (score != null)

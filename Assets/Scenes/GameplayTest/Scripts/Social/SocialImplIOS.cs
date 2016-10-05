@@ -39,18 +39,18 @@ namespace Ssg.Social
 				m_leaderboardSuisSaved.id = leaderboardId;      
 			}
 
-			m_leaderboardSuisSaved.SetUserFilter(new string[] {UnityEngine.Social.localUser.id});
-            
-		    m_leaderboardSuisSaved.LoadScores(result =>
+			//m_leaderboardSuisSaved.SetUserFilter(new string[] {UnityEngine.Social.localUser.id});
+
+            m_leaderboardSuisSaved.LoadScores(result =>
 			{
-	    		bool success = m_leaderboardSuisSaved != null && m_leaderboardSuisSaved.scores != null && m_leaderboardSuisSaved.scores.Length == 1;
+	    		bool success = m_leaderboardSuisSaved != null && m_leaderboardSuisSaved.localUserScore != null;
                 NGUIDebug.Log("GetLocalUserScore result: " + success.ToString());
                 Score score = null;
 				if (success)
 				{
 				    score = new Score();
-					score.Value = m_leaderboardSuisSaved.scores[0].value;
-					score.Rank = m_leaderboardSuisSaved.scores[0].rank;
+                    score.Value = m_leaderboardSuisSaved.localUserScore.value;
+                    score.Rank = m_leaderboardSuisSaved.localUserScore.rank;
 
                     NGUIDebug.Log("GetLocalUserScore score.value = " + score.Value);
                     NGUIDebug.Log("GetLocalUserScore score.rank = " + score.Rank);
