@@ -1,5 +1,4 @@
-﻿//#if UNITY_IOS && !UNITY_EDITOR
-#if UNITY_IOS
+﻿#if UNITY_IOS
 
 namespace Ssg.Social
 {
@@ -11,18 +10,30 @@ namespace Ssg.Social
         {
             get
             {
+                NGUIDebug.Log("IsAuthenticated: " + UnityEngine.Social.localUser.authenticated.ToString());
+
 				return UnityEngine.Social.localUser.authenticated;
             }
         }
 
         public void Authenticate(System.Action<bool> callback)
         {
-            
+            NGUIDebug.Log("Authenticate...");
+
+            UnityEngine.Social.localUser.Authenticate((success) =>
+            {
+                NGUIDebug.Log("Authenticate result: " + success.ToString());
+
+                if (callback != null)
+                    callback(success);
+            });
         }
 
         public void GetLocalUserScore(string leaderboardId, System.Action<Score> callback)
         {
-			if (m_leaderboardSuisSaved == null)
+            NGUIDebug.Log("GetLocalUserScore...");
+
+            if (m_leaderboardSuisSaved == null)
 			{
 				m_leaderboardSuisSaved = UnityEngine.Social.CreateLeaderboard();
 				m_leaderboardSuisSaved.id = leaderboardId;      
@@ -33,13 +44,17 @@ namespace Ssg.Social
 		    m_leaderboardSuisSaved.LoadScores(result =>
 			{
 	    		bool success = m_leaderboardSuisSaved != null && m_leaderboardSuisSaved.scores != null && m_leaderboardSuisSaved.scores.Length == 1;
-			    Score score = null;
+                NGUIDebug.Log("GetLocalUserScore result: " + success.ToString());
+                Score score = null;
 				if (success)
 				{
 				    score = new Score();
 					score.Value = m_leaderboardSuisSaved.scores[0].value;
 					score.Rank = m_leaderboardSuisSaved.scores[0].rank;
-				}
+
+                    NGUIDebug.Log("GetLocalUserScore score.value = " + score.Value);
+                    NGUIDebug.Log("GetLocalUserScore score.rank = " + score.Rank);
+                }
 
 		        if (callback != null)
 		        	callback(score);
@@ -48,8 +63,12 @@ namespace Ssg.Social
 
         public void ReportLocalUserScore(string leaderboardId, long score, System.Action<bool> callback)
         {
+            NGUIDebug.Log("ReportLocalUserScore...");
+
             UnityEngine.Social.ReportScore(score, leaderboardId, success =>
             {
+                NGUIDebug.Log("ReportLocalUserScore result: " + success.ToString());
+
                 if (callback != null)
                     callback(success);
 			});

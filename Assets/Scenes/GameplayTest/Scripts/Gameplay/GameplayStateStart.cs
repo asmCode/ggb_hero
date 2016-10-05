@@ -8,6 +8,7 @@ class GameplayStateStart : GameplayState
 
     public override void Enter()
     {
+        Gameplay.UpdatePlayerRank();
         Gameplay.SetStartScreenVisible(true);
 
         int record = PlayerPrefs.GetInt("record", 0);

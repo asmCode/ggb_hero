@@ -95,7 +95,7 @@ public class Gameplay : MonoBehaviour
         NGUITools.SetActive(m_hud.gameObject, visible);
     }
 
-    private void UpdatePlayerRank()
+    public void UpdatePlayerRank()
     {
         if (m_cachedLeaderboardRank == 0)
         {
