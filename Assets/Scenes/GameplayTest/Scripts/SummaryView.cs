@@ -19,7 +19,7 @@ public class SummaryView : MonoBehaviour
         {
             record = GameSettings.SuiRescuedCount;
             PlayerPrefs.SetInt("record", record);
-            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total" + GameSettings.SuiRescuedCount));
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") + GameSettings.SuiRescuedCount);
         }
         m_recordValue.text = record.ToString();
 
