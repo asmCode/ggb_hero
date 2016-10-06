@@ -454,4 +454,9 @@ public class Gameplay : MonoBehaviour
     {
         m_speakerIcon.spriteName = AudioManager.GetInstance().SoundsEnabled ? "SpeakerIcon" : "SpeakerCrossedIcon";
     }
+
+    public void ShowLeaderboards()
+    {
+        Ssg.Social.Social.GetInstance().ShowLeaderboards();
+    }
 }

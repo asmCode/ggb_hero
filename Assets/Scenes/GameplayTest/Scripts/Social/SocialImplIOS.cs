@@ -73,6 +73,11 @@ namespace Ssg.Social
                     callback(success);
 			});
         }
+
+        public void ShowLeaderboards()
+        {
+            UnityEngine.Social.ShowLeaderboardUI();
+        }
     }
 }
 

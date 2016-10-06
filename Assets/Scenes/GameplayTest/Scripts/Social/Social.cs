@@ -33,6 +33,12 @@
                 m_impl.ReportLocalUserScore(leaderboardId, score, callback);
         }
 
+        public void ShowLeaderboards()
+        {
+            if (m_impl != null)
+                m_impl.ShowLeaderboards();
+        }
+
         protected override void Awake()
         {
             CreateImplInstance();
