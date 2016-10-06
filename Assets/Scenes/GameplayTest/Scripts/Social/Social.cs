@@ -51,7 +51,8 @@
 #elif UNITY_IOS
             m_impl = new SocialImplIOS();
 #elif UNITY_ANDROID
-            m_impl = new SocialImplGP();
+            //m_impl = new SocialImplGP();
+            m_impl = new SocialImplIOS();
 #endif
         }
     }

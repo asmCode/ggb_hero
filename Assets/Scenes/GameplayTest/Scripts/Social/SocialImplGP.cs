@@ -1,6 +1,4 @@
-﻿#if UNITY_ANDROID && !UNITY_EDITOR
-
-namespace Ssg.Social
+﻿namespace Ssg.Social
 {
     public class SocialImplGP : ISocialImpl
     {
@@ -18,12 +16,20 @@ namespace Ssg.Social
                 callback(false);
         }
 
-        public void GetLocalUserScore(System.Action<Score> callback)
+        public void GetLocalUserScore(string leaderboardId, System.Action<Score> callback)
         {
             if (callback != null)
                 callback(null);
         }
+
+        public void ReportLocalUserScore(string leaderboardId, long score, System.Action<bool> callback)
+        {
+            if (callback != null)
+                callback(false);
+        }
+
+        public void ShowLeaderboards()
+        {
+        }
     }
 }
-
-#endif

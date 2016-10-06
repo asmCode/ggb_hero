@@ -1,6 +1,4 @@
-﻿#if UNITY_IOS
-
-namespace Ssg.Social
+﻿namespace Ssg.Social
 {
     public class SocialImplIOS : ISocialImpl
     {
@@ -80,5 +78,3 @@ namespace Ssg.Social
         }
     }
 }
-
-#endif
