@@ -118,20 +118,7 @@ public class Gameplay : MonoBehaviour
     public void QueryLeaderboardRank()
     {
         if (!Ssg.Social.Social.GetInstance().IsAuthenticated)
-        {
-            Ssg.Social.Social.GetInstance().Authenticate((success) =>
-            {
-                if (success)
-                    QueryLeaderboardRank();
-                else
-                {
-                    m_cachedLeaderboardRank = 0;
-                    UpdatePlayerRank();
-                }
-            });
-
             return;
-        }
 
         Ssg.Social.Social.GetInstance().GetLocalUserScore(SocialIds.LeaderboardSuisSaved, (score) =>
         {
@@ -210,15 +197,7 @@ public class Gameplay : MonoBehaviour
         var social = Ssg.Social.Social.GetInstance();
 
         if (!social.IsAuthenticated)
-        {
-            social.Authenticate((success) =>
-            {
-                if (success)
-                    SubmitScores();
-            });
-
             return;
-        }
 
         social.ReportLocalUserScore(SocialIds.LeaderboardSuisSaved, PlayerPrefs.GetInt("record", 0), (success) =>
         {
@@ -457,6 +436,21 @@ public class Gameplay : MonoBehaviour
 
     public void ShowLeaderboards()
     {
+        var social = Ssg.Social.Social.GetInstance();
+        if (!social.IsAuthenticated)
+        {
+            social.Authenticate((success) =>
+            {
+                if (success)
+                {
+                    ShowLeaderboards();
+                    SubmitScores();
+                }
+            });
+
+            return;
+        }
+
         Ssg.Social.Social.GetInstance().ShowLeaderboards();
     }
 }

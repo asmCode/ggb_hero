@@ -8,7 +8,8 @@
         {
             get
             {
-                NGUIDebug.Log("IsAuthenticated: " + UnityEngine.Social.localUser.authenticated.ToString());
+                if (GGHeroGame.Debug)
+                    NGUIDebug.Log("IsAuthenticated: " + UnityEngine.Social.localUser.authenticated.ToString());
 
 				return UnityEngine.Social.localUser.authenticated;
             }
@@ -16,11 +17,13 @@
 
         public void Authenticate(System.Action<bool> callback)
         {
-            NGUIDebug.Log("Authenticate...");
+            if (GGHeroGame.Debug)
+                NGUIDebug.Log("Authenticate...");
 
             UnityEngine.Social.localUser.Authenticate((success) =>
             {
-                NGUIDebug.Log("Authenticate result: " + success.ToString());
+                if (GGHeroGame.Debug)
+                    NGUIDebug.Log("Authenticate result: " + success.ToString());
 
                 if (callback != null)
                     callback(success);
@@ -29,7 +32,8 @@
 
         public void GetLocalUserScore(string leaderboardId, System.Action<Score> callback)
         {
-            NGUIDebug.Log("GetLocalUserScore...");
+            if (GGHeroGame.Debug)
+                NGUIDebug.Log("GetLocalUserScore...");
 
             if (m_leaderboardSuisSaved == null)
 			{
@@ -40,16 +44,20 @@
             m_leaderboardSuisSaved.LoadScores(result =>
 			{
 	    		bool success = m_leaderboardSuisSaved != null && m_leaderboardSuisSaved.localUserScore != null;
-                NGUIDebug.Log("GetLocalUserScore result: " + success.ToString());
+                if (GGHeroGame.Debug)
+                    NGUIDebug.Log("GetLocalUserScore result: " + success.ToString());
                 Score score = null;
-				if (success)
-				{
-				    score = new Score();
+                if (success)
+                {
+                    score = new Score();
                     score.Value = m_leaderboardSuisSaved.localUserScore.value;
                     score.Rank = m_leaderboardSuisSaved.localUserScore.rank;
 
-                    NGUIDebug.Log("GetLocalUserScore score.value = " + score.Value);
-                    NGUIDebug.Log("GetLocalUserScore score.rank = " + score.Rank);
+                    if (GGHeroGame.Debug)
+                    {
+                        NGUIDebug.Log("GetLocalUserScore score.value = " + score.Value);
+                        NGUIDebug.Log("GetLocalUserScore score.rank = " + score.Rank);
+                    }
                 }
 
 		        if (callback != null)
@@ -59,11 +67,13 @@
 
         public void ReportLocalUserScore(string leaderboardId, long score, System.Action<bool> callback)
         {
-            NGUIDebug.Log("ReportLocalUserScore...");
+            if (GGHeroGame.Debug)
+                NGUIDebug.Log("ReportLocalUserScore...");
 
             UnityEngine.Social.ReportScore(score, leaderboardId, success =>
             {
-                NGUIDebug.Log("ReportLocalUserScore result: " + success.ToString());
+                if (GGHeroGame.Debug)
+                    NGUIDebug.Log("ReportLocalUserScore result: " + success.ToString());
 
                 if (callback != null)
                     callback(success);

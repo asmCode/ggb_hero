@@ -3,6 +3,8 @@ using Ssg.Ads;
 
 public class GGHeroGame : MonoBehaviour
 {
+    public const bool Debug = false;
+
     static bool m_isInitialized = false;
 
     private void Awake()
@@ -19,16 +21,16 @@ public class GGHeroGame : MonoBehaviour
 
     private void InitRewardedAds()
     {
-        Debug.Log("Initializing rewarded ads");
+        UnityEngine.Debug.Log("Initializing rewarded ads");
 #if UNITY_EDITOR
-        Debug.Log("Creating UnityEditorAdsAdaper");
+        UnityEngine.Debug.Log("Creating UnityEditorAdsAdaper");
         RewardedAds.GetInstance().Add(new UnityEditorAdsAdaper());
 #else
-        Debug.Log("Creating VungleAdaper");
+        UnityEngine.Debug.Log("Creating VungleAdaper");
         Vungle.init("578f0a3200e14959060000bb", "578f0a0be024f26c23000093");
         RewardedAds.GetInstance().Add(new VungleAdaper());
 
-        Debug.Log("Creating UnityAdaper");
+        UnityEngine.Debug.Log("Creating UnityAdaper");
         RewardedAds.GetInstance().Add(new UnityAdapter());
 #endif
     }
