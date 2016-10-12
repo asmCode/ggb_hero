@@ -1,6 +1,6 @@
 ﻿namespace Ssg.Social
 {
-    public class SocialImplIOS : ISocialImpl
+    public class SocialImplUnity : ISocialImpl
     {
 		private UnityEngine.SocialPlatforms.ILeaderboard m_leaderboardSuisSaved;
 
@@ -36,8 +36,6 @@
 				m_leaderboardSuisSaved = UnityEngine.Social.CreateLeaderboard();
 				m_leaderboardSuisSaved.id = leaderboardId;      
 			}
-
-			//m_leaderboardSuisSaved.SetUserFilter(new string[] {UnityEngine.Social.localUser.id});
 
             m_leaderboardSuisSaved.LoadScores(result =>
 			{

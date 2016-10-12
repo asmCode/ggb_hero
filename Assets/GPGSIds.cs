@@ -24,8 +24,7 @@
 
 public static class GPGSIds
 {
-        public const string leaderboard_total_suiciders_saved = "CgkI79uG2JIMEAIQAg"; // <GPGSID>
-        public const string leaderboard_suiciders_saved = "CgkI79uG2JIMEAIQAQ"; // <GPGSID>
-
+    public const string leaderboard_total_suiciders_saved = "CgkI79uG2JIMEAIQAg"; // <GPGSID>
+    public const string leaderboard_suiciders_saved = "CgkI79uG2JIMEAIQAQ"; // <GPGSID>
 }
 

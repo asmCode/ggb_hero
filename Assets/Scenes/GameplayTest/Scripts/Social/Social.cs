@@ -49,10 +49,11 @@
 #if UNITY_EDITOR
             m_impl = new SocialImplEditor();
 #elif UNITY_IOS
-            m_impl = new SocialImplIOS();
+            m_impl = new SocialImplUnity();
 #elif UNITY_ANDROID
-            //m_impl = new SocialImplGP();
-            m_impl = new SocialImplIOS();
+            GooglePlayGames.PlayGamesPlatform.DebugLogEnabled = true;
+            GooglePlayGames.PlayGamesPlatform.Activate();
+            m_impl = new SocialImplUnity();
 #endif
         }
     }

@@ -133,7 +133,7 @@ public class Gameplay : MonoBehaviour
             return;
         }
 
-        Ssg.Social.Social.GetInstance().GetLocalUserScore("gghero.suis_saved", (score) =>
+        Ssg.Social.Social.GetInstance().GetLocalUserScore(SocialIds.LeaderboardSuisSaved, (score) =>
         {
             m_cachedLeaderboardRank = 0;
             if (score != null)
@@ -220,12 +220,12 @@ public class Gameplay : MonoBehaviour
             return;
         }
 
-        social.ReportLocalUserScore("gghero.suis_saved", PlayerPrefs.GetInt("record", 0), (success) =>
+        social.ReportLocalUserScore(SocialIds.LeaderboardSuisSaved, PlayerPrefs.GetInt("record", 0), (success) =>
         {
             if (success)
                 QueryLeaderboardRank();
         });
-        social.ReportLocalUserScore("gghero.total_suis_saved", PlayerPrefs.GetInt("total", 0), null);
+        social.ReportLocalUserScore(SocialIds.LeaderboardTotalSuisSaved, PlayerPrefs.GetInt("total", 0), null);
     }
 
     internal void NextWave()
