@@ -9,6 +9,6 @@ public class HudView : MonoBehaviour
     void Update()
     {
         m_rescuedValue.text = GameSettings.SuiRescuedCount.ToString();
-        m_deathsValue.text = string.Format("{0} / {1}", GameSettings.SuiDeathsCount, GameSettings.SuiDeathsLimit);
+        m_deathsValue.text = string.Format("{0}/{1}", GameSettings.SuiDeathsCount, GameSettings.SuiDeathsLimit);
     }
 }

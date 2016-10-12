@@ -113,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 21731748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62, y: 51, z: 0}
+  m_LocalPosition: {x: -676, y: 76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -149,18 +149,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 5
-  mWidth: 528
-  mHeight: 160
+  mWidth: 480
+  mHeight: 86
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.3
+  aspectRatio: 5.581395
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
   mText: GOLDEN
-  mFontSize: 160
+  mFontSize: 80
   mFontStyle: 0
   mAlignment: 3
   mEncoding: 1
@@ -176,9 +176,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.9191176, g: 0.47540566, b: 0, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -209,7 +209,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 55819519}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -246,18 +246,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 960
+  mWidth: 1280
   mHeight: 332
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.8554218
+  aspectRatio: 2.8915663
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
   mText: ZERO?
-  mFontSize: 240
+  mFontSize: 135
   mFontStyle: 0
   mAlignment: 2
   mEncoding: 1
@@ -273,9 +273,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -299,7 +299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &70869515
 Transform:
   m_ObjectHideFlags: 0
@@ -325,36 +325,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 1475139177}
+    target: {fileID: 0}
     relative: 0
     absolute: 0
   rightAnchor:
-    target: {fileID: 1475139177}
+    target: {fileID: 0}
     relative: 1
     absolute: 0
   bottomAnchor:
-    target: {fileID: 1475139177}
+    target: {fileID: 0}
     relative: 0
     absolute: 0
   topAnchor:
-    target: {fileID: 1475139177}
+    target: {fileID: 0}
     relative: 1
     absolute: 0
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 1280
-  mHeight: 720
+  mWidth: 212
+  mHeight: 218
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.7777778
+  aspectRatio: 0.9724771
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
   mText: 0
-  mFontSize: 340
+  mFontSize: 212
   mFontStyle: 0
   mAlignment: 2
   mEncoding: 1
@@ -363,16 +363,16 @@ MonoBehaviour:
   mEffectColor: {r: 0, g: 0, b: 0, a: 0.778}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
-  mOverflow: 0
+  mOverflow: 2
   mMaterial: {fileID: 0}
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -478,14 +478,14 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 9.836065
+  aspectRatio: 5.714286
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
-  mText: 'GOLDEN  GATE  BRIDGE
+  mText: 'GOLDEN GATE BRIDGE
 
-    SAN  FRANCISCO, CALIFORNIA'
-  mFontSize: 58
+    SAN FRANCISCO, CALIFORNIA'
+  mFontSize: 32
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
@@ -501,9 +501,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -548,7 +548,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 231017829}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18, y: 33, z: 0}
+  m_LocalPosition: {x: 1, y: -675, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -584,18 +584,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 1
-  mWidth: 528
-  mHeight: 240
+  mWidth: 400
+  mHeight: 106
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.2
+  aspectRatio: 3.7735848
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
   mText: HERO
-  mFontSize: 240
+  mFontSize: 100
   mFontStyle: 0
   mAlignment: 2
   mEncoding: 1
@@ -611,9 +611,9 @@ MonoBehaviour:
   mGradientBottom: {r: 1, g: 0.8235294, b: 0.8235294, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -689,10 +689,10 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.3616235
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
   mText: ZERO!
-  mFontSize: 340
+  mFontSize: 200
   mFontStyle: 0
   mAlignment: 2
   mEncoding: 1
@@ -708,9 +708,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -786,10 +786,10 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.7947598
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
   mText: YES!
-  mFontSize: 240
+  mFontSize: 140
   mFontStyle: 0
   mAlignment: 2
   mEncoding: 1
@@ -805,9 +805,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -832,7 +832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &411621257
 Transform:
   m_ObjectHideFlags: 0
@@ -882,13 +882,14 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.5555556
+  aspectRatio: 1.1111112
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
-  mText: "It  is  estimated,  that  in  the  year  2017\n the  total  number  of  suicides
-    \ will  be:"
-  mFontSize: 58
+  mText: 'IT IS ESTIMATED, THAT IN THE YEAR 2017
+
+    THE TOTAL NUMBER OF THE SUICIDES WILL BE:'
+  mFontSize: 27
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
@@ -904,9 +905,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -943,7 +944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &666541861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,7 +1108,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1086523264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -440, y: 62, z: 0}
+  m_LocalPosition: {x: -600, y: 62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1143,7 +1144,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 0
-  mWidth: 880
+  mWidth: 1200
   mHeight: 124
   mDepth: 3
   autoResizeBoxCollider: 0
@@ -1151,10 +1152,10 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 11.320755
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
-  mText: Until  the  year  2012  over  1600  suiciders  died  jumping  out  of the  bridge.
-  mFontSize: 58
+  mText: UNTIL THE YEAR 2012, OVER 1600 SUICIDERS HAVE DIED JUMPING OUT OF THE BRIDGE.
+  mFontSize: 32
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
@@ -1170,9 +1171,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -1326,7 +1327,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1192446767}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -440, y: 62, z: 0}
+  m_LocalPosition: {x: -600, y: 62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1362,7 +1363,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 0
-  mWidth: 880
+  mWidth: 1200
   mHeight: 124
   mDepth: 3
   autoResizeBoxCollider: 0
@@ -1370,10 +1371,10 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 11.320755
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
-  mText: "But  there  is  some  sad  story  behind  it.\r.."
-  mFontSize: 58
+  mText: BUT THERE IS SOME SAD STORY BEHIND IT...
+  mFontSize: 32
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
@@ -1389,9 +1390,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -1429,7 +1430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1242315005
 Transform:
   m_ObjectHideFlags: 0
@@ -1479,12 +1480,12 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 8.695652
+  aspectRatio: 6.3768115
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
-  mText: This  beautiful  and  well  known  bridge  is  the  symbol  of  San   Francisco.
-  mFontSize: 58
+  mText: THIS BEAUTIFUL AND WELL KNOW BRIDGE IS THE SYMBOL OF THE SAN FRANCISCO.
+  mFontSize: 32
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
@@ -1500,9 +1501,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -1671,10 +1672,10 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.3616235
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
-  mText: THANKS  TO
-  mFontSize: 140
+  mText: THANKS TO
+  mFontSize: 80
   mFontStyle: 0
   mAlignment: 2
   mEncoding: 1
@@ -1690,9 +1691,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -1829,7 +1830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1507026905
 Transform:
   m_ObjectHideFlags: 0
@@ -1871,7 +1872,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 0.766}
+  mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mWidth: 1280
   mHeight: 720
@@ -1919,7 +1920,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1695279670}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 116, y: 51, z: 0}
+  m_LocalPosition: {x: 671, y: 76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1955,18 +1956,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
-  mWidth: 352
-  mHeight: 160
+  mWidth: 320
+  mHeight: 86
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.2
+  aspectRatio: 3.7209303
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
   mText: GATE
-  mFontSize: 160
+  mFontSize: 80
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
@@ -1982,9 +1983,9 @@ MonoBehaviour:
   mGradientBottom: {r: 0.9191176, g: 0.47540566, b: 0, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
+  mUseFloatSpacing: 1
   mFloatSpacingX: 0
-  mFloatSpacingY: 0
+  mFloatSpacingY: 6
   mOverflowEllipsis: 0
   mOverflowWidth: 0
   mModifier: 0
@@ -2008,7 +2009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1928351176
 Transform:
   m_ObjectHideFlags: 0
@@ -2062,7 +2063,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 6.3917527
+  aspectRatio: 4.742268
   mType: 1
   mFillDirection: 4
   mFillAmount: 1

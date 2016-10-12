@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014019965116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 185, y: 0, z: 0}
+  m_LocalPosition: {x: 224, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -132,18 +132,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
-  mWidth: 180
-  mHeight: 26
+  mWidth: 210
+  mHeight: 16
   mDepth: -1
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 6.923077
+  aspectRatio: 7
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
-  mText: YOU  HAVE  SAVED
-  mFontSize: 26
+  mText: YOU HAVE SAVED
+  mFontSize: 15
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -277,7 +277,7 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 4000013052665126}
     relative: 1
-    absolute: 5
+    absolute: 14
   rightAnchor:
     target: {fileID: 0}
     relative: 1
@@ -293,18 +293,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
-  mWidth: 56
-  mHeight: 26
+  mWidth: 60
+  mHeight: 16
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.1538463
+  aspectRatio: 2
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 5cdad2604c12afb409d3343f32a32a46, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
   mText: JOHN
-  mFontSize: 26
+  mFontSize: 15
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1

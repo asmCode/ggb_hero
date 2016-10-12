@@ -14,7 +14,7 @@
 
         public void Authenticate(System.Action<bool> callback)
         {
-            m_isAuthenticated = false;
+            m_isAuthenticated = true;
             if (callback != null)
                 callback(m_isAuthenticated);
         }
