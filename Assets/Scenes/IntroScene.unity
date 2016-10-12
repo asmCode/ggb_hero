@@ -202,7 +202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &55819520
 Transform:
   m_ObjectHideFlags: 0
@@ -246,8 +246,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 1280
-  mHeight: 332
+  mWidth: 676
+  mHeight: 142
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -299,7 +299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &70869515
 Transform:
   m_ObjectHideFlags: 0
@@ -637,7 +637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &330664572
 Transform:
   m_ObjectHideFlags: 0
@@ -681,8 +681,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 1142
-  mHeight: 542
+  mWidth: 1000
+  mHeight: 206
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -734,7 +734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &379754396
 Transform:
   m_ObjectHideFlags: 0
@@ -778,8 +778,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 1280
-  mHeight: 458
+  mWidth: 560
+  mHeight: 146
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -1620,7 +1620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1415305985
 Transform:
   m_ObjectHideFlags: 0
@@ -1664,8 +1664,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 1280
-  mHeight: 720
+  mWidth: 720
+  mHeight: 86
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
