@@ -13,7 +13,18 @@ public class StartSceneController : MonoBehaviour
     {
         if (!Application.isShowingSplashScreen)
         {
-            SceneManager.LoadScene("IntroScene");
+            LoadNextScene();
         }
+    }
+
+    private void LoadNextScene()
+    {
+        string sceneName = ShouldSkipIntro() ? "GameplayTest" : "IntroScene";
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private bool ShouldSkipIntro()
+    {
+        return PlayerPrefs.GetInt("skip_intro", 0) == 1;
     }
 }

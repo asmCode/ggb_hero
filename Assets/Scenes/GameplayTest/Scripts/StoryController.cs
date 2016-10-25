@@ -14,6 +14,8 @@ public class StoryController : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("skip_intro", 1);
+
         if (!AudioManager.GetInstance().SoundAmbient.IsPlaying())
             AudioManager.GetInstance().SoundAmbient.Play();
 
