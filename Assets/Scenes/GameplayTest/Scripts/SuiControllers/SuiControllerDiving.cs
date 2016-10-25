@@ -8,6 +8,7 @@ public class SuiControllerDiving : SuiController
 
     public SuiControllerDiving(Suicider sui) : base(sui)
     {
+        AudioManager.GetInstance().SoundDie.Play();
         GameSettings.SuiDeathsCount++;
         sui.DudeAnimator.ClearClip();
     }

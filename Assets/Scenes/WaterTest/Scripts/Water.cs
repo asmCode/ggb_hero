@@ -52,6 +52,7 @@ public class Water : MonoBehaviour
         m_waterPhysics.AddSpeed(stripIndex, -power * 1.01f);
 
         CreateSplash(power * 1.2f, stripIndex, xCoord);
+        AudioManager.GetInstance().SoundWaterSplash.Play();
     }
 
     private void CreateSplash(float speed, int stripIndex, float xCoord)

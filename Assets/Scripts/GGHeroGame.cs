@@ -17,6 +17,9 @@ public class GGHeroGame : MonoBehaviour
         Application.targetFrameRate = 300;
 
         m_isInitialized = true;
+
+        if (!AudioManager.GetInstance().SoundAmbient.IsPlaying())
+            AudioManager.GetInstance().SoundAmbient.Play();
     }
 
     private void InitRewardedAds()

@@ -2,7 +2,7 @@
 
 namespace Ssg.Ads
 {
-    public class RewardedAds : MonoBehaviourSingleton<RewardedAds>
+    public class RewardedAds : MonoBehaviourSingleton<RewardedAds, MonoBehaviourSingletonMeta>
     {
         private List<IRewardedAd> m_ads = new List<IRewardedAd>();
 

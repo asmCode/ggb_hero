@@ -14,6 +14,9 @@ public class StoryController : MonoBehaviour
 
     private void Start()
     {
+        if (!AudioManager.GetInstance().SoundAmbient.IsPlaying())
+            AudioManager.GetInstance().SoundAmbient.Play();
+
         m_storyAnimator = m_story.GetComponent<Animator>();
         int storyClipIndex = GetClipIndex("Story");
         m_animationLength = m_storyAnimator.runtimeAnimatorController.animationClips[storyClipIndex].length;

@@ -254,6 +254,8 @@ public class Gameplay : MonoBehaviour
 
         Time.timeScale = 0.0f;
 
+        AudioManager.GetInstance().SoundSummary.Play();
+
         NGUITools.SetActive(m_summaryView.gameObject, true);
         m_summaryView.Show();
 

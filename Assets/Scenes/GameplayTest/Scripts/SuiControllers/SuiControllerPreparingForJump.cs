@@ -61,6 +61,7 @@ public class SuiControllerPreparingForJump : SuiController
 
         if (m_time >= m_jumpAfterTime)
         {
+            AudioManager.GetInstance().SoundJumpBridge.Play();
             m_sui.SetController(new SuiControllerFalling(m_sui));
         }
     }

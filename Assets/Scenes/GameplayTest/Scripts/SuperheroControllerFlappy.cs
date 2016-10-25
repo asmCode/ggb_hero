@@ -65,6 +65,7 @@ public class SuperheroControllerFlappy : MonoBehaviour
         else
         {
             m_superhero.Velocity = JumpLeftVelocity;
+            AudioManager.GetInstance().SoundJump.Play();
         }
     }
 
@@ -75,6 +76,7 @@ public class SuperheroControllerFlappy : MonoBehaviour
         if (m_superhero.IsOnWater)
         {
             m_superhero.Velocity = JumpLeftVelocity;
+            AudioManager.GetInstance().SoundJump.Play();
         }
     }
 
@@ -92,6 +94,7 @@ public class SuperheroControllerFlappy : MonoBehaviour
         else
         {
             m_superhero.Velocity = JumpRightVelocity;
+            AudioManager.GetInstance().SoundJump.Play();
         }
     }
 
@@ -102,6 +105,7 @@ public class SuperheroControllerFlappy : MonoBehaviour
         if (m_superhero.IsOnWater)
         {
             m_superhero.Velocity = JumpRightVelocity;
+            AudioManager.GetInstance().SoundJump.Play();
         }
     }
 

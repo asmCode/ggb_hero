@@ -1,6 +1,6 @@
 ﻿namespace Ssg.Social
 {
-    public class Social : MonoBehaviourSingleton<Social>
+    public class Social : MonoBehaviourSingleton<Social, MonoBehaviourSingletonMeta>
     {
         private ISocialImpl m_impl;
 

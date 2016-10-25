@@ -15,11 +15,17 @@ public class Superhero : MonoBehaviour
     public Transform m_survivalNamesLeft;
     public Transform m_survivalNamesRight;
     private RandomNames m_randomNames;
-    public SurvivorNamePool m_survivorNamePool;
+    public SurvivorNameManager m_survivorNameManager;
 
     private Stack<Suicider> m_suiciders = new Stack<Suicider>();
     private bool m_isPLayingSwimmAnim;
     private bool m_isPLayingJumpAnim;
+
+    public bool IsInAir
+    {
+        get;
+        private set;
+    }
 
     public bool IsOnWater
     {
@@ -73,7 +79,11 @@ public class Superhero : MonoBehaviour
             DudeAnimator.ClearClip();
             m_isPLayingSwimmAnim = false;
             IsOnWater = false;
+            IsInAir = true;
         }
+
+        if (velocity.y > 0)
+            IsInAir = true;
 
         Vector2 position = transform.position;
         float waterHeight;
@@ -120,6 +130,11 @@ public class Superhero : MonoBehaviour
         {
             position.y = shoreLeftBounds.max.y;
             velocity = Vector2.zero;
+            if (IsInAir)
+            {
+                AudioManager.GetInstance().SoundLand.Play();
+                IsInAir = false;
+            }
         }
         else if (position.x < shoreLeftBounds.max.x && position.y < shoreLeftBounds.max.y && velocity.x < 0 && prevPosition.y <= shoreLeftBounds.max.y)
         {
@@ -132,6 +147,11 @@ public class Superhero : MonoBehaviour
         {
             position.y = shoreRightBounds.max.y;
             velocity = Vector2.zero;
+            if (IsInAir)
+            {
+                AudioManager.GetInstance().SoundLand.Play();
+                IsInAir = false;
+            }
         }
         else if (position.x > shoreRightBounds.min.x && position.y < shoreRightBounds.max.y && velocity.x > 0 && prevPosition.y <= shoreRightBounds.max.y)
         {
@@ -145,9 +165,21 @@ public class Superhero : MonoBehaviour
         if (position.y <= waterHeight && !IsOnWater)
         {
             IsOnWater = true;
+            IsInAir = false;
             m_water.Impulse(waterStripIndex, Mathf.Min(3.0f, Velocity.magnitude), position.x);
             velocity.y = 0.0f;
             velocity.x = 0.0f;
+        }
+
+        if (IsOnWater && velocity.x != 0.0f)
+        {
+            if (!AudioManager.GetInstance().SoundSwim.IsPlaying())
+                AudioManager.GetInstance().SoundSwim.Play();
+        }
+        else
+        {
+            if (AudioManager.GetInstance().SoundSwim.IsPlaying())
+                AudioManager.GetInstance().SoundSwim.Stop();
         }
 
         if (IsOnWater && !m_isPLayingSwimmAnim)
@@ -212,6 +244,8 @@ public class Superhero : MonoBehaviour
                     Dude.SetBobyPartKinematic(BodyPartType.HandLeft, false);
                 if (Dude.IsConnected(BodyPartType.HandRight))
                     Dude.SetBobyPartKinematic(BodyPartType.HandRight, false);
+
+                AudioManager.GetInstance().SoundCatch.Play();
             }
         }
 
@@ -283,15 +317,8 @@ public class Superhero : MonoBehaviour
         if (sui == null)
             return;
 
-        var name = m_survivorNamePool.Get();
-        if (name == null)
-            return;
-
         Transform container = sui.transform.position.x < 0.0f ? m_survivalNamesLeft : m_survivalNamesRight;
 
-        name.gameObject.transform.parent = container;
-        name.transform.OverlayPosition(sui.gameObject.transform);
-        name.transform.localScale = new Vector3(1, 1, 1);
-        name.SetName(m_randomNames.GetName(sui.IsFemale), sui.TintColor);
+        m_survivorNameManager.SetName(m_randomNames.GetName(sui.IsFemale), sui.TintColor, sui.transform.position, container);
     }
 }

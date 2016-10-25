@@ -20,7 +20,6 @@ public class SurvivorName : MonoBehaviour
 
         m_tween.ResetToBeginning();
         m_tween.PlayForward();
-        //m_tween.enabled = true;
     }
 
     public void Disapeared()

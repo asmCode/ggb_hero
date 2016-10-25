@@ -245,6 +245,7 @@ GameObject:
   - 114: {fileID: 9544991}
   - 114: {fileID: 9544990}
   - 65: {fileID: 9544989}
+  - 114: {fileID: 9544992}
   m_Layer: 9
   m_Name: ButtonExitToMenu
   m_TagString: Untagged
@@ -345,6 +346,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 5.3
+--- !u!114 &9544992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 9544987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &12277347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1768,47 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &210277520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 210277522}
+  - 114: {fileID: 210277521}
+  m_Layer: 0
+  m_Name: SurvivorNameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &210277521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 210277520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e680055bee1f01140a8cdb0f7cb1e9f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pool: {fileID: 186973753}
+--- !u!4 &210277522
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 210277520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17222422, y: 0.1255426, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
 --- !u!1 &215124930
 GameObject:
   m_ObjectHideFlags: 0
@@ -5428,6 +5485,7 @@ GameObject:
   - 114: {fileID: 632727810}
   - 114: {fileID: 632727809}
   - 65: {fileID: 632727808}
+  - 114: {fileID: 632727811}
   m_Layer: 9
   m_Name: RestartButton
   m_TagString: Untagged
@@ -5528,6 +5586,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 4.7647057
+--- !u!114 &632727811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 632727806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &633679481
 GameObject:
   m_ObjectHideFlags: 0
@@ -6951,6 +7024,7 @@ GameObject:
   - 114: {fileID: 745357641}
   - 114: {fileID: 745357640}
   - 65: {fileID: 745357639}
+  - 114: {fileID: 745357642}
   m_Layer: 9
   m_Name: ButtonToggleSounds
   m_TagString: Untagged
@@ -7051,6 +7125,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 5.3
+--- !u!114 &745357642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745357637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &751137450
 GameObject:
   m_ObjectHideFlags: 0
@@ -11228,6 +11317,7 @@ GameObject:
   - 114: {fileID: 1255869580}
   - 114: {fileID: 1255869579}
   - 65: {fileID: 1255869578}
+  - 114: {fileID: 1255869581}
   m_Layer: 9
   m_Name: LeaderButton
   m_TagString: Untagged
@@ -11328,6 +11418,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
+--- !u!114 &1255869581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255869576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &1259058861
 GameObject:
   m_ObjectHideFlags: 0
@@ -13754,6 +13859,7 @@ GameObject:
   - 114: {fileID: 1445114080}
   - 114: {fileID: 1445114079}
   - 65: {fileID: 1445114078}
+  - 114: {fileID: 1445114081}
   m_Layer: 9
   m_Name: SoundButton
   m_TagString: Untagged
@@ -13854,6 +13960,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
+--- !u!114 &1445114081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1445114076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &1449234202
 GameObject:
   m_ObjectHideFlags: 0
@@ -13939,6 +14060,7 @@ GameObject:
   - 114: {fileID: 1450990705}
   - 114: {fileID: 1450990704}
   - 65: {fileID: 1450990703}
+  - 114: {fileID: 1450990706}
   m_Layer: 9
   m_Name: StartButton
   m_TagString: Untagged
@@ -14039,6 +14161,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 2.8307693
+--- !u!114 &1450990706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450990701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &1458667825
 GameObject:
   m_ObjectHideFlags: 0
@@ -14984,6 +15121,7 @@ GameObject:
   - 114: {fileID: 1548272109}
   - 114: {fileID: 1548272108}
   - 65: {fileID: 1548272107}
+  - 114: {fileID: 1548272110}
   m_Layer: 9
   m_Name: PauseButton
   m_TagString: Untagged
@@ -15084,6 +15222,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
+--- !u!114 &1548272110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1548272105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &1556040013
 GameObject:
   m_ObjectHideFlags: 0
@@ -15378,7 +15531,7 @@ MonoBehaviour:
   m_grabEffectPool: {fileID: 1686080945}
   m_survivalNamesLeft: {fileID: 2080482061}
   m_survivalNamesRight: {fileID: 1352059195}
-  m_survivorNamePool: {fileID: 186973753}
+  m_survivorNameManager: {fileID: 210277521}
 --- !u!114 &1570926631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15699,6 +15852,7 @@ GameObject:
   - 114: {fileID: 1597748578}
   - 114: {fileID: 1597748577}
   - 65: {fileID: 1597748576}
+  - 114: {fileID: 1597748579}
   m_Layer: 9
   m_Name: ButtonResume
   m_TagString: Untagged
@@ -15799,6 +15953,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 2.2394366
+--- !u!114 &1597748579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1597748574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &1605172577
 GameObject:
   m_ObjectHideFlags: 0
@@ -16884,6 +17053,7 @@ GameObject:
   - 114: {fileID: 1769594591}
   - 114: {fileID: 1769594590}
   - 65: {fileID: 1769594589}
+  - 114: {fileID: 1769594592}
   m_Layer: 9
   m_Name: ButtonPlayAgain
   m_TagString: Untagged
@@ -16984,6 +17154,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 5.3
+--- !u!114 &1769594592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1769594587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &1770031650
 GameObject:
   m_ObjectHideFlags: 0
@@ -19152,6 +19337,7 @@ GameObject:
   - 114: {fileID: 2084872512}
   - 114: {fileID: 2084872511}
   - 65: {fileID: 2084872510}
+  - 114: {fileID: 2084872513}
   m_Layer: 9
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -19254,6 +19440,21 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 2.3142858
+--- !u!114 &2084872513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2084872508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 64b5b6b7bf0fd1b4985222cc198a63f4, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!1 &2090433355
 GameObject:
   m_ObjectHideFlags: 0

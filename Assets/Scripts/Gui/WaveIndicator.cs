@@ -29,6 +29,7 @@ public class WaveIndicator : MonoBehaviour
 
     private void ShowGo()
     {
+        AudioManager.GetInstance().SoundEndRound.Play();
         NGUITools.SetActive(m_labelWave.gameObject, false);
         NGUITools.SetActive(m_labelSuiciders.gameObject, false);
         NGUITools.SetActive(m_labelGo.gameObject, true);
