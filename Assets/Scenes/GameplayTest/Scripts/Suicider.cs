@@ -152,6 +152,10 @@ public class Suicider : MonoBehaviour
         // This will force to call SuiController.Leaving();
         SetController(null);
 
+        IsKinematic = false;
+        Dude.SetBobyPartsKinematic(false);
+        DudeAnimator.ClearClip();
+
         m_root.gameObject.SetActive(false);
     }
 
@@ -194,10 +198,6 @@ public class Suicider : MonoBehaviour
         {
             m_healthBar.transform.OverlayPosition(m_healthBarPosition);
         }
-    }
-
-    void FixedUpdate()
-    {
     }
 
     void LateUpdate()

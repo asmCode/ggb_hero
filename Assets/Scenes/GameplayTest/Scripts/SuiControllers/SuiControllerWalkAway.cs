@@ -9,6 +9,7 @@ public class SuiControllerWalkAway : SuiController
     {
         float direction = m_sui.transform.position.x < 0.0f ? -1.0f : 1.0f;
         m_walker = new Walker(sui.transform, direction, Random.Range(0.2f, 0.4f));
+        sui.IsKinematic = true;
         sui.Dude.SetBobyPartsKinematic(true);
         sui.DudeAnimator.Walk();
     }

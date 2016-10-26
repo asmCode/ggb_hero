@@ -76,7 +76,7 @@ public class Plug : MonoBehaviour
         Joint.anchor = transform.localPosition;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (ConnectedSocket == null)
             return;

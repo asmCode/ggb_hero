@@ -33,6 +33,7 @@ public class SuiControllerWalkOnBridge : SuiController
         float speed = Random.Range(0.2f, 0.4f);
         m_walker = new Walker(sui.transform, m_horiDirection, speed);
         m_bridgeWalkArea = bridgeWalkArea;
+        sui.IsKinematic = true;
         sui.Dude.SetBobyPartsKinematic(true);
         sui.DudeAnimator.Walk();
     }

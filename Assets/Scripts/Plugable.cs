@@ -53,7 +53,7 @@ public class Plugable : MonoBehaviour
         m_joint = joints[1];
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (m_target == null)
             return;

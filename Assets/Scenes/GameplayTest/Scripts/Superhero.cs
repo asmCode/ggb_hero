@@ -70,7 +70,7 @@ public class Superhero : MonoBehaviour
         m_randomNames.Initialize();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Vector2 velocity = Velocity;    
         if (IsOnWater && velocity.y > 0.0f)
@@ -97,12 +97,12 @@ public class Superhero : MonoBehaviour
 
             position = transform.position;
             position.y = waterHeight;
-            position.x += velocity.x * Time.fixedDeltaTime;
+            position.x += velocity.x * Time.deltaTime;
             transform.position = position;
         }
         else
         {
-            position += velocity * Time.fixedDeltaTime;
+            position += velocity * Time.deltaTime;
         }
 
         Bounds bounds = m_superheroArea.GetBounds();
@@ -207,14 +207,6 @@ public class Superhero : MonoBehaviour
 
         Velocity = velocity;
         transform.position = new Vector3(position.x, position.y, -0.3f);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ShowSurvivalName(SuiControllerWalkOnBridge.Suiciders[0]);
-        }
     }
 
     void _LateUpdate()

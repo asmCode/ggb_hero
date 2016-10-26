@@ -41,6 +41,13 @@ public class DudeAnimator : MonoBehaviour
     public void ClearClip()
     {
         m_clip = null;
+
+        m_handLeftAngleSpeed = 0.0f;
+        m_handRightAngleSpeed = 0.0f;
+        m_legLeftAngle = 0.0f;
+        m_legLeftAngleSpeed = 0.0f;
+        m_legRightAngle = 0.0f;
+        m_legRightAngleSpeed = 0.0f;
     }
     
     public void Swim()
@@ -79,7 +86,8 @@ public class DudeAnimator : MonoBehaviour
         m_clip = new DudeFalling(this);
     }
 
-    private void FixedUpdate()
+    //private void FixedUpdate()
+    private void Update()
     {
         SetupPivot(m_bodyPivot, out m_bodyAngle);
 
@@ -97,6 +105,11 @@ public class DudeAnimator : MonoBehaviour
 
     private void Smooth(ref float angle, float angleTarget, ref float speed, BodyPartPivot tr)
     {
+        if (float.IsNaN(speed))
+        {
+            speed = 0.0f;
+        }
+
         if (!tr.BodyPart.Rigidbody.isKinematic)
             return;
 

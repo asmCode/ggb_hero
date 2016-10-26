@@ -17,7 +17,7 @@ public class Paralaxa : MonoBehaviour
         m_bounds = new Vector2(0.1f, 0.1f / ratio);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector3 position = transform.position;
         //position = Vector3.SmoothDamp(position, m_objectToFollow.position, ref m_velocity, 0.1f);

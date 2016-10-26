@@ -35,6 +35,7 @@ public class SuiControllerSinking : SuiController
 
         m_waterStripIndex = sui.Water.GetWaterStripIndex(sui.transform.position.x);
 
+        sui.IsKinematic = true;
         sui.Dude.SetBobyPartsKinematic(true);
         sui.DudeAnimator.Sink();
         m_sui.SetHealthBarVisible(true);
