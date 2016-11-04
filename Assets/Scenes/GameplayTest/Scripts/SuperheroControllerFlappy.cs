@@ -116,10 +116,12 @@ public class SuperheroControllerFlappy : MonoBehaviour
 
         if (m_superhero.IsOnWater)
         {
+            float velocityScale = Mathf.Max(0.4f, 1.0f - m_superhero.GetHoldingSuis() * 0.2f);
+
             if (m_leftPressed)
-                m_superhero.Velocity = SwimLeftVelocity;
+                m_superhero.Velocity = SwimLeftVelocity * velocityScale;
             else if (m_rightPressed)
-                m_superhero.Velocity = SwimRightVelocity;
+                m_superhero.Velocity = SwimRightVelocity * velocityScale;
         }
         else
         {
