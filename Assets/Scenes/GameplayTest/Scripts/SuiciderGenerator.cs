@@ -75,6 +75,9 @@ public class SuiciderGenerator : MonoBehaviour
     {
         Vector3 initialPosition = new Vector3(xCoord, BridgeHeight, 0.0f);
         SuiciderRoot suiciderRoot = m_suiciderPool.Get();
+        if (suiciderRoot == null)
+            return;
+
         suiciderRoot.transform.position = initialPosition;
         Suicider suicider = suiciderRoot.Suicider;
         suicider.TintColor = ColorPalette.GetRandomColor();
@@ -83,6 +86,7 @@ public class SuiciderGenerator : MonoBehaviour
         suicider.SortOrder = 21;
         suicider.SetIsFemale(Random.value > 0.5f);
         suicider.SetController(new SuiControllerWalkOnBridge(suicider, initialPosition, direction, m_bridgeWalkArea));
+        suicider.Reset();
     }
 
     private void Prewarm(int suiCount)

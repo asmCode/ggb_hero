@@ -38,6 +38,14 @@ public class DudeAnimator : MonoBehaviour
         //SetupPivots();
     }
 
+    public void Reset()
+    {
+        m_handPivotLeft.Reset();
+        m_handPivotRight.Reset();
+        m_legPivotLeft.Reset();
+        m_legPivotRight.Reset();
+    }
+
     public void ClearClip()
     {
         m_clip = null;

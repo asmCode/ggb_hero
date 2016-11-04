@@ -113,6 +113,11 @@ public class Suicider : MonoBehaviour
         Water = water;
     }
 
+    public void Reset()
+    {
+        DudeAnimator.Reset();
+    }
+
     public void SetIsFemale(bool isFemale)
     {
         IsFemale = isFemale;
