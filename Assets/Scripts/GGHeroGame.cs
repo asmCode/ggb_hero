@@ -22,6 +22,22 @@ public class GGHeroGame : MonoBehaviour
             AudioManager.GetInstance().SoundAmbient.Play();
     }
 
+    public static int GetRecord()
+    {
+        return PlayerPrefs.GetInt("record", 0);
+    }
+
+    public static void SaveScore(Gameplay gameplay, int score)
+    {
+        int record = GetRecord();
+        if (record < score)
+            PlayerPrefs.SetInt("record", score);
+
+        PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") + score);
+
+        gameplay.SubmitScores();
+    }
+
     private void InitRewardedAds()
     {
         UnityEngine.Debug.Log("Initializing rewarded ads");

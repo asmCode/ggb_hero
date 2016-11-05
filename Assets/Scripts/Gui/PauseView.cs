@@ -30,6 +30,7 @@ public class PauseView : MonoBehaviour
 
     public void ExitToMenuButtonPressed()
     {
+        GGHeroGame.SaveScore(Gameplay, GameSettings.SuiRescuedCount);
         Gameplay.RestartGame(true);
     }
 

@@ -78,5 +78,5 @@ public class GameSettings
 
         SuiFallingSpeedMin = 0.22f;
         SuiFallingSpeedMax = 0.4f;
-}
+    }
 }

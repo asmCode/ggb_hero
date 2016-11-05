@@ -14,16 +14,9 @@ public class SummaryView : MonoBehaviour
     public void Show()
     {
         m_rescuedValue.text = GameSettings.SuiRescuedCount.ToString();
-        int record = PlayerPrefs.GetInt("record", 0);
-        if (record < GameSettings.SuiRescuedCount)
-        {
-            record = GameSettings.SuiRescuedCount;
-            PlayerPrefs.SetInt("record", record);
-        }
-        PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") + GameSettings.SuiRescuedCount);
-        m_recordValue.text = record.ToString();
+        GGHeroGame.SaveScore(m_gameplay, GameSettings.SuiRescuedCount);
 
-        m_gameplay.SubmitScores();
+        m_recordValue.text = GGHeroGame.GetRecord().ToString();
 
         NGUITools.SetActive(m_continueButton.gameObject, RewardedAds.GetInstance().IsReady());
     }
