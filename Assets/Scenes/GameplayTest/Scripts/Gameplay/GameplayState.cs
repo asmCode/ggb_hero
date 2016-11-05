@@ -23,5 +23,6 @@
     public virtual void Leave() { }
     public virtual void Update() { }
 
+    public virtual void BackButtonPressed() { }
     public virtual void HandleStartClicked() { }
 }

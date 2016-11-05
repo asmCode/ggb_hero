@@ -64,4 +64,9 @@ class GameplayStatePlay : GameplayState
 
         Gameplay.UpdateGrabStats();
     }
+
+    public override void BackButtonPressed()
+    {
+        Gameplay.Pause();
+    }
 }

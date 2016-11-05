@@ -147,7 +147,7 @@ public class Gameplay : MonoBehaviour
 
     private void OnApplicationPause(bool paused)
     {
-        if (paused && m_state != null && m_state.IsPauseable)
+        if (paused && m_state != null && m_state.IsPauseable && !IsPaused)
         {
             Pause();
         }
@@ -190,6 +190,11 @@ public class Gameplay : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         NGUITools.SetActive(m_pauseView.gameObject, true);
+    }
+
+    public bool IsPaused
+    {
+        get { return m_pauseView.gameObject.activeSelf; }
     }
 
     public void SubmitScores()
@@ -242,6 +247,9 @@ public class Gameplay : MonoBehaviour
 
         if (m_state != null)
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                m_state.BackButtonPressed();
+
             m_state.Update();
             return;
         }

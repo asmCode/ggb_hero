@@ -17,6 +17,12 @@ public class PauseView : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ResumeButtonPressed();
+    }
+
     public void SoundsButtonPressed()
     {
         AudioManager.GetInstance().SetSoundsEnabled(!AudioManager.GetInstance().SoundsEnabled);

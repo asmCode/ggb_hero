@@ -30,4 +30,9 @@ class GameplayStateStart : GameplayState
     {
 
     }
+
+    public override void BackButtonPressed()
+    {
+        Application.Quit();
+    }
 }
