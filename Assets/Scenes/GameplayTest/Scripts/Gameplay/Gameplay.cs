@@ -27,6 +27,7 @@ public class Gameplay : MonoBehaviour
     public UILabel m_labelSummaryRankText;
     public UILabel m_version;
     public UISprite m_speakerIcon;
+    public GameObject m_fps;
 
     internal GameplayState m_state;
     internal float start_time = 0.0f;

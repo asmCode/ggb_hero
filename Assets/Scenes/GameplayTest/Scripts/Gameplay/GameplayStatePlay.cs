@@ -14,6 +14,7 @@ class GameplayStatePlay : GameplayState
     public override void Enter()
     {
         Gameplay.SetHudVisible(true);
+        Gameplay.m_fps.SetActive(GGHeroGame.Debug);
     }
 
     public override void Leave()

@@ -3,7 +3,7 @@ using Ssg.Ads;
 
 public class GGHeroGame : MonoBehaviour
 {
-    public const bool Debug = true;
+    public const bool Debug = false;
 
     static bool m_isInitialized = false;
 
