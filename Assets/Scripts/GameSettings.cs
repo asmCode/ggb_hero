@@ -46,6 +46,8 @@ public class GameSettings
     public static float WaveLengthFirstWave { get; private set; }
     public static float WaveLengthLastWave { get; private set; }
     public static int LastWave { get; private set; }
+    public static float SuiFallingSpeedMin { get; private set; }
+    public static float SuiFallingSpeedMax { get; private set; }
 
     static GameSettings()
     {
@@ -70,8 +72,11 @@ public class GameSettings
         WaveLengthLastWave = 90.0f;
         LastWave = 9;
 
-        SuiJumpDelayEasiest = 2.0f;
-        SuiJumpDelayHardest = 1.0f;
+        SuiJumpDelayEasiest = 1.7f;
+        SuiJumpDelayHardest = 0.7f;
         SuiJumpDelayHardestAfterTime = 4.0f * 60.0f;
-    }
+
+        SuiFallingSpeedMin = 0.22f;
+        SuiFallingSpeedMax = 0.4f;
+}
 }

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class SuiControllerFalling : SuiController
 {
-    private static readonly float BaseFallingSpeed = 0.25f;
     private int m_waterStripIndex;
     private float m_fallingSpeed;
 
@@ -35,7 +34,7 @@ public class SuiControllerFalling : SuiController
 
         m_waterStripIndex = sui.Water.GetWaterStripIndex(sui.transform.position.x);
 
-        m_fallingSpeed = BaseFallingSpeed * Random.Range(0.8f, 1.4f);
+        m_fallingSpeed = Random.Range(GameSettings.SuiFallingSpeedMin, GameSettings.SuiFallingSpeedMax);
         sui.IsKinematic = true;
         sui.Dude.SetBobyPartsKinematic(true);
         sui.DudeAnimator.Fall();
