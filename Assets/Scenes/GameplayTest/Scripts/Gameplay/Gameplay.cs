@@ -181,7 +181,6 @@ public class Gameplay : MonoBehaviour
             SetStartScreen();
 
         start_time = Time.time;
-        m_suiManager.m_suiGenerator.SuicidersDelay = GameSettings.SuiJumpDelayEasiest;
 
         m_currentWaveLength = GetWaveLength(m_waveNumber);
         m_waitingForNextWave = true;

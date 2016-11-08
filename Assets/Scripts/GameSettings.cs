@@ -34,11 +34,6 @@ public class GameSettings
     }
 
     public static float OnWaterSpeed { get; private set; }
-
-    public static float SuiJumpDelayEasiest { get; private set; }
-    public static float SuiJumpDelayHardest { get; private set; }
-    public static float SuiJumpDelayHardestAfterTime { get; private set; }
-
     public static float SuiJumpDelayEasiestFirstWave { get; private set; }
     public static float SuiJumpDelayHardestFirstWave { get; private set; }
     public static float SuiJumpDelayEasiestLastWave { get; private set; }
@@ -64,19 +59,15 @@ public class GameSettings
 
         OnWaterSpeed = 1.0f;
 
-        SuiJumpDelayEasiestFirstWave = 2.5f;
-        SuiJumpDelayHardestFirstWave = 2.0f;
-        SuiJumpDelayEasiestLastWave = 2.0f;
-        SuiJumpDelayHardestLastWave = 1.0f;
+        SuiJumpDelayEasiestFirstWave = 2.2f;
+        SuiJumpDelayHardestFirstWave = 1.8f;
+        SuiJumpDelayEasiestLastWave = 1.7f;
+        SuiJumpDelayHardestLastWave = 0.85f;
         WaveLengthFirstWave = 30.0f;
         WaveLengthLastWave = 90.0f;
         LastWave = 9;
 
-        SuiJumpDelayEasiest = 1.7f;
-        SuiJumpDelayHardest = 0.7f;
-        SuiJumpDelayHardestAfterTime = 4.0f * 60.0f;
-
-        SuiFallingSpeedMin = 0.22f;
-        SuiFallingSpeedMax = 0.4f;
+        SuiFallingSpeedMin = 0.18f;
+        SuiFallingSpeedMax = 0.40f;
     }
 }
