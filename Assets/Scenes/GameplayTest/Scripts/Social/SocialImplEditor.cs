@@ -39,5 +39,9 @@
         public void ShowLeaderboards()
         {
         }
+
+        public void ReportAchievement(string achievementId)
+        {
+        }
     }
 }

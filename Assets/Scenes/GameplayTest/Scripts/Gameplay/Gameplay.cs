@@ -463,4 +463,39 @@ public class Gameplay : MonoBehaviour
 
         Ssg.Social.Social.GetInstance().ShowLeaderboards();
     }
+
+    public void ReportAchievements()
+    {
+        var social = Ssg.Social.Social.GetInstance();
+        if (!social.IsAuthenticated)
+            return;
+        int totalSavedSuis = GGHeroGame.GetTotal();
+        if (totalSavedSuis >= 1)
+            social.ReportAchievement(SocialIds.AchievementSave100InTotal);
+        if (totalSavedSuis >= 2)
+            social.ReportAchievement(SocialIds.AchievementSave200InTotal);
+        if (totalSavedSuis >= 5)
+            social.ReportAchievement(SocialIds.AchievementSave500InTotal);
+        if (totalSavedSuis >= 10)
+            social.ReportAchievement(SocialIds.AchievementSave1000InTotal);
+        if (totalSavedSuis >= 1100)
+            social.ReportAchievement(SocialIds.AchievementSave5000InTotal);
+    }
+
+    public void ReportAchievementIfNeeded(int totalBefore, int totalAfter)
+    {
+        var social = Ssg.Social.Social.GetInstance();
+        if (!social.IsAuthenticated)
+            return;
+        if (totalBefore < 1 && totalAfter >= 1)
+            social.ReportAchievement(SocialIds.AchievementSave100InTotal);
+        if (totalBefore < 2 && totalAfter >= 2)
+            social.ReportAchievement(SocialIds.AchievementSave200InTotal);
+        if (totalBefore < 5 && totalAfter >= 5)
+            social.ReportAchievement(SocialIds.AchievementSave500InTotal);
+        if (totalBefore < 10 && totalAfter >= 10)
+            social.ReportAchievement(SocialIds.AchievementSave1000InTotal);
+        if (totalBefore < 1100 && totalAfter >= 1100)
+            social.ReportAchievement(SocialIds.AchievementSave5000InTotal);
+    }
 }

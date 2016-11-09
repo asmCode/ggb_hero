@@ -11,6 +11,7 @@ public class Superhero : MonoBehaviour
     public Transform m_rescuePointRight;
     public Water m_water;
     public GrabEffectPool m_grabEffectPool;
+    public Gameplay m_gameplay;
 
     public Transform m_survivalNamesLeft;
     public Transform m_survivalNamesRight;
@@ -289,7 +290,11 @@ public class Superhero : MonoBehaviour
         Dude.SetBobyPartsKinematic(true);
         DudeAnimator.SetupPivots();
 
+        int total = GGHeroGame.GetTotal();
+        int totalBefore = total + GameSettings.SuiRescuedCount;
         GameSettings.SuiRescuedCount += GetHoldingSuis();
+        int totalAfter = total + GameSettings.SuiRescuedCount;
+        m_gameplay.ReportAchievementIfNeeded(totalBefore, totalAfter);
 
         Vector2 rescuePosition = transform.position.x < 0.0f ?
             m_rescuePointLeft.position :

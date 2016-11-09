@@ -3,7 +3,7 @@ using Ssg.Ads;
 
 public class GGHeroGame : MonoBehaviour
 {
-    public const bool Debug = false;
+    public const bool Debug = true;
 
     static bool m_isInitialized = false;
 
@@ -25,6 +25,11 @@ public class GGHeroGame : MonoBehaviour
     public static int GetRecord()
     {
         return PlayerPrefs.GetInt("record", 0);
+    }
+
+    public static int GetTotal()
+    {
+        return PlayerPrefs.GetInt("total", 0);
     }
 
     public static void SaveScore(Gameplay gameplay, int score)

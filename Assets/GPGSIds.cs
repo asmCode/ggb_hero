@@ -24,7 +24,13 @@
 
 public static class GPGSIds
 {
-    public const string leaderboard_total_suiciders_saved = "CgkI79uG2JIMEAIQAg"; // <GPGSID>
-    public const string leaderboard_suiciders_saved = "CgkI79uG2JIMEAIQAQ"; // <GPGSID>
+        public const string leaderboard_total_suiciders_saved = "CgkI79uG2JIMEAIQAg"; // <GPGSID>
+        public const string leaderboard_suiciders_saved = "CgkI79uG2JIMEAIQAQ"; // <GPGSID>
+        public const string achievement_save_5000_suiciders_in_total = "CgkI79uG2JIMEAIQCA"; // <GPGSID>
+        public const string achievement_save_200_suiciders_in_total = "CgkI79uG2JIMEAIQBQ"; // <GPGSID>
+        public const string achievement_save_500_suiciders_in_total = "CgkI79uG2JIMEAIQBg"; // <GPGSID>
+        public const string achievement_save_100_suiciders_in_total = "CgkI79uG2JIMEAIQBA"; // <GPGSID>
+        public const string achievement_save_1000_suiciders_in_total = "CgkI79uG2JIMEAIQBw"; // <GPGSID>
+
 }
 

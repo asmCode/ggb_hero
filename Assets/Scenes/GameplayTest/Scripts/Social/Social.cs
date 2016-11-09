@@ -39,6 +39,12 @@
                 m_impl.ShowLeaderboards();
         }
 
+        public void ReportAchievement(string achievementId)
+        {
+            if (m_impl != null)
+                m_impl.ReportAchievement(achievementId);
+        }
+
         protected override void Awake()
         {
             CreateImplInstance();

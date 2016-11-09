@@ -7,5 +7,6 @@
         void GetLocalUserScore(string leaderboardId, System.Action<Score> callback);
         void ReportLocalUserScore(string leaderboardId, long score, System.Action<bool> callback);
         void ShowLeaderboards();
+        void ReportAchievement(string achievementId);
     }
 }

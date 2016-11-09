@@ -84,5 +84,13 @@
         {
             UnityEngine.Social.ShowLeaderboardUI();
         }
+
+        public void ReportAchievement(string achievementId)
+        {
+            var achievement = UnityEngine.Social.CreateAchievement();
+            achievement.id = achievementId;
+            achievement.percentCompleted = 100.0f;
+            achievement.ReportProgress((bool success) => { });
+        }
     }
 }

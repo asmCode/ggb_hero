@@ -9325,7 +9325,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.3333334
+  aspectRatio: 1.7777778
 --- !u!1 &1031523581
 GameObject:
   m_ObjectHideFlags: 0
@@ -15633,6 +15633,7 @@ MonoBehaviour:
   m_rescuePointRight: {fileID: 1647077056}
   m_water: {fileID: 2034167109}
   m_grabEffectPool: {fileID: 1686080945}
+  m_gameplay: {fileID: 1436093240}
   m_survivalNamesLeft: {fileID: 2080482061}
   m_survivalNamesRight: {fileID: 1352059195}
   m_survivorNameManager: {fileID: 210277521}
