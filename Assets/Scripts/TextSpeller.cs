@@ -8,6 +8,7 @@ public class TextSpeller : MonoBehaviour, ISkipable
     public bool m_startSpell;
 
     private UILabel m_label;
+    private UILocalize m_localize;
     private string m_text;
     private bool m_isSpelling;
     private bool m_isInitialized;
@@ -24,6 +25,17 @@ public class TextSpeller : MonoBehaviour, ISkipable
         }
     }
 
+    public UILocalize Localize
+    {
+        get
+        {
+            if (m_localize == null)
+                m_localize = GetComponent<UILocalize>();
+
+            return m_localize;
+        }
+    }
+
     public void StartSpelling()
     {
         StartCoroutine("SpellingCoroutine");
@@ -36,7 +48,17 @@ public class TextSpeller : MonoBehaviour, ISkipable
 
         m_isSpelling = false;
         m_startSpell = false;
-        m_text = Label.text;
+
+
+        var localize = Localize;
+        if (localize != null)
+        {
+            m_text = Localization.Get(localize.key);
+            localize.enabled = false;
+        }
+        else
+            m_text = Label.text;
+
         Label.text = "";
 
         m_isInitialized = true;
