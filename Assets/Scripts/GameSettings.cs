@@ -59,10 +59,10 @@ public class GameSettings
 
         OnWaterSpeed = 1.0f;
 
-        SuiJumpDelayEasiestFirstWave = 2.2f;
-        SuiJumpDelayHardestFirstWave = 1.8f;
-        SuiJumpDelayEasiestLastWave = 1.7f;
-        SuiJumpDelayHardestLastWave = 0.85f;
+        SuiJumpDelayEasiestFirstWave = 1.8f;
+        SuiJumpDelayHardestFirstWave = 1.5f;
+        SuiJumpDelayEasiestLastWave = 1.3f;
+        SuiJumpDelayHardestLastWave = 1.1f;
         WaveLengthFirstWave = 30.0f;
         WaveLengthLastWave = 90.0f;
         LastWave = 9;
