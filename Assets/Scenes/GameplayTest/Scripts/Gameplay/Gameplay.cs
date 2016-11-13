@@ -259,6 +259,7 @@ public class Gameplay : MonoBehaviour
     {
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Waves", GameSettings.SuiRescuedCount);
         GameAnalytics.NewDesignEvent("WavesCompleted", m_waveNumber);
+        GameAnalytics.NewDesignEvent("GameOver", GameSettings.SuiRescuedCount);
 
         Time.timeScale = 0.0f;
 
@@ -275,6 +276,8 @@ public class Gameplay : MonoBehaviour
 
     public void RestartGame(bool goToDesktop)
     {
+        GameAnalytics.NewDesignEvent("PlayAgain", GameSettings.SuiRescuedCount);
+
         m_playAgain = !goToDesktop;
 
         Time.timeScale = 1.0f;
@@ -461,6 +464,7 @@ public class Gameplay : MonoBehaviour
             return;
         }
 
+        GameAnalytics.NewDesignEvent("ShowLeaderboard");
         Ssg.Social.Social.GetInstance().ShowLeaderboards();
     }
 
