@@ -59,7 +59,7 @@ public class Plugable : MonoBehaviour
             return;
 
         m_connectedAnchorPosition = Vector2.SmoothDamp(
-            m_connectedAnchorPosition, m_target.Joint.anchor, ref m_connectedAnchorPositionVelocity, 0.05f);
+            m_connectedAnchorPosition, m_target.Joint.anchor, ref m_connectedAnchorPositionVelocity, 0.05f, Mathf.Infinity, Time.deltaTime);
         m_joint.connectedAnchor = m_connectedAnchorPosition;
     }
 

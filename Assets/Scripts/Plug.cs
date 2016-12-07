@@ -82,7 +82,7 @@ public class Plug : MonoBehaviour
             return;
 
         m_connectedAnchorPosition = Vector2.SmoothDamp(
-            m_connectedAnchorPosition, ConnectedSocket.transform.localPosition, ref m_connectedAnchorPositionVelocity, 0.05f);
+            m_connectedAnchorPosition, ConnectedSocket.transform.localPosition, ref m_connectedAnchorPositionVelocity, 0.05f, Mathf.Infinity, Time.deltaTime);
         Joint.connectedAnchor = m_connectedAnchorPosition;
     }
 }

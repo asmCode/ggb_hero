@@ -15,7 +15,7 @@ public class SuiControllerRescuing : SuiController
 	public override void UpdateSui()
     {
         m_sui.transform.position =
-            Vector2.SmoothDamp(m_sui.transform.position, m_destinationPosition, ref m_velocity, 0.13f);
+            Vector2.SmoothDamp(m_sui.transform.position, m_destinationPosition, ref m_velocity, 0.13f, Mathf.Infinity, Time.deltaTime);
 
         Vector2 suiPosition = m_sui.transform.position;
 
