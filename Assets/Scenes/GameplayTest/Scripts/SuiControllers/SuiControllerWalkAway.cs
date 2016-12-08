@@ -12,6 +12,7 @@ public class SuiControllerWalkAway : SuiController
         sui.IsKinematic = true;
         sui.Dude.SetBobyPartsKinematic(true);
         sui.DudeAnimator.Walk();
+        sui.Reset();
     }
 
     public override void UpdateSui()
