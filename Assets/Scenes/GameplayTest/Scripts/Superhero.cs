@@ -7,6 +7,8 @@ public class Superhero : MonoBehaviour
     public RectBounds m_superheroArea;
     public RectBounds m_shoreLeftBounds;
     public RectBounds m_shoreRightBounds;
+    public RectBounds m_rescueAreaLeft;
+    public RectBounds m_rescueAreaRight;
     public Transform m_rescuePointLeft;
     public Transform m_rescuePointRight;
     public Water m_water;
@@ -73,7 +75,7 @@ public class Superhero : MonoBehaviour
 
     void Update()
     {
-        Vector2 velocity = Velocity;    
+        Vector2 velocity = Velocity;
         if (IsOnWater && velocity.y > 0.0f)
         {
             Dude.SetBobyPartsKinematic(false);
@@ -126,6 +128,12 @@ public class Superhero : MonoBehaviour
             velocity.y = 0.0f;
         }
 
+        if (m_rescueAreaLeft.IsPointInside(position) ||
+            m_rescueAreaRight.IsPointInside(position))
+        {
+            NotifyCollisionWithRescueArea();
+        }
+        
         Bounds shoreLeftBounds = m_shoreLeftBounds.GetBounds();
         if (position.x < shoreLeftBounds.max.x && position.y < shoreLeftBounds.max.y && velocity.y < 0 && prevPosition.y >= shoreLeftBounds.max.y)
         {
@@ -210,27 +218,13 @@ public class Superhero : MonoBehaviour
         transform.position = new Vector3(position.x, position.y, -0.3f);
     }
 
-    void _LateUpdate()
+    public void NotifyCollisionWithSui(Suicider sui)
     {
-        if (!IsOnWater)
-            return;
-
-        int waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
-        float waterHeight = m_water.GetWaterHeight(waterStripIndex);
-
-        Vector3 position = transform.position;
-        position.y = waterHeight;
-        transform.position = position;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Suicider suicider = other.gameObject.GetComponent<Suicider>();
-        if (suicider != null && suicider.IsGrabable)
+        if (sui != null && sui.IsGrabable)
         {
             if (CanTakeSui())
             {
-                AddSui(suicider);
+                AddSui(sui);
                 Dude.SetBobyPartsKinematic(true);
                 DudeAnimator.SetupPivots();
                 if (Dude.IsConnected(BodyPartType.HandLeft))
@@ -241,13 +235,12 @@ public class Superhero : MonoBehaviour
                 AudioManager.GetInstance().SoundCatch.Play();
             }
         }
+    }
 
-        RescueArea rescueArea = other.gameObject.GetComponent<RescueArea>();
-        if (rescueArea != null)
-        {
-            if (!IsFree())
-                ReleaseSuiciders();
-        }
+    public void NotifyCollisionWithRescueArea()
+    {
+        if (!IsFree())
+            ReleaseSuiciders();
     }
 
     private bool IsFree()

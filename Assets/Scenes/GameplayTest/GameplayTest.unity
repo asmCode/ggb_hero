@@ -2284,8 +2284,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 281043862}
-  - component: {fileID: 281043861}
-  - component: {fileID: 281043860}
   - component: {fileID: 281043859}
   m_Layer: 0
   m_Name: RescueAreaLeft
@@ -2294,41 +2292,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &281043859
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 281043858}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &281043860
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 281043858}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
---- !u!114 &281043861
+--- !u!114 &281043859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2336,7 +2300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 281043858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94a7760f97c91844989f7f5cd01e1cac, type: 3}
+  m_Script: {fileID: 11500000, guid: fbbef1a6b84c65e4fa5760ae58415040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &281043862
@@ -2347,7 +2311,7 @@ Transform:
   m_GameObject: {fileID: 281043858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.1, y: -1.296, z: 0}
-  m_LocalScale: {x: 1.36, y: 0.36228418, z: 1}
+  m_LocalScale: {x: 1.9830295, y: 0.5282506, z: 1.458111}
   m_Children: []
   m_Father: {fileID: 659491989}
   m_RootOrder: 3
@@ -9478,7 +9442,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.9361111
+  aspectRatio: 1.3333334
 --- !u!1 &1031523581
 GameObject:
   m_ObjectHideFlags: 0
@@ -12347,7 +12311,7 @@ GameObject:
   m_Layer: 0
   m_Name: RescuePointLeft
   m_TagString: Untagged
-  m_Icon: {fileID: 4476612413928447662, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -6488666005112524639, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -15901,6 +15865,8 @@ MonoBehaviour:
   m_superheroArea: {fileID: 820762106}
   m_shoreLeftBounds: {fileID: 2127120167}
   m_shoreRightBounds: {fileID: 664779497}
+  m_rescueAreaLeft: {fileID: 281043859}
+  m_rescueAreaRight: {fileID: 1693790939}
   m_rescuePointLeft: {fileID: 1323110588}
   m_rescuePointRight: {fileID: 1647077056}
   m_water: {fileID: 2034167109}
@@ -17115,8 +17081,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1693790941}
-  - component: {fileID: 1693790942}
-  - component: {fileID: 1693790940}
   - component: {fileID: 1693790939}
   m_Layer: 0
   m_Name: RescueAreaRight
@@ -17125,40 +17089,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &1693790939
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1693790938}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &1693790940
-BoxCollider2D:
+--- !u!114 &1693790939
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1693790938}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbbef1a6b84c65e4fa5760ae58415040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1693790941
 Transform:
   m_ObjectHideFlags: 0
@@ -17167,22 +17108,11 @@ Transform:
   m_GameObject: {fileID: 1693790938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.1, y: -1.296, z: 0}
-  m_LocalScale: {x: 1.36, y: 0.36228418, z: 1}
+  m_LocalScale: {x: 1.9830295, y: 0.5282506, z: 1.458111}
   m_Children: []
   m_Father: {fileID: 659491989}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1693790942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1693790938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94a7760f97c91844989f7f5cd01e1cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1696628001
 GameObject:
   m_ObjectHideFlags: 0

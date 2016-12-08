@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 class GameplayStatePlay : GameplayState
 {
@@ -36,6 +37,8 @@ class GameplayStatePlay : GameplayState
             NGUITools.SetActive(Gameplay.m_swimmingTutorial, false);
         }
 
+        CheckCollisionWithSuises();
+
         Gameplay.m_suiManager.m_suiGenerator.SuicidersDelay = Gameplay.CalculateSuiDelay(Gameplay.m_waveNumber, Gameplay.m_currentWaveTime);
 
         Gameplay.m_shoreArrows.gameObject.SetActive(Gameplay.m_superhero.GetHoldingSuis() > 0);
@@ -70,5 +73,31 @@ class GameplayStatePlay : GameplayState
     public override void BackButtonPressed()
     {
         Gameplay.Pause();
+    }
+
+    private void CheckCollisionWithSuises()
+    {
+        const float SqrCollisionDistance = 0.16f * 0.16f;
+
+        var collidedSuis = new List<Suicider>();
+
+        foreach (var sui in SuiControllerFalling.Suiciders)
+        {
+            float distance = (Gameplay.m_superhero.transform.position - sui.transform.position).sqrMagnitude;
+            if (distance < SqrCollisionDistance)
+                collidedSuis.Add(sui);
+        }
+
+        foreach (var sui in SuiControllerSinking.Suiciders)
+        {
+            float distance = (Gameplay.m_superhero.transform.position - sui.transform.position).sqrMagnitude;
+            if (distance < SqrCollisionDistance)
+                collidedSuis.Add(sui);
+        }
+
+        foreach (var sui in collidedSuis)
+        {
+            Gameplay.m_superhero.NotifyCollisionWithSui(sui);
+        }
     }
 }
