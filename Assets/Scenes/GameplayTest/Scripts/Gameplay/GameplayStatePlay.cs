@@ -38,6 +38,7 @@ class GameplayStatePlay : GameplayState
         }
 
         CheckCollisionWithSuises();
+        CheckCollisionWithDestroyAreas();
 
         Gameplay.m_suiManager.m_suiGenerator.SuicidersDelay = Gameplay.CalculateSuiDelay(Gameplay.m_waveNumber, Gameplay.m_currentWaveTime);
 
@@ -98,6 +99,34 @@ class GameplayStatePlay : GameplayState
         foreach (var sui in collidedSuis)
         {
             Gameplay.m_superhero.NotifyCollisionWithSui(sui);
+        }
+    }
+
+    private void CheckCollisionWithDestroyAreas()
+    {
+        var collidedSuis = new List<Suicider>();
+
+        foreach (var sui in SuiControllerDiving.Suiciders)
+        {
+            foreach (var destroyArea in Gameplay.m_suiDestroyAreas)
+            {
+                if (destroyArea.IsPointInside(sui.transform.position))
+                    collidedSuis.Add(sui);
+            }
+        }
+
+        foreach(var sui in SuiControllerWalkAway.Suiciders)
+        {
+            foreach (var destroyArea in Gameplay.m_suiDestroyAreas)
+            {
+                if (destroyArea.IsPointInside(sui.transform.position))
+                    collidedSuis.Add(sui);
+            }
+        }
+
+        foreach (var sui in collidedSuis)
+        {
+           sui.NotifyCollisionWithDestroyArea();
         }
     }
 }

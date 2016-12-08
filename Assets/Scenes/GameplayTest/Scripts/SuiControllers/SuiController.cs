@@ -27,7 +27,7 @@ public class SuiController
     {
     }
 
-    public virtual void ProcessTriggerEnter2D(Collider2D other)
+    public virtual void NotifyCollisionWithDestroyArea()
     {
     }
 }

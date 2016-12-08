@@ -10,12 +10,19 @@ public class SuiControllerRescuing : SuiController
     {
         m_destinationPosition = destinationPosition + Random.insideUnitCircle * 0.06f;
         sui.IsKinematic = true;
+        sui.Dude.SetBobyPartsKinematic(true);
+        // This also looks cool
+        // sui.DudeAnimator.Walk();
+        sui.DudeAnimator.SetupPivots();
+        sui.Reset();
     }
 	
 	public override void UpdateSui()
     {
-        m_sui.transform.position =
+        Vector2 newPosition =
             Vector2.SmoothDamp(m_sui.transform.position, m_destinationPosition, ref m_velocity, 0.13f, Mathf.Infinity, Time.deltaTime);
+
+        m_sui.transform.position = new Vector3(newPosition.x, newPosition.y, m_sui.transform.position.z);
 
         Vector2 suiPosition = m_sui.transform.position;
 

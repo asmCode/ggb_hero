@@ -218,9 +218,9 @@ public class Suicider : MonoBehaviour
         transform.position = position;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void NotifyCollisionWithDestroyArea()
     {
         if (SuiController != null)
-            SuiController.ProcessTriggerEnter2D(other);
+            SuiController.NotifyCollisionWithDestroyArea();
     }
 }

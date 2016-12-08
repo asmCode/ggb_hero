@@ -20,6 +20,7 @@ public class Gameplay : MonoBehaviour
     public GameObject m_swimmingTutorial;
     public GameObject m_startScreen;
     public GameObject m_hud;
+    public RectBounds[] m_suiDestroyAreas;
     public UILabel m_record;
     public UILabel m_labelRankValue;
     public UILabel m_labelRankText;
@@ -343,7 +344,8 @@ public class Gameplay : MonoBehaviour
         SuiControllerPreparingForJump.Reset();
         SuiControllerWalkOnBridge.Reset();
         SuiControllerSinking.Reset();
-        SuiControllerFalling.Reset();
+        SuiControllerWalkAway.Reset();
+        SuiControllerDiving.Reset();
         SuiControllerWithSuperhero.Reset();
     }
 
