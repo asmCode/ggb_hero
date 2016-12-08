@@ -14,7 +14,10 @@ public class Dude : MonoBehaviour
             return;
 
         foreach (var item in m_bodyParts)
+        {
             item.Rigidbody.isKinematic = isKinematic;
+            item.Rigidbody.simulated = !isKinematic;
+        }
     }
 
     public bool IsConnected(BodyPartType bodyPartType)
@@ -25,6 +28,7 @@ public class Dude : MonoBehaviour
     public void SetBobyPartKinematic(BodyPartType bodyPartType, bool isKinematic)
     {
         m_bodyParts[(int)bodyPartType].Rigidbody.isKinematic = isKinematic;
+        m_bodyParts[(int)bodyPartType].Rigidbody.simulated = !isKinematic;
     }
 
     public void PlugIn(Dude sourceDude)

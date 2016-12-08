@@ -73,7 +73,11 @@ public class Suicider : MonoBehaviour
     public bool IsKinematic
     {
         get { return m_rigibody.isKinematic; }
-        set { m_rigibody.isKinematic = value; }
+        set
+        {
+            m_rigibody.isKinematic = value;
+            m_rigibody.simulated = !value;
+        }
     }
 
     public Dude Dude
