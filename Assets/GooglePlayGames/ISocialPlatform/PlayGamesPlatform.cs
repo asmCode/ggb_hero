@@ -337,6 +337,16 @@ namespace GooglePlayGames
             Authenticate(callback, false);
         }
 
+        public void Authenticate(Action<bool, string> callback)
+        {
+            Authenticate(result =>
+            {
+                if (callback != null)
+                    callback(result, "TODO(sm): Error message not implemented");
+            },
+            false);
+        }
+
         /// <summary>
         /// Authenticate the local user with the Google Play Games service.
         /// </summary>
@@ -377,6 +387,16 @@ namespace GooglePlayGames
         public void Authenticate(ILocalUser unused, Action<bool> callback)
         {
             Authenticate(callback, false);
+        }
+
+        public void Authenticate(ILocalUser unused, Action<bool, string> callback)
+        {
+            Authenticate(result =>
+            {
+                if (callback != null)
+                    callback(result, "TODO(sm): Error message not implemented");
+            },
+            false);
         }
 
         /// <summary>
