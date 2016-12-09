@@ -6,7 +6,7 @@ namespace GameAnalyticsSDK.Wrapper
 {
 	public partial class GA_Wrapper 
 	{
-#if (UNITY_STANDALONE || UNITY_WEBGL || UNITY_WSA_10_0) && (!UNITY_EDITOR)
+		#if (UNITY_STANDALONE || UNITY_WEBGL || UNITY_WSA || UNITY_WP_8_1 || UNITY_TIZEN || UNITY_SAMSUNGTV) && (!UNITY_EDITOR)
 
 		private static void configureAvailableCustomDimensions01(string list)
 		{
@@ -122,6 +122,21 @@ namespace GameAnalyticsSDK.Wrapper
 		private static void setEnabledVerboseLog(bool enabled)
 		{
 			GameAnalyticsSDK.Net.GameAnalytics.SetEnabledVerboseLog(enabled);
+		}
+
+		private static void setManualSessionHandling(bool enabled)
+		{
+			GameAnalyticsSDK.Net.GameAnalytics.SetEnabledManualSessionHandling(enabled);
+		}
+
+		private static void gameAnalyticsStartSession()
+		{
+			GameAnalyticsSDK.Net.GameAnalytics.StartSession();
+		}
+
+		private static void gameAnalyticsEndSession()
+		{
+			GameAnalyticsSDK.Net.GameAnalytics.EndSession();
 		}
 
 		private static void setFacebookId(string facebookId)

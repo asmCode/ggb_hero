@@ -26,7 +26,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,20 +40,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1488bee7925fe433fbddf989c50ad4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseForSubsequentLevels: 1
-  IncludeSystemSpecs: 1
-  IncludeSceneChange: 1
-  SubmitErrors: 1
-  MaxErrorCount: 10
-  SubmitErrorStackTrace: 1
-  SubmitErrorSystemInfo: 1
-  SubmitFpsAverage: 1
-  SubmitFpsCritical: 1
-  FpsCriticalThreshold: 20
-  FpsCirticalSubmitInterval: 1
-  GuiEnabled: 0
-  GuiAllowScreenshot: 0
-  ErrorFoldOut: 0
 --- !u!114 &11465290
 MonoBehaviour:
   m_ObjectHideFlags: 1

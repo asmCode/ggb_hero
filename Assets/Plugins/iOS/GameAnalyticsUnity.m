@@ -1,5 +1,5 @@
 //
-//  GameAnalyticsWrapper.m
+//  GameAnalyticsUnity.m
 //  GA-SDK-IOS
 //
 //  Copyright (c) GameAnalytics. All rights reserved.
@@ -125,7 +125,7 @@ void addResourceEvent(int flowType, const char *currency, float amount, const ch
     NSNumber *amountNumber = [NSNumber numberWithFloat:amount];
     NSString *itemTypeString = itemType != NULL ? [NSString stringWithUTF8String:itemType] : nil;
     NSString *itemIdString = itemId != NULL ? [NSString stringWithUTF8String:itemId] : nil;
-    
+
     [GameAnalytics addResourceEventWithFlowType:flowType
                                        currency:currencyString
                                          amount:amountNumber
@@ -137,7 +137,7 @@ void addProgressionEvent(int progressionStatus, const char *progression01, const
     NSString *progression01String = progression01 != NULL ? [NSString stringWithUTF8String:progression01] : nil;
     NSString *progression02String = progression02 != NULL ? [NSString stringWithUTF8String:progression02] : nil;
     NSString *progression03String = progression03 != NULL ? [NSString stringWithUTF8String:progression03] : nil;
-    
+
     [GameAnalytics addProgressionEventWithProgressionStatus:progressionStatus
                                               progression01:progression01String
                                               progression02:progression02String
@@ -171,7 +171,7 @@ void addDesignEventWithValue(const char *eventId, float value) {
 
 void addErrorEvent(int severity, const char *message) {
     NSString *messageString = message != NULL ? [NSString stringWithUTF8String:message] : nil;
-    
+
     [GameAnalytics addErrorEventWithSeverity:severity message:messageString];
 }
 
@@ -181,6 +181,18 @@ void setEnabledInfoLog(BOOL flag) {
 
 void setEnabledVerboseLog(BOOL flag) {
     [GameAnalytics setEnabledVerboseLog:flag];
+}
+
+void setManualSessionHandling(BOOL flag) {
+    [GameAnalytics setEnabledManualSessionHandling:flag];
+}
+
+void gameAnalyticsStartSession() {
+    [GameAnalytics startSession];
+}
+
+void gameAnalyticsEndSession() {
+    [GameAnalytics endSession];
 }
 
 void setCustomDimension01(const char *customDimension) {

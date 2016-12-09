@@ -78,6 +78,15 @@ namespace GameAnalyticsSDK.Wrapper
 		private static extern void setEnabledVerboseLog(bool enabled);
 
 		[DllImport ("__Internal")]
+		private static extern void setManualSessionHandling(bool enabled);
+
+		[DllImport ("__Internal")]
+		private static extern void gameAnalyticsStartSession();
+
+		[DllImport ("__Internal")]
+		private static extern void gameAnalyticsEndSession();
+
+		[DllImport ("__Internal")]
 		private static extern void setFacebookId(string facebookId);
 
 		[DllImport ("__Internal")]
