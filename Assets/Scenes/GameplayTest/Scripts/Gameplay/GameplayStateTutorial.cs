@@ -17,11 +17,6 @@
         Gameplay.SetTutorialVisible(false);
     }
 
-    public override void HandleStartClicked()
-    {
-        Gameplay.ChangeState(new GameplayStateTutorial(Gameplay));
-    }
-
     public override void Update()
     {
 
