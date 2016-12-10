@@ -29,10 +29,15 @@ public class Gameplay : MonoBehaviour
     public UILabel m_version;
     public UISprite m_speakerIcon;
     public GameObject m_fps;
+    public Transform m_cameraShakeRoot;
+    public EarthQuakeCinematic m_earthQuakeCinematic;
 
     internal GameplayState m_state;
     internal float start_time = 0.0f;
     internal bool m_isRoundEnded = false;
+
+    private bool m_shakeCamera = false;
+    private Shaker m_cameraShaker = new Shaker(0.0f, 15.0f);
 
     //private int[] m_incGrabGoals = { 10, 30, 60, 100 };
     private int[] m_incGrabGoals = { 5, 15, 30, 60 };
@@ -173,6 +178,8 @@ public class Gameplay : MonoBehaviour
 
     void Start()
     {
+        m_earthQuakeCinematic.Init(m_cameraShaker);
+
         if (m_playAgain)
         {
             m_playAgain = false;
@@ -470,6 +477,21 @@ public class Gameplay : MonoBehaviour
         Ssg.Social.Social.GetInstance().ShowLeaderboards();
     }
 
+    public void ShakeCamera(bool shake)
+    {
+        m_shakeCamera = shake;
+    }
+
+    public void UpdateCameraShake()
+    {
+        if (!m_shakeCamera)
+            return;
+
+        Vector3 position = m_cameraShaker.GetShakeValue(Time.deltaTime);
+        position.z = 0;
+        m_cameraShakeRoot.transform.position = position;
+    }
+
     public void ReportAchievements()
     {
         var social = Ssg.Social.Social.GetInstance();
@@ -503,5 +525,10 @@ public class Gameplay : MonoBehaviour
             social.ReportAchievement(SocialIds.AchievementSave1000InTotal);
         if (totalBefore < 5000 && totalAfter >= 5000)
             social.ReportAchievement(SocialIds.AchievementSave5000InTotal);
+    }
+
+    public void PlayEarthQuakeCinematic()
+    {
+        m_earthQuakeCinematic.Play();
     }
 }

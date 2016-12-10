@@ -23,7 +23,8 @@ class GameplayStateStart : GameplayState
 
     public override void HandleStartClicked()
     {
-        Gameplay.ChangeState(new GameplayStateTutorial(Gameplay));
+        // Gameplay.ChangeState(new GameplayStateTutorial(Gameplay));
+        Gameplay.ChangeState(new GameplayStateEarthQuake(Gameplay));
     }
 
     public override void Update()

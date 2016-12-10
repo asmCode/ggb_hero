@@ -17,6 +17,8 @@ class GameplayStatePlay : GameplayState
         Gameplay.SetHudVisible(true);
         Gameplay.m_fps.SetActive(GGHeroGame.Debug);
         Gameplay.ReportAchievements();
+
+        Gameplay.ShakeCamera(true);
     }
 
     public override void Leave()
@@ -25,6 +27,8 @@ class GameplayStatePlay : GameplayState
 
     public override void Update()
     {
+        Gameplay.UpdateCameraShake();
+
         if (Gameplay.m_isRoundEnded)
             return;
 
