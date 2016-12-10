@@ -11,6 +11,8 @@ public class EarthQuakeCinematic : MonoBehaviour
     public bool m_burnMarkEnabled;
     public float m_cameraShakePower;
 
+    public event System.Action AnimationFinished;
+
     public ParticleSystem m_fire1;
     public ParticleSystem m_smoke1;
     public ParticleSystem m_fire2;
@@ -22,6 +24,7 @@ public class EarthQuakeCinematic : MonoBehaviour
 
     private Animator m_animator;
     private Shaker m_cameraShaker;
+    private bool m_animationFinishedCalled;
 
     public void Init(Shaker cameraShaker)
     {
@@ -30,6 +33,7 @@ public class EarthQuakeCinematic : MonoBehaviour
 
     public void Play()
     {
+        m_animationFinishedCalled = false;
         m_animator.Play("EarthQuakeAnimation");
     }
 
@@ -50,6 +54,16 @@ public class EarthQuakeCinematic : MonoBehaviour
         m_burnMark.SetActive(m_burnMarkEnabled);
 
         m_cameraShaker.ShakeRange = m_cameraShakePower;
+
+        var animState = m_animator.GetCurrentAnimatorStateInfo(0);
+        if (animState.IsName("EarthQuakeAnimation") &&
+            animState.normalizedTime >= 1 &&
+            !m_animationFinishedCalled)
+        {
+            m_animationFinishedCalled = true;
+            if (AnimationFinished != null)
+                AnimationFinished();
+        }
     }
 
     private void SetParticleEnabled(ParticleSystem particle, bool enabled)
