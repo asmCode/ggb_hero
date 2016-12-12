@@ -11,6 +11,7 @@ public class EarthQuakeCinematic : MonoBehaviour
     public bool m_burnMarkEnabled;
     public bool m_fallingBridgeBurstMode;
     public float m_cameraShakePower;
+    public float m_fireSoundVolume;
 
     public event System.Action AnimationFinished;
 
@@ -74,6 +75,8 @@ public class EarthQuakeCinematic : MonoBehaviour
             if (AnimationFinished != null)
                 AnimationFinished();
         }
+
+        AudioManager.GetInstance().SoundFire.Volume = m_fireSoundVolume;
     }
 
     private void SetParticleEnabled(ParticleSystem particle, bool enabled)
@@ -89,5 +92,20 @@ public class EarthQuakeCinematic : MonoBehaviour
                 particle.Stop();
             }
         }
+    }
+
+    public void AnimationEvent_PlayEarthquakeSound()
+    {
+        AudioManager.GetInstance().SoundEarthquake.Play();
+    }
+
+    public void AnimationEvent_PlayPanicSound()
+    {
+        AudioManager.GetInstance().SoundPanic.Play();
+    }
+
+    public void AnimationEvent_PlayFireSound()
+    {
+        AudioManager.GetInstance().SoundFire.Play();
     }
 }

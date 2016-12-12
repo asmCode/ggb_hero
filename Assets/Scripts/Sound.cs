@@ -4,6 +4,12 @@ class Sound : MonoBehaviour
 {
     private AudioSource m_audioSource;
 
+    public float Volume
+    {
+        get { return m_audioSource.volume; }
+        set { m_audioSource.volume = value; }
+    }
+
     public void Play()
     {
         if (AudioManager.GetInstance().SoundsEnabled)
