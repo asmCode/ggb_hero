@@ -16,6 +16,7 @@ class GameplayStatePlay : GameplayState
     {
         Gameplay.SetHudVisible(true);
         Gameplay.m_fps.SetActive(GGHeroGame.Debug);
+        Gameplay.m_fallingBridgeGemerator.SetNormalMode();
         Gameplay.ReportAchievements();
 
         Gameplay.ShakeCamera(true);

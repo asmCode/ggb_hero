@@ -28,6 +28,7 @@ public class Gameplay : MonoBehaviour
     public UILabel m_labelSummaryRankText;
     public UILabel m_version;
     public UISprite m_speakerIcon;
+    public FallingBridgeElementGenerator m_fallingBridgeGemerator;
     public GameObject m_fps;
     public Transform m_cameraShakeRoot;
     public EarthQuakeCinematic m_earthQuakeCinematic;

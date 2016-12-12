@@ -8009,6 +8009,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_correspondingPlug: {fileID: 0}
+--- !u!1 &609241003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 609241005}
+  - component: {fileID: 609241004}
+  m_Layer: 0
+  m_Name: FallingBridgeElementPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &609241004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609241003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9121165745d4d46a2dcab39995b589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_prefab: {fileID: 114636473230177410, guid: b967445cb41510c40aeebb106a5f5019, type: 2}
+  m_count: 5
+  m_container: {fileID: 609241005}
+  m_water: {fileID: 2034167109}
+--- !u!4 &609241005
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609241003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.349, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &614215924
 GameObject:
   m_ObjectHideFlags: 0
@@ -8696,6 +8740,46 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &645815946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 645815948}
+  - component: {fileID: 645815947}
+  m_Layer: 0
+  m_Name: FallingBridgeElementGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &645815947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 645815946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3e2b3fcbd97f540bde9395974726cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &645815948
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 645815946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &656424126
 GameObject:
   m_ObjectHideFlags: 0
@@ -24736,6 +24820,7 @@ MonoBehaviour:
   m_labelSummaryRankText: {fileID: 1004879577}
   m_version: {fileID: 1203268106}
   m_speakerIcon: {fileID: 554087968}
+  m_fallingBridgeGemerator: {fileID: 645815947}
   m_fps: {fileID: 1677458283}
   m_cameraShakeRoot: {fileID: 952949795}
   m_earthQuakeCinematic: {fileID: 2128222395}
@@ -39165,6 +39250,7 @@ MonoBehaviour:
   m_fire3Enabled: 0
   m_cityFireEnabled: 0
   m_burnMarkEnabled: 0
+  m_fallingBridgeBurstMode: 0
   m_cameraShakePower: 0
   m_fire1: {fileID: 381779711}
   m_smoke1: {fileID: 1553317233}
@@ -39174,6 +39260,7 @@ MonoBehaviour:
   m_smoke3: {fileID: 1086096006}
   m_citySmoke: {fileID: 1606817229}
   m_burnMark: {fileID: 80364370}
+  m_fallingBridgeElementGenerator: {fileID: 645815947}
 --- !u!95 &2128222396
 Animator:
   serializedVersion: 3

@@ -10,16 +10,20 @@ public class FallingBridgeElement : MonoBehaviour
 
     private float m_rotationSpeed;
     private float m_fallingSpeed;
-
-    void Awake()
-    {
-        Invoke("Play", 7.0f);
-    }
+    private bool m_isOnWater;
 
     public void Play()
     {
         SetFireEnabled(true);
         Invoke("StartFalling", 1.5f);
+
+        var randPos = new Vector3(
+            Random.Range(-0.13f, 0.13f),
+            Random.Range(-0.13f, 0.13f),
+            0);
+
+        m_fire.transform.localPosition = randPos;
+        m_smoke.transform.localPosition = randPos;
     }
 
     public void Reset()
@@ -29,6 +33,9 @@ public class FallingBridgeElement : MonoBehaviour
         m_fire.Clear();
         m_smoke.Stop();
         m_smoke.Clear();
+        m_isOnWater = false;
+        m_rotationSpeed = 0.0f;
+        m_fallingSpeed = 0.0f;
     }
 
     private void Update()
@@ -40,13 +47,29 @@ public class FallingBridgeElement : MonoBehaviour
         var rotation = transform.rotation;
         rotation = rotation * Quaternion.AngleAxis(m_rotationSpeed * Time.deltaTime, Vector3.forward);
         transform.rotation = rotation;
+
+        if (!m_isOnWater)
+        {
+            var waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
+            var waterHeight = m_water.GetWaterHeight(waterStripIndex);
+            if (waterHeight >= transform.position.y)
+            {
+                m_isOnWater = true;
+                m_water.Impulse(waterStripIndex, 4.0f, transform.position.x);
+                m_fallingSpeed = 0.1f;
+                m_rotationSpeed *= 0.3f;
+                SetFireEnabled(false);
+            }
+        }
+
+        if (transform.position.y < -2.0)
+            gameObject.SetActive(false);
     }
 
     private void StartFalling()
     {
-        m_fallingSpeed = Random.Range(0.4f, 0.6f);
-        //m_rotationSpeed = Random.Range(-10.0f, 10.0f);
-        m_rotationSpeed = -45.0f;
+        m_fallingSpeed = Random.Range(0.5f, 0.7f);
+        m_rotationSpeed = Random.Range(-120.0f, 120.0f);
     }
 
     private void SetFireEnabled(bool emabled)
@@ -61,15 +84,5 @@ public class FallingBridgeElement : MonoBehaviour
             m_fire.Stop();
             m_smoke.Stop();
         }
-    }
-
-    private void SetRotation(bool rotation)
-    {
-
-    }
-
-    private void SetFallingSpeed(float speed)
-    {
-
     }
 }
