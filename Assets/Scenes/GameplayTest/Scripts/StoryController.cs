@@ -5,6 +5,9 @@ public class StoryController : MonoBehaviour
 {
     public Transform m_story = null;
     public GameObject m_topfade = null;
+    public Texture2D m_bgNormal;
+    public Texture2D m_bgIos;
+    public UITexture m_bgUiTexture;
 
     private Animator m_storyAnimator;
     private float[] m_stopTimes;
@@ -14,6 +17,8 @@ public class StoryController : MonoBehaviour
 
     private void Start()
     {
+        SetBgTexture();
+
         PlayerPrefs.SetInt("skip_intro", 1);
 
         if (!AudioManager.GetInstance().SoundAmbient.IsPlaying())
@@ -112,5 +117,13 @@ public class StoryController : MonoBehaviour
     public void AnimationEnded()
     {
         SceneManager.LoadScene("GameplayTest");
+    }
+
+   private void SetBgTexture()
+    {
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+            m_bgUiTexture.mainTexture = m_bgIos;
+        else
+            m_bgUiTexture.mainTexture = m_bgNormal;
     }
 }
