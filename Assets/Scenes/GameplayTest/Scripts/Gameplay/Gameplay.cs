@@ -7,6 +7,7 @@ public class Gameplay : MonoBehaviour
 {
     static bool m_playAgain;
     public GameObject m_pauseButton;
+    public Material m_bridgeMaterial;
     public Superhero m_superhero;
     public SuperheroControllerFlappy m_superheroController;
     public SuiManager m_suiManager;
@@ -179,6 +180,8 @@ public class Gameplay : MonoBehaviour
 
     void Start()
     {
+        SetBridgeColor();
+
         m_earthQuakeCinematic.Init(m_cameraShaker);
 
         if (m_playAgain)
@@ -531,5 +534,20 @@ public class Gameplay : MonoBehaviour
     public void PlayEarthQuakeCinematic()
     {
         m_earthQuakeCinematic.Play();
+    }
+
+    private Color GetBridgeColor()
+    {
+        if (Application.platform == RuntimePlatform.IPhonePlayer || true)
+            return new Color32(111, 193, 78, 255);
+        else
+            return new Color32(240, 122, 0, 255);
+    }
+
+    private void SetBridgeColor()
+    {
+        var color = GetBridgeColor();
+
+        m_bridgeMaterial.color = color;
     }
 }
