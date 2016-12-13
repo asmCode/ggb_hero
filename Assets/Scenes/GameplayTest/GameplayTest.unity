@@ -18412,7 +18412,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: 0.6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19161,7 +19161,7 @@ ParticleSystem:
         key7:
           serializedVersion: 2
           rgba: 4473924
-        ctime0: 2968
+        ctime0: 4795
         ctime1: 6622
         ctime2: 15870
         ctime3: 24890
@@ -39252,6 +39252,7 @@ MonoBehaviour:
   m_burnMarkEnabled: 0
   m_fallingBridgeBurstMode: 0
   m_cameraShakePower: 0
+  m_fireSoundVolume: 0
   m_fire1: {fileID: 381779711}
   m_smoke1: {fileID: 1553317233}
   m_fire2: {fileID: 1081862867}
