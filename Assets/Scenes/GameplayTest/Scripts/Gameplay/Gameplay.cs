@@ -538,7 +538,7 @@ public class Gameplay : MonoBehaviour
 
     private Color GetBridgeColor()
     {
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        if (GameSettings.Censore)
             return new Color32(111, 193, 78, 255);
         else
             return new Color32(240, 122, 0, 255);

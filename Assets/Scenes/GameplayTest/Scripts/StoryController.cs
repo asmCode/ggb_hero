@@ -121,7 +121,7 @@ public class StoryController : MonoBehaviour
 
    private void SetBgTexture()
     {
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        if (GameSettings.Censore)
             m_bgUiTexture.mainTexture = m_bgIos;
         else
             m_bgUiTexture.mainTexture = m_bgNormal;

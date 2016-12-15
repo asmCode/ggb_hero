@@ -3,6 +3,12 @@ using System.Collections;
 
 public class GameSettings
 {
+    public static bool Censore
+    {
+        get;
+        private set;
+    }
+
     public static int HandCapacity
     {
         get;
@@ -51,6 +57,8 @@ public class GameSettings
 
     public static void Restart()
     {
+        Censore = Application.platform == RuntimePlatform.IPhonePlayer;
+
         HandCapacity = 10;
         GravityPerSuicider = 2.5f;
         SuiDeathsLimit = 3;

@@ -33,6 +33,20 @@ public class EarthQuakeCinematic : MonoBehaviour
     public void Init(Shaker cameraShaker)
     {
         m_cameraShaker = cameraShaker;
+
+        if (!GameSettings.Censore)
+        {
+            m_fire1.gameObject.SetActive(false);
+            m_smoke1.gameObject.SetActive(false);
+            m_fire2.gameObject.SetActive(false);
+            m_smoke2.gameObject.SetActive(false);
+            m_fire3.gameObject.SetActive(false);
+            m_smoke3.gameObject.SetActive(false);
+            m_citySmoke.gameObject.SetActive(false);
+            m_burnMark.gameObject.SetActive(false);
+            m_fallingBridgeElementGenerator.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
     }
 
     public void Play()

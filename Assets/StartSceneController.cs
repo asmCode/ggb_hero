@@ -31,7 +31,7 @@ public class StartSceneController : MonoBehaviour
 
     private void InitLanguage()
     {
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        if (GameSettings.Censore)
             Localization.language = "EnglishIOS";
         else
             Localization.language = "English";
