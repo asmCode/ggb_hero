@@ -21,7 +21,7 @@
 
 				#include "UnityCG.cginc"
 
-				static const int SegmentsCount = 128;
+				static const int SegmentsCount = 64;
 
 			struct appdata
 			{
