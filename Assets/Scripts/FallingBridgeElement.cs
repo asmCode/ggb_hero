@@ -6,7 +6,7 @@ public class FallingBridgeElement : MonoBehaviour
 {
     public ParticleSystem m_fire;
     public ParticleSystem m_smoke;
-    public Water m_water;
+    public WaterLevel m_waterLevel;
 
     private float m_rotationSpeed;
     private float m_fallingSpeed;
@@ -50,12 +50,12 @@ public class FallingBridgeElement : MonoBehaviour
 
         if (!m_isOnWater)
         {
-            var waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
-            var waterHeight = m_water.GetWaterHeight(waterStripIndex);
+            var waterHeight = m_waterLevel.GetWaterHeight(transform.position.x);
             if (waterHeight >= transform.position.y)
             {
                 m_isOnWater = true;
-                m_water.Impulse(waterStripIndex, 4.0f, transform.position.x);
+                // TODO, water circles
+                // m_water.Impulse(waterStripIndex, 4.0f, transform.position.x);
                 m_fallingSpeed = 0.1f;
                 m_rotationSpeed *= 0.3f;
                 SetFireEnabled(false);

@@ -10,12 +10,12 @@ public class FallingBridgeElementPool : Pool<FallingBridgeElement>
     }
 
     public Transform m_container;
-    public Water m_water;
+    public WaterLevel m_waterLevel;
 
     protected override void OnCreated(FallingBridgeElement poolObject)
     {
         poolObject.transform.SetParent(m_container);
-        poolObject.m_water = m_water;
+        poolObject.m_waterLevel = m_waterLevel;
     }
 
     protected override void Awake()

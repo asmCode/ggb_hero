@@ -56,7 +56,7 @@ public class Suicider : MonoBehaviour
         private set;
     }
 
-    public Water Water
+    public WaterLevel WaterLevel
     {
         get;
         private set;
@@ -112,9 +112,9 @@ public class Suicider : MonoBehaviour
         private set;
     }
 
-    public void Initialize(Water water)
+    public void Initialize(WaterLevel waterLevel)
     {
-        Water = water;
+        WaterLevel = waterLevel;
     }
 
     public void Reset()

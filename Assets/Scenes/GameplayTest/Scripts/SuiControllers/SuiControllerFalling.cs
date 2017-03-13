@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SuiControllerFalling : SuiController
 {
-    private int m_waterStripIndex;
+    private float m_waterHeight;
     private float m_fallingSpeed;
 
     public static List<Suicider> Suiciders
@@ -32,7 +32,7 @@ public class SuiControllerFalling : SuiController
     {
         Suiciders.Add(sui);
 
-        m_waterStripIndex = sui.Water.GetWaterStripIndex(sui.transform.position.x);
+        m_waterHeight = sui.WaterLevel.GetWaterHeight(sui.transform.position.x);
 
         m_fallingSpeed = Random.Range(GameSettings.SuiFallingSpeedMin, GameSettings.SuiFallingSpeedMax);
         sui.IsKinematic = true;
@@ -50,10 +50,11 @@ public class SuiControllerFalling : SuiController
     public override void LateUpdateSui()
     {
         Vector3 position = m_sui.transform.position;
-        if (position.y <= m_sui.Water.GetWaterHeight(m_waterStripIndex))
+        if (position.y <= m_waterHeight)
         {
             m_sui.SetController(new SuiControllerSinking(m_sui));
-            m_sui.Water.Impulse(m_waterStripIndex, m_fallingSpeed * 8.0f, position.x);
+            // TODO, water circles
+            // m_sui.Water.Impulse(m_waterStripIndex, m_fallingSpeed * 8.0f, position.x);
         }
     }
 

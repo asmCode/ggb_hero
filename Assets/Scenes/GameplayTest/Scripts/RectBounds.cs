@@ -13,6 +13,21 @@ public class RectBounds : MonoBehaviour
         return transform.position.x + transform.localScale.x / 2.0f;
     }
 
+    public float GetTop()
+    {
+        return transform.position.y + transform.localScale.y / 2.0f;
+    }
+
+    public float GetBottom()
+    {
+        return transform.position.y - transform.localScale.y / 2.0f;
+    }
+
+    public float GetMiddle()
+    {
+        return transform.position.y;
+    }
+
     public Bounds GetBounds()
     {
         return new Bounds(transform.position, transform.localScale);

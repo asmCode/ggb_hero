@@ -8,7 +8,7 @@ public class SuiciderGenerator : MonoBehaviour
     public RectBounds m_jumpArea;
     public Transform m_bridgeHeight;
     public Transform m_spawnPoint;
-    public Water m_water;
+    public WaterLevel m_waterLevel;
     public RectBounds m_bridgeWalkArea;
 
     private const int WalkingSuisCount = 20;
@@ -82,7 +82,7 @@ public class SuiciderGenerator : MonoBehaviour
         Suicider suicider = suiciderRoot.Suicider;
         suicider.TintColor = ColorPalette.GetRandomColor();
         suicider.SkinTintColor = ColorPalette.GetRandomSkinColor();
-        suicider.Initialize(m_water);
+        suicider.Initialize(m_waterLevel);
         suicider.SortOrder = 21;
         suicider.SetIsFemale(Random.value > 0.5f);
         suicider.SetController(new SuiControllerWalkOnBridge(suicider, initialPosition, direction, m_bridgeWalkArea));

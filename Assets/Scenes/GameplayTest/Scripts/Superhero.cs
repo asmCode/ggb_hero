@@ -9,9 +9,9 @@ public class Superhero : MonoBehaviour
     public RectBounds m_shoreRightBounds;
     public RectBounds m_rescueAreaLeft;
     public RectBounds m_rescueAreaRight;
+    public WaterLevel m_waterLevel;
     public Transform m_rescuePointLeft;
     public Transform m_rescuePointRight;
-    public Water m_water;
     public GrabEffectPool m_grabEffectPool;
     public Gameplay m_gameplay;
 
@@ -95,8 +95,7 @@ public class Superhero : MonoBehaviour
 
         if (IsOnWater)
         {
-            waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
-            waterHeight = m_water.GetWaterHeight(waterStripIndex);
+            waterHeight = m_waterLevel.GetWaterHeight(transform.position.x);
 
             position = transform.position;
             position.y = waterHeight;
@@ -168,14 +167,14 @@ public class Superhero : MonoBehaviour
             velocity.x = -velocity.x * bounce_power;
         }
 
-        waterStripIndex = m_water.GetWaterStripIndex(transform.position.x);
-        waterHeight = m_water.GetWaterHeight(waterStripIndex);
+        waterHeight = m_waterLevel.GetWaterHeight(transform.position.x);
 
         if (position.y <= waterHeight && !IsOnWater)
         {
             IsOnWater = true;
             IsInAir = false;
-            m_water.Impulse(waterStripIndex, Mathf.Min(3.0f, Velocity.magnitude), position.x);
+            // TODO, water circles
+            // m_water.Impulse(waterStripIndex, Mathf.Min(3.0f, Velocity.magnitude), position.x);
             velocity.y = 0.0f;
             velocity.x = 0.0f;
         }
