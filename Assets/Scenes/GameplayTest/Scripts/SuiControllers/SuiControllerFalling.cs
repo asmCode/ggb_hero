@@ -32,7 +32,7 @@ public class SuiControllerFalling : SuiController
     {
         Suiciders.Add(sui);
 
-        m_waterHeight = sui.WaterLevel.GetWaterHeight(sui.transform.position.x);
+        m_waterHeight = sui.WaterLevel.GetWaterHeight(sui.transform.position.x, true);
 
         m_fallingSpeed = Random.Range(GameSettings.SuiFallingSpeedMin, GameSettings.SuiFallingSpeedMax);
         sui.IsKinematic = true;

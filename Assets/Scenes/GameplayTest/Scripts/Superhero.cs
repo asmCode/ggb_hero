@@ -95,7 +95,7 @@ public class Superhero : MonoBehaviour
 
         if (IsOnWater)
         {
-            waterHeight = m_waterLevel.GetWaterHeight(transform.position.x);
+            waterHeight = m_waterLevel.GetWaterHeight(transform.position.x, false);
 
             position = transform.position;
             position.y = waterHeight;
@@ -167,7 +167,7 @@ public class Superhero : MonoBehaviour
             velocity.x = -velocity.x * bounce_power;
         }
 
-        waterHeight = m_waterLevel.GetWaterHeight(transform.position.x);
+        waterHeight = m_waterLevel.GetWaterHeight(transform.position.x, false);
 
         if (position.y <= waterHeight && !IsOnWater)
         {

@@ -3284,7 +3284,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fe1ddb1fa472de46b5d8f28524e49f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6854,7 +6854,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fe1ddb1fa472de46b5d8f28524e49f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8107,7 +8107,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fe1ddb1fa472de46b5d8f28524e49f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9010,7 +9010,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5
+  aspectRatio: 6.6666665
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}
@@ -9221,7 +9221,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fe1ddb1fa472de46b5d8f28524e49f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14804,7 +14804,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.65
+  aspectRatio: 1.7777778
 --- !u!1 &1040550985
 GameObject:
   m_ObjectHideFlags: 0
@@ -22305,7 +22305,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.3333334
+  aspectRatio: 1.7777778
 --- !u!1 &1260480890
 GameObject:
   m_ObjectHideFlags: 0
@@ -23374,7 +23374,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fe1ddb1fa472de46b5d8f28524e49f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24817,6 +24817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434216655}
   - component: {fileID: 1434216656}
+  - component: {fileID: 1434216657}
   m_Layer: 0
   m_Name: BodyPivot
   m_TagString: Untagged
@@ -24854,6 +24855,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_resetPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &1434216657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1434216654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d91cd0b3043b24ba4d8e36ca8187c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spriteRenderers:
+  - {fileID: 1570926627}
+  - {fileID: 1348476399}
+  - {fileID: 356418606}
+  - {fileID: 614215930}
+  - {fileID: 678930237}
+  - {fileID: 479976743}
+  m_waterLevel: {fileID: 788280919}
+  m_waterLevelNoise: 0
 --- !u!1 &1436093239
 GameObject:
   m_ObjectHideFlags: 0
@@ -25395,7 +25416,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.3333334
+  aspectRatio: 1.7777778
 --- !u!1 &1470574307
 GameObject:
   m_ObjectHideFlags: 0
@@ -29196,7 +29217,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fe1ddb1fa472de46b5d8f28524e49f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37296,7 +37317,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5
+  aspectRatio: 6.6666665
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: f891f0a85177e294fb3ab227d5fa07bb, type: 3}
   mFont: {fileID: 0}

@@ -33,7 +33,7 @@ public class SuiControllerSinking : SuiController
     {
         Suiciders.Add(sui);
 
-        m_waterHeight = sui.WaterLevel.GetWaterHeight(sui.transform.position.x);
+        m_waterHeight = sui.WaterLevel.GetWaterHeight(sui.transform.position.x, true);
 
         sui.IsKinematic = true;
         sui.Dude.SetBobyPartsKinematic(true);

@@ -50,7 +50,7 @@ public class FallingBridgeElement : MonoBehaviour
 
         if (!m_isOnWater)
         {
-            var waterHeight = m_waterLevel.GetWaterHeight(transform.position.x);
+            var waterHeight = m_waterLevel.GetWaterHeight(transform.position.x, true);
             if (waterHeight >= transform.position.y)
             {
                 m_isOnWater = true;
