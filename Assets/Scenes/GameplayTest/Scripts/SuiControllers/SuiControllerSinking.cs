@@ -50,6 +50,8 @@ public class SuiControllerSinking : SuiController
         m_sui.WaterCircles = WaterCirclesPool.Instance.Get();
         if (m_sui.WaterCircles != null)
             m_sui.WaterCircles.Play(m_sui.transform.position);
+
+        m_sui.m_waterWaiver.Reset();
     }
 
     public override void UpdateSui()
@@ -68,6 +70,7 @@ public class SuiControllerSinking : SuiController
     {
         Vector3 position = m_sui.transform.position;
         position.y = m_waterHeight;
+        position.y += m_sui.m_waterWaiver.GetValue(Time.deltaTime);
         m_sui.transform.position = position;
     }
 

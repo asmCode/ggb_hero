@@ -18,6 +18,7 @@ public class Suicider : MonoBehaviour
     private SpriteRenderer m_legLeftSprite;
     private SpriteRenderer m_legRightSprite;
     private SpriteRenderer m_fistLeftSprite;
+    public WaterWaver m_waterWaiver = new WaterWaver();
 
     public bool IsFemale
     {

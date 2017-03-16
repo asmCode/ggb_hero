@@ -25,6 +25,7 @@ public class Superhero : MonoBehaviour
     private bool m_isPLayingSwimmAnim;
     private bool m_isPLayingJumpAnim;
     private WaterCircles m_waterCircles;
+    private WaterWaver m_waterWaver = new WaterWaver();
 
     public bool IsInAir
     {
@@ -86,6 +87,8 @@ public class Superhero : MonoBehaviour
             IsOnWater = false;
             IsInAir = true;
 
+            m_waterWaver.Reset();
+
             if (m_waterCircles != null)
             {
                 m_waterCircles.Stop();
@@ -107,6 +110,7 @@ public class Superhero : MonoBehaviour
 
             position = transform.position;
             position.y = waterHeight;
+            position.y += m_waterWaver.GetValue(Time.deltaTime);
             position.x += velocity.x * Time.deltaTime;
             transform.position = position;
         }
@@ -177,7 +181,7 @@ public class Superhero : MonoBehaviour
 
         waterHeight = m_waterLevel.GetWaterHeight(transform.position.x, false);
 
-        if (position.y <= waterHeight && !IsOnWater)
+        if (position.y <= waterHeight && !IsOnWater && velocity.y <= 0.0f)
         {
             IsOnWater = true;
             IsInAir = false;
