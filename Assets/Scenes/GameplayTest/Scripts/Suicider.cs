@@ -194,6 +194,11 @@ public class Suicider : MonoBehaviour
         SetController(new SuiControllerIdleTest(this));
     }
 
+    public WaterCircles WaterCircles
+    {
+        get; set;
+    }
+
     void Update()
     {
         UptadeHealthBarPosition();

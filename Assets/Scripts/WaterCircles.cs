@@ -13,10 +13,19 @@ public class WaterCircles : MonoBehaviour
     private bool m_isPlaying = false;
     private float m_time = 0.0f;
 
-    public void Play()
+    public void Play(Vector3 position)
     {
         m_isPlaying = true;
         m_time = 0.0f;
+
+        position.y += 0.02f;
+
+        for (int i = 0; i < Count; i++)
+        {
+            m_waterCirclesAnimations[i].transform.SetParent(transform);
+            m_waterCirclesAnimations[i].transform.localScale = Vector3.one;
+            m_waterCirclesAnimations[i].transform.position = position;
+        }
     }
 
     public void Stop()
@@ -26,11 +35,6 @@ public class WaterCircles : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Play();
-        }
-
         if (!m_isPlaying)
             return;
 

@@ -40,6 +40,16 @@ public class SuiControllerSinking : SuiController
         sui.DudeAnimator.Sink();
         m_sui.SetHealthBarVisible(true);
         m_sui.SetHealthValue(1.0f);
+
+        if (m_sui.WaterCircles != null)
+        {
+            m_sui.WaterCircles.Stop();
+            m_sui.WaterCircles = null;
+        }
+
+        m_sui.WaterCircles = WaterCirclesPool.Instance.Get();
+        if (m_sui.WaterCircles != null)
+            m_sui.WaterCircles.Play(m_sui.transform.position);
     }
 
     public override void UpdateSui()
@@ -63,6 +73,12 @@ public class SuiControllerSinking : SuiController
 
     public override void Leaving()
     {
+        if (m_sui.WaterCircles != null)
+        {
+            m_sui.WaterCircles.Stop();
+            m_sui.WaterCircles = null;
+        }
+
         if (Suiciders.Count == 0)
         {
             Debug.LogError("Logic error");
