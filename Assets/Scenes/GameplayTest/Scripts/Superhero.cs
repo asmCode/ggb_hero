@@ -191,6 +191,13 @@ public class Superhero : MonoBehaviour
             // m_water.Impulse(waterStripIndex, Mathf.Min(3.0f, Velocity.magnitude), position.x);
             velocity.y = 0.0f;
             velocity.x = 0.0f;
+
+            WaterSplash splash = WaterSplashPool.Instance.Get();
+            if (splash != null)
+            {
+                splash.Splash(1.0f, Vector2.up, waterHeight, position.x);
+            }
+            AudioManager.GetInstance().SoundWaterSplash.Play();
         }
 
         if (IsOnWater && velocity.x != 0.0f)

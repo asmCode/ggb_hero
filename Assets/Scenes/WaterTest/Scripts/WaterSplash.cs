@@ -8,7 +8,7 @@ public class WaterSplash : MonoBehaviour
     public void Splash(float speed, Vector2 direction, float height, float xCoord)
     {
         Vector3 position = transform.position;
-        position.y = height - 0.2f;
+        position.y = height;
         position.x = xCoord;
         transform.position = position;
 

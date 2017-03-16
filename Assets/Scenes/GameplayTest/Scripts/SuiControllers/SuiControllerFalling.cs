@@ -53,8 +53,13 @@ public class SuiControllerFalling : SuiController
         if (position.y <= m_waterHeight)
         {
             m_sui.SetController(new SuiControllerSinking(m_sui));
-            // TODO, water circles
-            // m_sui.Water.Impulse(m_waterStripIndex, m_fallingSpeed * 8.0f, position.x);
+
+            WaterSplash splash = WaterSplashPool.Instance.Get();
+            if (splash != null)
+            {
+                splash.Splash(1.0f, Vector2.up, m_waterHeight, position.x);
+            }
+            AudioManager.GetInstance().SoundWaterSplash.Play();
         }
     }
 
