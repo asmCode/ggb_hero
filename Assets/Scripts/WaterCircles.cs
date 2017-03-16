@@ -35,6 +35,8 @@ public class WaterCircles : MonoBehaviour
 
     private void Update()
     {
+        CheckIfActive();
+
         if (!m_isPlaying)
             return;
 
@@ -46,6 +48,17 @@ public class WaterCircles : MonoBehaviour
         }
 
         m_time -= Time.deltaTime;
+    }
+
+    private void CheckIfActive()
+    {
+        for (int i = 0; i < Count; i++)
+        {
+            if (m_waterCirclesAnimations[i].IsPlaying())
+                return;
+        }
+
+        gameObject.SetActive(false);
     }
 
     private void Awake()

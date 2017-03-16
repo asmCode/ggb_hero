@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,5 +16,10 @@ public class WaterCirclesAnimation : MonoBehaviour
     private void Awake()
     {
         m_animator = GetComponent<Animator>();
+    }
+
+    public bool IsPlaying()
+    {
+        return m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f;
     }
 }

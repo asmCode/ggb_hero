@@ -19,10 +19,12 @@ public class Superhero : MonoBehaviour
     public Transform m_survivalNamesRight;
     private RandomNames m_randomNames;
     public SurvivorNameManager m_survivorNameManager;
+    private float m_nextWaterCircleWhenSwimming;
 
     private Stack<Suicider> m_suiciders = new Stack<Suicider>();
     private bool m_isPLayingSwimmAnim;
     private bool m_isPLayingJumpAnim;
+    private WaterCircles m_waterCircles;
 
     public bool IsInAir
     {
@@ -83,6 +85,12 @@ public class Superhero : MonoBehaviour
             m_isPLayingSwimmAnim = false;
             IsOnWater = false;
             IsInAir = true;
+
+            if (m_waterCircles != null)
+            {
+                m_waterCircles.Stop();
+                m_waterCircles = null;
+            }
         }
 
         if (velocity.y > 0)
@@ -173,6 +181,8 @@ public class Superhero : MonoBehaviour
         {
             IsOnWater = true;
             IsInAir = false;
+
+            SpawWaterCircles();
             // TODO, water circles
             // m_water.Impulse(waterStripIndex, Mathf.Min(3.0f, Velocity.magnitude), position.x);
             velocity.y = 0.0f;
@@ -183,6 +193,13 @@ public class Superhero : MonoBehaviour
         {
             if (!AudioManager.GetInstance().SoundSwim.IsPlaying())
                 AudioManager.GetInstance().SoundSwim.Play();
+
+            m_nextWaterCircleWhenSwimming -= Time.deltaTime;
+            if (m_nextWaterCircleWhenSwimming <= 0.0f)
+            {
+                m_nextWaterCircleWhenSwimming = Random.Range(0.2f, 0.4f);
+                SpawWaterCircles();
+            }
         }
         else
         {
@@ -215,6 +232,21 @@ public class Superhero : MonoBehaviour
 
         Velocity = velocity;
         transform.position = new Vector3(position.x, position.y, -0.3f);
+    }
+
+    private void SpawWaterCircles()
+    {
+        if (m_waterCircles != null)
+        {
+            m_waterCircles.Stop();
+            m_waterCircles = null;
+        }
+
+        m_waterCircles = WaterCirclesPool.Instance.Get();
+        if (m_waterCircles == null)
+            return;
+
+        m_waterCircles.Play(transform.position);
     }
 
     public void NotifyCollisionWithSui(Suicider sui)
