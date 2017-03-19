@@ -186,7 +186,7 @@ public class Superhero : MonoBehaviour
             IsOnWater = true;
             IsInAir = false;
 
-            SpawWaterCircles();
+            SpawWaterCircles(position);
             // TODO, water circles
             // m_water.Impulse(waterStripIndex, Mathf.Min(3.0f, Velocity.magnitude), position.x);
             velocity.y = 0.0f;
@@ -209,7 +209,7 @@ public class Superhero : MonoBehaviour
             if (m_nextWaterCircleWhenSwimming <= 0.0f)
             {
                 m_nextWaterCircleWhenSwimming = Random.Range(0.2f, 0.4f);
-                SpawWaterCircles();
+                SpawWaterCircles(position);
             }
         }
         else
@@ -245,7 +245,7 @@ public class Superhero : MonoBehaviour
         transform.position = new Vector3(position.x, position.y, -0.3f);
     }
 
-    private void SpawWaterCircles()
+    private void SpawWaterCircles(Vector3 position)
     {
         if (m_waterCircles != null)
         {
@@ -257,7 +257,7 @@ public class Superhero : MonoBehaviour
         if (m_waterCircles == null)
             return;
 
-        m_waterCircles.Play(transform.position);
+        m_waterCircles.Play(position);
     }
 
     public void NotifyCollisionWithSui(Suicider sui)
