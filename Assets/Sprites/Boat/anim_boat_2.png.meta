@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: cfd00d07d684ed946a972218f6a03ea4
-timeCreated: 1489382545
+guid: dfe51c9de6d717b43a4c86b9bbab6ae5
+timeCreated: 1491287224
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -86,7 +86,7 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
-  spritePackingTag: water_circles
+  spritePackingTag: boat
   userData: 
   assetBundleName: 
   assetBundleVariant: 
