@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class StartSceneController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class StartSceneController : MonoBehaviour
 
     private void Update()
     {
-        if (!Application.isShowingSplashScreen)
+        if (SplashScreen.isFinished)
         {
             LoadNextScene();
         }
