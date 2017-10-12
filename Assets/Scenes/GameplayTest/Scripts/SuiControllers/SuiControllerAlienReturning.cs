@@ -30,6 +30,13 @@ public class SuiControllerAlienReturning : SuiController
         AudioManager.GetInstance().SoundDie.Play();
         GameSettings.SuiDeathsCount++;
         sui.DudeAnimator.ClearClip();
+
+        AlienReturnEffect effect = AlienReturnEffectPool.Instance.Get();
+        if (effect != null)
+        {
+            effect.transform.position = sui.transform.position;
+            effect.Play();
+        }
     }
 
     public override void UpdateSui()
