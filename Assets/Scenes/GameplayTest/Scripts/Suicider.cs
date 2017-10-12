@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Suicider : MonoBehaviour
 {
@@ -39,6 +40,23 @@ public class Suicider : MonoBehaviour
             m_handLeftSprite.color = value;
             m_handRightSprite.color = value;
         }
+    }
+
+    internal void SetOpacity(float v)
+    {
+        SetOpacity(m_bodySprite, v);
+        SetOpacity(m_headSprite, v);
+        SetOpacity(m_handLeftSprite, v);
+        SetOpacity(m_handRightSprite, v);
+        SetOpacity(m_fistRightSprite, v);
+        SetOpacity(m_legLeftSprite, v);
+        SetOpacity(m_legRightSprite, v);
+        SetOpacity(m_fistLeftSprite, v);
+    }
+
+    private void SetOpacity(SpriteRenderer sprite, float opacity)
+    {
+        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, opacity);
     }
 
     public Color SkinTintColor

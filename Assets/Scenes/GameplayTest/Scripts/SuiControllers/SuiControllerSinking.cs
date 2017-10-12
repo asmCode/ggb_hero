@@ -63,7 +63,10 @@ public class SuiControllerSinking : SuiController
         if (m_time < SinkinkTime)
             return;
 
-        m_sui.SetController(new SuiControllerDiving(m_sui));
+        if (GameSettings.Censore)
+            m_sui.SetController(new SuiControllerAlienReturning(m_sui));
+        else
+            m_sui.SetController(new SuiControllerDiving(m_sui));
     }
 
     public override void LateUpdateSui()
