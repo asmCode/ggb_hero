@@ -58,7 +58,7 @@ public class GameSettings
     public static void Restart()
     {
         // Censore = Application.platform == RuntimePlatform.IPhonePlayer;
-        Censore = false;
+        Censore = true;
 
         HandCapacity = 10;
         GravityPerSuicider = 2.5f;

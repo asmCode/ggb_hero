@@ -34,6 +34,11 @@ public class Gameplay : MonoBehaviour
     public Transform m_cameraShakeRoot;
     public EarthQuakeCinematic m_earthQuakeCinematic;
 
+    public Transform m_shoreLeft;
+    public Transform m_shoreRight;
+    public Transform m_pipeLeft;
+    public Transform m_pipeRight;
+
     internal GameplayState m_state;
     internal float start_time = 0.0f;
     internal bool m_isRoundEnded = false;
@@ -180,7 +185,12 @@ public class Gameplay : MonoBehaviour
 
     void Start()
     {
-        SetBridgeColor();
+        // SetBridgeColor();
+
+        m_shoreLeft.gameObject.SetActive(!GameSettings.Censore);
+        m_shoreRight.gameObject.SetActive(!GameSettings.Censore);
+        m_pipeLeft.gameObject.SetActive(GameSettings.Censore);
+        m_pipeRight.gameObject.SetActive(GameSettings.Censore);
 
         m_earthQuakeCinematic.Init(m_cameraShaker);
 
