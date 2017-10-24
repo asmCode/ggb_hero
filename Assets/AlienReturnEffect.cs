@@ -21,4 +21,9 @@ public class AlienReturnEffect : MonoBehaviour
     {
         m_animator.Play("AlienreturnLight", 0, 0.0f);
     }
+
+    public void AnimEvent_Finished()
+    {
+        gameObject.SetActive(false);
+    }
 }

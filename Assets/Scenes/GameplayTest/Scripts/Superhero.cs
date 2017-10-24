@@ -340,7 +340,11 @@ public class Superhero : MonoBehaviour
             Suicider sui = m_suiciders.Pop();
             ShowSurvivalName(sui);
             sui.Dude.PlugOut();
-            sui.SetController(new SuiControllerRescuing(sui, rescuePosition));
+
+            if (GameSettings.Censore)
+                sui.SetController(new SuiControllerAlienDisposing(sui, rescuePosition));
+            else
+                sui.SetController(new SuiControllerRescuing(sui, rescuePosition));
         }
     }
 

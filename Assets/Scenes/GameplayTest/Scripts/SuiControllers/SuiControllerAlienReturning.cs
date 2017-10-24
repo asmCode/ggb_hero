@@ -6,6 +6,7 @@ public class SuiControllerAlienReturning : SuiController
 {
     private float m_animProgress;
     private const float DissapearingTime = 2.0f;
+    private bool m_deathCountIncreased;
 
     public static List<Suicider> Suiciders
     {
@@ -28,7 +29,6 @@ public class SuiControllerAlienReturning : SuiController
         Suiciders.Add(sui);
 
         AudioManager.GetInstance().SoundDie.Play();
-        GameSettings.SuiDeathsCount++;
         sui.DudeAnimator.ClearClip();
 
         AlienReturnEffect effect = AlienReturnEffectPool.Instance.Get();
@@ -42,13 +42,20 @@ public class SuiControllerAlienReturning : SuiController
     public override void UpdateSui()
     {
         m_animProgress += Time.deltaTime;
+
+        if (m_animProgress >= 1.0f && !m_deathCountIncreased)
+        {
+            GameSettings.SuiDeathsCount++;
+            m_deathCountIncreased = true;
+        }
+
         if (m_animProgress >= DissapearingTime)
             m_animProgress = DissapearingTime;
 
         m_sui.SetOpacity(1.0f - (m_animProgress / DissapearingTime));
     }
 
-    //public override void NotifyCollisionWithDestroyArea()
+    //public override void NotifyCollisionWithDestroyArea()1`
     //{
     //    m_sui.Destroy();
     //}
