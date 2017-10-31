@@ -27,6 +27,18 @@ public class GameSettings
         set;
     }
 
+    public static float PenaltyTimeLimit
+    {
+        get;
+        set;
+    }
+
+    public static float PenaltyTime
+    {
+        get;
+        set;
+    }
+
     public static int SuiDeathsCount
     {
         get;
@@ -67,6 +79,9 @@ public class GameSettings
         SuiRescuedCount = 0;
 
         OnWaterSpeed = 1.0f;
+
+        PenaltyTime = 0.0f;
+        PenaltyTimeLimit = 20.0f;
 
         SuiJumpDelayEasiestFirstWave = 1.8f;
         SuiJumpDelayHardestFirstWave = 1.5f;

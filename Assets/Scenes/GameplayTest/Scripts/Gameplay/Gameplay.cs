@@ -227,6 +227,7 @@ public class Gameplay : MonoBehaviour
     internal void NextWave()
     {
         GameSettings.SuiDeathsCount = 0;
+        GameSettings.PenaltyTime = 0f;
 
         m_waveNumber++;
         m_currentWaveLength = GetWaveLength(m_waveNumber);
@@ -324,6 +325,7 @@ public class Gameplay : MonoBehaviour
         NGUITools.SetActive(m_summaryView.gameObject, false);
         NGUITools.SetActive(m_pauseButton.gameObject, true);
         GameSettings.SuiDeathsCount = 0;
+        GameSettings.PenaltyTime = 0f;
         Time.timeScale = 1.0f;
     }
 

@@ -49,6 +49,9 @@ class GameplayStatePlay : GameplayState
 
         Gameplay.m_shoreArrows.gameObject.SetActive(Gameplay.m_superhero.GetHoldingSuis() > 0);
 
+
+        // TUTAJ KOLEJNY WARUNEK
+
         if (!Gameplay.m_isRoundEnded && GameSettings.SuiDeathsCount >= GameSettings.SuiDeathsLimit)
         {
             Gameplay.ChangeState(new GameplayStateSummary(Gameplay));

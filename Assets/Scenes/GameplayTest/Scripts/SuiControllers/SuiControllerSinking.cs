@@ -60,6 +60,8 @@ public class SuiControllerSinking : SuiController
 
         m_sui.SetHealthValue(1.0f - m_time / SinkinkTime);
 
+        GameSettings.PenaltyTime += Time.deltaTime;
+
         if (m_time < SinkinkTime)
             return;
 
