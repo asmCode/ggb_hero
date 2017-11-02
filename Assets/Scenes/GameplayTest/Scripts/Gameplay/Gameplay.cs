@@ -141,6 +141,8 @@ public class Gameplay : MonoBehaviour
 
     void Awake()
     {
+		StartSceneController.InitLanguage();
+		
         NGUITools.SetActive(m_summaryView.gameObject, false);
         m_superheroController.Started += M_superheroController_Started;
 

@@ -30,7 +30,7 @@ public class StartSceneController : MonoBehaviour
         return PlayerPrefs.GetInt("skip_intro", 0) == 1;
     }
 
-    private void InitLanguage()
+	public static void InitLanguage()
     {
         if (GameSettings.Censore)
             Localization.language = "EnglishIOS";
