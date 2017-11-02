@@ -62,7 +62,7 @@ public class SuiControllerSinking : SuiController
 
         GameSettings.PenaltyTime += Time.deltaTime;
 
-        if (m_time < SinkinkTime)
+        if (m_time < SinkinkTime || GameSettings.Censore)
             return;
 
         m_sui.SetController(new SuiControllerDiving(m_sui));

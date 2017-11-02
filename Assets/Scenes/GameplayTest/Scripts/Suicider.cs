@@ -131,7 +131,7 @@ public class Suicider : MonoBehaviour
 
     public void SetHealthBarVisible(bool visible)
     {
-        if (visible)
+        if (visible && !GameSettings.Censore)
         {
             if (m_healthBar != null)
                 return;
