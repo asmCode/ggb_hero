@@ -59,7 +59,7 @@ public class StoryController : MonoBehaviour
             if (clip.name == clipName)
                 return index;
 
-            index++; 
+            index++;
         }
 
         return -1;
@@ -119,11 +119,8 @@ public class StoryController : MonoBehaviour
         SceneManager.LoadScene("GameplayTest");
     }
 
-   private void SetBgTexture()
+    private void SetBgTexture()
     {
-        if (GameSettings.Censore)
-            m_bgUiTexture.mainTexture = m_bgIos;
-        else
-            m_bgUiTexture.mainTexture = m_bgNormal;
+        m_bgUiTexture.mainTexture = m_bgNormal;
     }
 }

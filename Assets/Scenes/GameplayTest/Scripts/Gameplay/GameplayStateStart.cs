@@ -23,10 +23,7 @@ class GameplayStateStart : GameplayState
 
     public override void HandleStartClicked()
     {
-        if (GameSettings.Censore)
-            Gameplay.ChangeState(new GameplayStateEarthQuake(Gameplay));
-        else
-            Gameplay.ChangeState(new GameplayStateTutorial(Gameplay));
+        Gameplay.ChangeState(new GameplayStateTutorial(Gameplay));
     }
 
     public override void Update()

@@ -540,10 +540,7 @@ public class Gameplay : MonoBehaviour
 
     private Color GetBridgeColor()
     {
-        if (GameSettings.Censore)
-            return new Color32(111, 193, 78, 255);
-        else
-            return new Color32(240, 122, 0, 255);
+        return new Color(1, 1, 1, 1);
     }
 
     private void SetBridgeColor()

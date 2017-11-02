@@ -49,10 +49,18 @@ class GameplayStatePlay : GameplayState
 
         Gameplay.m_shoreArrows.gameObject.SetActive(Gameplay.m_superhero.GetHoldingSuis() > 0);
 
+        bool lose = false;
 
-        // TUTAJ KOLEJNY WARUNEK
+        if (GameSettings.Censore)
+        {
+            lose = GameSettings.PenaltyTime >= GameSettings.PenaltyTimeLimit;
+        }
+        else
+        {
+            lose = GameSettings.SuiDeathsCount >= GameSettings.SuiDeathsLimit;
+        }
 
-        if (!Gameplay.m_isRoundEnded && GameSettings.SuiDeathsCount >= GameSettings.SuiDeathsLimit)
+        if (!Gameplay.m_isRoundEnded && lose)
         {
             Gameplay.ChangeState(new GameplayStateSummary(Gameplay));
             return;
