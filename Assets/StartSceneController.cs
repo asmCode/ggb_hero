@@ -27,7 +27,7 @@ public class StartSceneController : MonoBehaviour
 
     private bool ShouldSkipIntro()
     {
-        return PlayerPrefs.GetInt("skip_intro", 0) == 1;
+        return PlayerPrefs.GetInt("skip_intro", 0) == 1 || GameSettings.Censore;
     }
 
 	public static void InitLanguage()
