@@ -3,6 +3,7 @@ using Ssg.Ads;
 
 public class SummaryView : MonoBehaviour
 {
+    public UILabel m_labelSuicides;
     public UILabel m_rescuedValue;
     public UILabel m_recordValue;
     public GameObject m_continueButton;
@@ -13,6 +14,8 @@ public class SummaryView : MonoBehaviour
 
     public void Show()
     {
+        m_labelSuicides.gameObject.SetActive(!GameSettings.Censore);
+
         m_rescuedValue.text = GameSettings.SuiRescuedCount.ToString();
         GGHeroGame.SaveScore(m_gameplay, GameSettings.SuiRescuedCount);
 
