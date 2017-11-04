@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 478170}
-  - 114: {fileID: 11400838}
+  - component: {fileID: 478170}
+  - component: {fileID: 11400838}
   m_Layer: 0
   m_Name: GameplayAtlas
   m_TagString: Untagged
@@ -25,10 +25,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11400838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43,8 +43,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 324aa4d1a09dec04b96ae1a8e4ef16e1, type: 2}
   mSprites:
   - name: ButtonBg
-    x: 240
-    y: 241
+    x: 233
+    y: 175
     width: 15
     height: 15
     borderLeft: 6
@@ -56,8 +56,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Frame
-    x: 129
-    y: 188
+    x: 0
+    y: 59
     width: 66
     height: 68
     borderLeft: 30
@@ -69,8 +69,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: HealthBar
-    x: 195
-    y: 159
+    x: 129
+    y: 134
     width: 30
     height: 4
     borderLeft: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: HealthBarFill
-    x: 251
-    y: 221
+    x: 140
+    y: 129
     width: 4
     height: 4
     borderLeft: 1
@@ -95,7 +95,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: icon_tv
-    x: 196
+    x: 200
     y: 208
     width: 43
     height: 48
@@ -108,8 +108,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: LeaderboardIcon
-    x: 195
-    y: 164
+    x: 67
+    y: 104
     width: 34
     height: 23
     borderLeft: 0
@@ -120,9 +120,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: PauseIcon
+  - name: NoSwimmingSign
     x: 129
-    y: 128
+    y: 139
+    width: 70
+    height: 117
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: PauseIcon
+    x: 0
+    y: 4
     width: 26
     height: 26
     borderLeft: 0
@@ -134,8 +147,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: SpeakerCrossedIcon
-    x: 162
-    y: 160
+    x: 200
+    y: 147
     width: 32
     height: 27
     borderLeft: 0
@@ -147,8 +160,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: SpeakerIcon
-    x: 162
-    y: 132
+    x: 0
+    y: 31
     width: 32
     height: 27
     borderLeft: 0
@@ -160,8 +173,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: stick
-    x: 129
-    y: 155
+    x: 200
+    y: 175
     width: 32
     height: 32
     borderLeft: 0
@@ -186,8 +199,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: SuperheroHand
-    x: 240
-    y: 221
+    x: 129
+    y: 129
     width: 10
     height: 4
     borderLeft: 0
@@ -199,8 +212,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: TextBubble
-    x: 240
-    y: 226
+    x: 217
+    y: 132
     width: 14
     height: 14
     borderLeft: 6
@@ -212,7 +225,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: white_rect
-    x: 196
+    x: 233
     y: 191
     width: 16
     height: 16
@@ -225,8 +238,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: WhitePixel
-    x: 240
-    y: 219
+    x: 145
+    y: 132
     width: 1
     height: 1
     borderLeft: 0
@@ -238,8 +251,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: WhiteRect16
-    x: 213
-    y: 191
+    x: 200
+    y: 130
     width: 16
     height: 16
     borderLeft: 0

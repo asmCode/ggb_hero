@@ -18,6 +18,7 @@ public class Gameplay : MonoBehaviour
     public Transform m_shoreArrows;
     public GameObject m_beforeStartFade;
     public GameObject m_beforeStartTutorial;
+    public GameObject m_beforeStartTutorialCensored;
     public GameObject m_swimmingTutorial;
     public GameObject m_startScreen;
     public GameObject m_hud;
@@ -96,7 +97,14 @@ public class Gameplay : MonoBehaviour
     public void SetTutorialVisible(bool visible)
     {
         m_beforeStartFade.SetActive(visible);
-        m_beforeStartTutorial.SetActive(visible);
+
+        m_beforeStartTutorial.SetActive(false);
+        m_beforeStartTutorialCensored.SetActive(false);
+
+        if (GameSettings.Censore)
+            m_beforeStartTutorialCensored.SetActive(visible);
+        else
+            m_beforeStartTutorial.SetActive(visible);
     }
 
     public void SetHudVisible(bool visible)
