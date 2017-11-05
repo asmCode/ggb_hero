@@ -6,7 +6,6 @@
 
     public override void Enter()
     {
-        Gameplay.m_earthQuakeCinematic.gameObject.SetActive(false);
         Gameplay.SetHudVisible(false);
         Gameplay.SetTutorialVisible(true);
         Gameplay.m_superheroController.gameObject.SetActive(true);

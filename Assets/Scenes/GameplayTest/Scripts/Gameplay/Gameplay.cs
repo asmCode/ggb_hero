@@ -30,10 +30,8 @@ public class Gameplay : MonoBehaviour
     public UILabel m_labelSummaryRankText;
     public UILabel m_version;
     public UISprite m_speakerIcon;
-    public FallingBridgeElementGenerator m_fallingBridgeGemerator;
     public GameObject m_fps;
     public Transform m_cameraShakeRoot;
-    public EarthQuakeCinematic m_earthQuakeCinematic;
 
     internal GameplayState m_state;
     internal float start_time = 0.0f;
@@ -192,8 +190,6 @@ public class Gameplay : MonoBehaviour
     {
         SetBridgeColor();
 
-        m_earthQuakeCinematic.Init(m_cameraShaker);
-
         if (m_playAgain)
         {
             m_playAgain = false;
@@ -266,6 +262,9 @@ public class Gameplay : MonoBehaviour
                 Time.timeScale = 5.0f;
             else
                 Time.timeScale = 1.0f;
+
+            if (Input.GetKeyDown(KeyCode.P))
+                Application.CaptureScreenshot("D:/" + System.DateTime.Now.Ticks.ToString() + ".png");
         }
 
         if (m_state != null)
@@ -541,11 +540,6 @@ public class Gameplay : MonoBehaviour
             social.ReportAchievement(SocialIds.AchievementSave1000InTotal);
         if (totalBefore < 5000 && totalAfter >= 5000)
             social.ReportAchievement(SocialIds.AchievementSave5000InTotal);
-    }
-
-    public void PlayEarthQuakeCinematic()
-    {
-        m_earthQuakeCinematic.Play();
     }
 
     private Color GetBridgeColor()

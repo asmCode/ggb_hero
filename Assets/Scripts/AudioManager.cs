@@ -25,10 +25,7 @@ class AudioManager : MonoBehaviourSingleton<AudioManager, AudioManager.Meta>
     public Sound SoundSave;
     public Sound SoundSummary;
     public Sound SoundSwim;
-    public Sound SoundWaterSplash;
-    public Sound SoundPanic;
-    public Sound SoundFire;
-    public Sound SoundEarthquake;
+    public Sound SoundWaterSplash;  
 
     public bool MusicEnabled { get; private set; }
     public bool SoundsEnabled { get; private set; }
@@ -72,9 +69,6 @@ class AudioManager : MonoBehaviourSingleton<AudioManager, AudioManager.Meta>
         SoundSummary = transform.FindChild("Summary").GetComponent<Sound>();
         SoundSwim = transform.FindChild("Swim").GetComponent<Sound>();
         SoundWaterSplash = transform.FindChild("WaterSplash").GetComponent<Sound>();
-        SoundPanic = transform.FindChild("Panic").GetComponent<Sound>();
-        SoundFire = transform.FindChild("Fire").GetComponent<Sound>();
-        SoundEarthquake = transform.FindChild("Earthquake").GetComponent<Sound>();
     }
 
     private void Init()
