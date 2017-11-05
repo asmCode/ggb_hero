@@ -60,10 +60,10 @@ MonoBehaviour:
     y: 59
     width: 66
     height: 68
-    borderLeft: 30
-    borderRight: 32
-    borderTop: 32
-    borderBottom: 32
+    borderLeft: 31
+    borderRight: 33
+    borderTop: 33
+    borderBottom: 33
     paddingLeft: 2
     paddingRight: 0
     paddingTop: 2
